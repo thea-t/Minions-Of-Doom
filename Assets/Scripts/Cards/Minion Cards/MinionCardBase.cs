@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class MinionCardBase : CardBase
 {
-    
+    protected override void Reset()
+    {
+        base.Reset();
+        m_CardType = CardType.Minion;
+    }
 }

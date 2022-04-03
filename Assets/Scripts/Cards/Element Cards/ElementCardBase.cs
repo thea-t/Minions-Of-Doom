@@ -13,4 +13,5 @@ public class ElementCardBase : CardBase
         base.Reset();
         m_CardType = CardType.Element;
     }
+
 }

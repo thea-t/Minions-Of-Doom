@@ -9,4 +9,5 @@ public class SkillCardBase : CardBase
         base.Reset();
         m_CardType = CardType.Skill;
     }
+
 }

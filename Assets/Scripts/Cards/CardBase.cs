@@ -1,19 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
-
-/// <summary>
-/// Base card class that holds common card functionalities.
-/// </summary>
-/// 
+// Base card class that holds common card functionalities.
 
 public enum CardType { Skill, Element, Minion };
 
 [RequireComponent(typeof(VisualCard))]
-public class CardBase : MonoBehaviour
+public abstract class CardBase : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private int m_Cost;
@@ -21,6 +16,7 @@ public class CardBase : MonoBehaviour
     [SerializeField] private string m_Description;
     
     [SerializeField] protected CardType m_CardType;
+    
 
     private VisualCard m_VisualCard;
     private void Start()
@@ -38,6 +34,10 @@ public class CardBase : MonoBehaviour
         m_Cost = 0;
         m_Title = "Title";
         m_Description = "Write something about this card here.";
+    }
+
+    public virtual void OnCardDrawn()
+    {
     }
 
 }

@@ -8,6 +8,10 @@ public class CardManager : MonoBehaviour
     private List<CardBase> deckPile = new List<CardBase>();
     private List<CardBase> discardPile = new List<CardBase>();
 
+    [SerializeField] private GameObject m_DrawPile;
+    [SerializeField] private GameObject m_DiscardPile;
+    [SerializeField] private GameObject[] m_SnapPoints;
+
     private void Start()
     {
         ShufflePile(deckPile);
@@ -18,11 +22,6 @@ public class CardManager : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            if (deckPile.Count == 0)
-            {
-                Debug.LogError("Deck empty");
-                return;
-            }
             CardBase card = deckPile[0];
             handPile.Add(card);
             deckPile.Remove(card);
@@ -33,6 +32,8 @@ public class CardManager : MonoBehaviour
                 discardPile.Clear();
                 ShufflePile(deckPile);
             }
+            
+            card.OnCardDrawn();
         }
     }
 

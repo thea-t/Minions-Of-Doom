@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Launch picked level from the map.
-/// </summary>
+// Launch picked level from the map.
+
 public class LevelLauncher : MonoBehaviour
 {
     [SerializeField] private LevelData testLevel;

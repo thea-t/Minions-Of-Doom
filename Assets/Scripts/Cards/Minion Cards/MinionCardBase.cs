@@ -9,4 +9,5 @@ public class MinionCardBase : CardBase
         base.Reset();
         m_CardType = CardType.Minion;
     }
+
 }

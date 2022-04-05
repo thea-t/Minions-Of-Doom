@@ -7,6 +7,6 @@ public static class PlayerStats
     public static int remainingHealth = 40;
     public static int maxHealth = 40;
     public static int gold;
-    public static int CardsToDrawOnStart { get; set; }
+    public static int CardsToDrawOnStart { get; set; } = 4;
     public static int CardToDrawOnEveryTurn{ get; set; }
 }

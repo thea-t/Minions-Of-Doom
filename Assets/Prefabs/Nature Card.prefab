@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 3578495218717259487}
   - component: {fileID: 3578495218717259486}
   - component: {fileID: 6814401262661760840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nature Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}

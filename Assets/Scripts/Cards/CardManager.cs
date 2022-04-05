@@ -1,30 +1,45 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
     private List<CardBase> handPile = new List<CardBase>();
-    private List<CardBase> deckPile = new List<CardBase>();
+    [SerializeField] private List<CardBase> deckPile = new List<CardBase>();
     private List<CardBase> discardPile = new List<CardBase>();
 
     [SerializeField] private GameObject m_DrawPile;
     [SerializeField] private GameObject m_DiscardPile;
     [SerializeField] private GameObject[] m_SnapPoints;
 
+    [SerializeField] private Button m_EndTurnButton;
+    private CardBase draggedCard;
     private void Start()
     {
         ShufflePile(deckPile);
-        DrawCards(PlayerStats.CardsToDrawOnStart);
+        StartCoroutine(DrawCards(PlayerStats.CardsToDrawOnStart));
+
+        m_EndTurnButton.onClick.AddListener(delegate
+        {
+            StartCoroutine(DiscardCards(handPile.Count));
+            DrawCards(PlayerStats.CardsToDrawOnStart);
+        });
     }
 
-    private void DrawCards(int amount)
+    private IEnumerator DrawCards(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
             CardBase card = deckPile[0];
             handPile.Add(card);
             deckPile.Remove(card);
+            card.transform.DOMove(m_SnapPoints[i].transform.position, 0.5f);
+            card.transform.DOScale(m_SnapPoints[i].transform.localScale, 0.5f);
+            card.transform.DORotate(m_SnapPoints[i].transform.eulerAngles, 0.5f);
 
             if (deckPile.Count == 0)
             {
@@ -32,10 +47,29 @@ public class CardManager : MonoBehaviour
                 discardPile.Clear();
                 ShufflePile(deckPile);
             }
-            
+
             card.OnCardDrawn();
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
+
+    private IEnumerator DiscardCards(int amount)
+    {
+        Debug.Log(handPile.Count + "handpile count");
+        for (int i = 0; i < amount; i++)
+        {
+            CardBase card = handPile[i];
+            discardPile.Add(card);
+            card.transform.DOMove(m_DiscardPile.transform.position, 0.5f);
+            card.transform.DOScale(Vector3.zero, 0.5f);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        handPile.Clear();
+    }
+
 
     // How to shuffle items in list: https://stackoverflow.com/questions/273313/randomize-a-listt
     private void ShufflePile(List<CardBase> pile)
@@ -52,4 +86,27 @@ public class CardManager : MonoBehaviour
             pile[i] = value;
         }
     }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (draggedCard == null)
+            {
+                draggedCard = GameManager.Instance.raycastManager.GetByRay<CardBase>();
+            }
+            if(draggedCard) draggedCard.OnDragBegin();
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            if(draggedCard) draggedCard.OnDrag();
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            if(draggedCard) draggedCard.OnDragEnd();
+            
+            draggedCard = null;
+        }
+    }
+
 }

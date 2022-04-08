@@ -16,18 +16,20 @@ public class CardManager : MonoBehaviour
     [SerializeField] private GameObject m_DiscardPile;
     [SerializeField] private GameObject[] m_SnapPoints;
 
-    [SerializeField] private Button m_EndTurnButton;
     private CardBase draggedCard;
+
     private void Start()
     {
         ShufflePile(deckPile);
-        StartCoroutine(DrawCards(PlayerStats.CardsToDrawOnStart));
-
-        m_EndTurnButton.onClick.AddListener(delegate
+        StartCoroutine(DrawCards(GameManager.Instance.Player.CardsToDrawOnStart));
+        
+        GameManager.Instance.TurnManager.EnemyTurn += (delegate
         {
             StartCoroutine(DiscardCards(handPile.Count));
-            DrawCards(PlayerStats.CardsToDrawOnStart);
+           // DrawCards(GameManager.Instance.Player.CardsToDrawOnStart);
         });
+
+        GameManager.Instance.TurnManager.PlayerTurn += delegate { StartCoroutine(DrawCards(GameManager.Instance.Player.CardsToDrawOnStart)); };
     }
 
     private IEnumerator DrawCards(int amount)
@@ -56,7 +58,6 @@ public class CardManager : MonoBehaviour
 
     private IEnumerator DiscardCards(int amount)
     {
-        Debug.Log(handPile.Count + "handpile count");
         for (int i = 0; i < amount; i++)
         {
             CardBase card = handPile[i];
@@ -93,20 +94,20 @@ public class CardManager : MonoBehaviour
         {
             if (draggedCard == null)
             {
-                draggedCard = GameManager.Instance.raycastManager.GetByRay<CardBase>();
+                draggedCard = GameManager.Instance.RaycastManager.GetByRay<CardBase>();
             }
-            if(draggedCard) draggedCard.OnDragBegin();
+
+            if (draggedCard) draggedCard.OnDragBegin();
         }
         else if (Input.GetMouseButton(0))
         {
-            if(draggedCard) draggedCard.OnDrag();
+            if (draggedCard) draggedCard.OnDrag();
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            if(draggedCard) draggedCard.OnDragEnd();
-            
+            if (draggedCard) draggedCard.OnDragEnd();
+
             draggedCard = null;
         }
     }
-
 }

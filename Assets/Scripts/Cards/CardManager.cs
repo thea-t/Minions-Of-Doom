@@ -42,18 +42,28 @@ public class CardManager : MonoBehaviour
             card.transform.DOMove(m_SnapPoints[i].transform.position, 0.5f);
             card.transform.DOScale(m_SnapPoints[i].transform.localScale, 0.5f);
             card.transform.DORotate(m_SnapPoints[i].transform.eulerAngles, 0.5f);
-
+            
+            
             if (deckPile.Count == 0)
             {
-                deckPile = new List<CardBase>(discardPile);
-                discardPile.Clear();
-                ShufflePile(deckPile);
+               ResetDeckPile();
             }
 
-            card.OnCardDrawn();
-
             yield return new WaitForSeconds(0.1f);
+            card.OnCardDrawn();
         }
+    }
+
+    void ResetDeckPile()
+    {
+        deckPile = new List<CardBase>(discardPile);
+
+        for (int i = 0; i < deckPile.Count; i++)
+        {
+            deckPile[i].transform.DOMove(m_DrawPile.transform.position, 0.1f);
+        }
+        discardPile.Clear();
+        ShufflePile(deckPile); 
     }
 
     private IEnumerator DiscardCards(int amount)

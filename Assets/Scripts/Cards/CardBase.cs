@@ -6,30 +6,40 @@ using UnityEngine;
 
 // Base card class that holds common card functionalities.
 
-public enum CardType { Skill, Element, Minion };
+public enum CardType
+{
+    Skill,
+    Element,
+    Minion
+};
 
 [RequireComponent(typeof(VisualCard))]
 public abstract class CardBase : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private int m_Cost;
+    [Header("Settings")] [SerializeField] private int m_Cost;
     [SerializeField] private string m_Title;
     [SerializeField] private string m_Description;
-    
+
     [SerializeField] protected CardType m_CardType;
-    
+
 
     private VisualCard m_VisualCard;
+    private EnemyBase m_TargetedEnemy;
+    private EnemyBase m_PreviouslyTargetedEnemy;
+
 
     private Vector3 dragBeginPos;
     private Vector3 dragBeginRot;
     private Vector3 screenPoint;
     private Vector3 offset;
     
+    
+    [SerializeField] private int m_Attack; // TEMP
+
     private void Start()
     {
         m_VisualCard = GetComponent<VisualCard>();
-        
+
         m_VisualCard.SetCardTypeUI(m_CardType);
         m_VisualCard.SetCardCostUI(m_Cost);
         m_VisualCard.SetCardTitle(m_Title);
@@ -46,34 +56,74 @@ public abstract class CardBase : MonoBehaviour
     public virtual void OnCardDrawn()
     {
     }
-    
+
     //https://forum.unity.com/threads/drag-drop-game-objects-without-rigidbody-with-the-mouse.64169/
-    
+
     public void OnDragBegin()
     {
         dragBeginPos = transform.position;
         dragBeginRot = transform.rotation.eulerAngles;
-        
+
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        offset = gameObject.transform.position -
+                 Camera.main.ScreenToWorldPoint(
+                     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 
         transform.DORotate(Vector3.zero, 0.3f);
+
+        this.GetComponent<Collider>().enabled = false;
     }
+
     public void OnDrag()
-    { 
-        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z-0.1f);
+    {
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z - 0.1f);
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
         transform.position = cursorPosition;
+
+        TargetEnemy();
     }
+
     public void OnDragEnd()
     {
-        ReturnToHand();
+        if (m_TargetedEnemy)
+        {
+            m_TargetedEnemy.TakeDamage(m_Attack);
+           // AttackTargetedEnemy(m_TargetedEnemy);
+        }
+        else
+        {
+            ReturnToHand();
+        this.GetComponent<Collider>().enabled = true;
+        }
     }
 
     private void ReturnToHand()
     {
         transform.DOMove(dragBeginPos, 0.3f);
         transform.DORotate(dragBeginRot, 0.3f);
+    }
+
+    private void TargetEnemy()
+    {
+        
+        m_TargetedEnemy = GameManager.Instance.RaycastManager.GetByRay<EnemyBase>();
+
+        if (m_TargetedEnemy)
+        {
+            m_PreviouslyTargetedEnemy = m_TargetedEnemy;
+            m_TargetedEnemy.HoveringWithCard(true);
+            transform.DOMove(new Vector3(m_TargetedEnemy.visualEnemy.cardSnapPoint.transform.position.x, m_TargetedEnemy.visualEnemy.cardSnapPoint.transform.position.y, transform.position.z) , 0.5f);
+        }
+        
+        if (m_PreviouslyTargetedEnemy && m_TargetedEnemy == null)
+        {
+            m_PreviouslyTargetedEnemy.HoveringWithCard(false);
+        }
+    }
+
+    protected virtual void AttackTargetedEnemy(EnemyBase target)
+    {
+        
     }
 
 }

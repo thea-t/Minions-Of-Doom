@@ -5,31 +5,44 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour, IDamagable
 {
     [SerializeField] private EnemyData m_EnemyData;
+    public VisualEnemy visualEnemy;
     [SerializeField] private Animator m_Animator;
 
     protected string m_AttackAnimation;
     protected string m_BuffAnimation;
+
     
- public float MaxHealth { get; set; }
- public float CurrentHealth { get; set; }
+ public int MaxHealth { get; set; }
+ public int CurrentHealth { get; set; }
  public float Block { get; set; }
 
+ private int m_TurnCount;
  void Reset()
  {
      m_Animator = GetComponent<Animator>();
  }
  void Start()
  {
+     m_EnemyData.health = m_EnemyData.maxHealth;
+     MaxHealth = m_EnemyData.maxHealth;
+     CurrentHealth = m_EnemyData.health;
+     
+     m_TurnCount = 0;
+     visualEnemy.UpdateHealthUI(CurrentHealth);
+     visualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[m_TurnCount]);
+     
      GameManager.Instance.TurnManager.EnemyTurn += Attack;
  }
- public void TakeDamage(float amount)
+
+ public void TakeDamage(int amount)
  {
-     throw new System.NotImplementedException();
+     CurrentHealth -= amount;
+     visualEnemy.UpdateHealthUI(CurrentHealth);
  }
 
  public void Die()
  {
-     throw new System.NotImplementedException();
+     
  }
  
 //https://answers.unity.com/questions/692593/get-animation-clip-length-using-animator.html
@@ -52,8 +65,22 @@ public class EnemyBase : MonoBehaviour, IDamagable
      
      yield return new WaitForSeconds(animInfo.length);
      
-     GameManager.Instance.Player.TakeDamage(m_EnemyData.attackDamage);
+     GameManager.Instance.Player.TakeDamage(m_EnemyData.attackDamage[m_TurnCount]);
 
      GameManager.Instance.TurnManager.EndEnemyTurn();
+     OnTurnOver();
+ }
+
+ public void HoveringWithCard(bool hovering)
+ {
+     visualEnemy.selectionParticle.SetActive(hovering);
+ }
+
+ private void OnTurnOver()
+ {
+     m_TurnCount++;
+     visualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[m_TurnCount]);
+     
+     Debug.Log("Turn Count: " + m_TurnCount);
  }
 }

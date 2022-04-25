@@ -108,6 +108,7 @@ public class CardManager : MonoBehaviour
             }
 
             if (draggedCard) draggedCard.OnDragBegin();
+            
         }
         else if (Input.GetMouseButton(0))
         {
@@ -119,5 +120,7 @@ public class CardManager : MonoBehaviour
 
             draggedCard = null;
         }
+        
     }
+    
 }

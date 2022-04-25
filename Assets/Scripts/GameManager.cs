@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public RaycastManager RaycastManager;
     public CardManager CardManager;
     public TurnManager TurnManager;
+    public UIManager UiManager;
     public static GameManager Instance { get; private set; }
 
     void Awake()
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         RaycastManager = GetComponent<RaycastManager>();
         CardManager = GetComponent<CardManager>();
         TurnManager = GetComponent<TurnManager>();
+        UiManager = GetComponent<UIManager>();
     }
 
 }

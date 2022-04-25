@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnemyData : ScriptableObject
 {
-    public int attackDamage;
+    public int[] attackDamage;
     public int health;
     public int maxHealth;
 }

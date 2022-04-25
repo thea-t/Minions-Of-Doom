@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Player: MonoBehaviour, IDamagable
 {
-    public float MaxHealth { get; set; }
-    public float CurrentHealth { get; set; }
+    [SerializeField] private int m_StartingHealth;
+    
+    
+    public int MaxHealth { get; set; }
+    public int CurrentHealth { get; set; }
     public float Block { get; set; }
     public int CardsToDrawOnStart { get; set; } = 4;
     public int CardToDrawOnEveryTurn{ get; set; }
@@ -14,14 +17,17 @@ public class Player: MonoBehaviour, IDamagable
 
     void Start()
     {
-        MaxHealth = 100;
+        MaxHealth = m_StartingHealth;
         CurrentHealth = MaxHealth;
+        GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
     }
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         CurrentHealth -= amount;
         Debug.Log("Damage taken! Current health: " + CurrentHealth);
+        GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
     }
+
 
     public void Die()
     {

@@ -9,16 +9,12 @@ public class MenuUIController : MonoBehaviour
     private enum MenuUIPanel 
     { 
         Intro, 
-        Solo, 
-        Online, 
-        Settings, 
         Campaign, 
-        MapSelection, 
-        MapSizeSelection, 
-        SoloConfirm 
+        Compendium, 
+        Settings
     }
 
-    [Tooltip("0: Intro, 1: Solo, 2: Online, 3: Settings, 4: Campaign, 5: Map Selection, 6: Map Size Selection, 7: Solo Confirm")]
+    [Tooltip("0: Intro, 1: Campaign, 2: Compendium, 3: Settings")]
     [SerializeField] private GameObject[] m_Panels;
 
     private const float PANEL_ANIMATE_DURATION = 0.3f;

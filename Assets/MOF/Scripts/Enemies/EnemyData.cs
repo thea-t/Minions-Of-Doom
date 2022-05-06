@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class EnemyData : ScriptableObject
+public class EnemyData : FloorItemBase
 {
     public int[] attackDamage;
     public int health;

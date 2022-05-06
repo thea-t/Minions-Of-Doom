@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour, IDamagable
+public class EnemyBase :  MonoBehaviour, IDamagable
 {
-    [SerializeField] private EnemyData m_EnemyData;
     public VisualEnemy visualEnemy;
+    [SerializeField] private EnemyData m_EnemyData;
     [SerializeField] private Animator m_Animator;
 
     protected string m_AttackAnimation;
@@ -20,9 +20,11 @@ public class EnemyBase : MonoBehaviour, IDamagable
  void Reset()
  {
      m_Animator = GetComponent<Animator>();
+     visualEnemy = GetComponent<VisualEnemy>();
  }
  void Start()
  {
+     
      m_EnemyData.health = m_EnemyData.maxHealth;
      MaxHealth = m_EnemyData.maxHealth;
      CurrentHealth = m_EnemyData.health;

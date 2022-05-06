@@ -154,5 +154,6 @@ namespace BNG {
                 rigid.isKinematic = false;
             }
         }
+        
     }
 }

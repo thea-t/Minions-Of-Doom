@@ -758,6 +758,8 @@ GameObject:
   - component: {fileID: 705311765}
   - component: {fileID: 705311764}
   - component: {fileID: 705311768}
+  - component: {fileID: 705311769}
+  - component: {fileID: 705311770}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -851,12 +853,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectableLayer:
     serializedVersion: 2
-    m_Bits: 64
-  Player: {fileID: 0}
+    m_Bits: 1024
   RaycastManager: {fileID: 705311765}
-  CardManager: {fileID: 705311766}
-  TurnManager: {fileID: 705311764}
+  Player: {fileID: 1954477782}
   UiManager: {fileID: 705311768}
+  TurnManager: {fileID: 705311764}
+  CardManager: {fileID: 705311766}
+  EnemyManager: {fileID: 705311770}
+  LevelLauncher: {fileID: 0}
 --- !u!114 &705311768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,6 +874,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerHealthTMP: {fileID: 122333333}
+--- !u!114 &705311769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705311762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967f434604173eb4db620c44c6120e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor: {fileID: 0}
+  door: {fileID: 0}
+--- !u!114 &705311770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705311762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ed7e9adb75396478e438ce3d7c4547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

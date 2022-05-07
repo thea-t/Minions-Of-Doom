@@ -5,11 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private LayerMask selectableLayer;
-    public Player Player;
     public RaycastManager RaycastManager;
-    public CardManager CardManager;
-    public TurnManager TurnManager;
+    public Player Player;
     public UIManager UiManager;
+    public TurnManager TurnManager;
+    public CardManager CardManager;
+    public EnemyManager EnemyManager;
+    public LevelLauncher LevelLauncher;
     public static GameManager Instance { get; private set; }
 
     void Awake()
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
         CardManager = GetComponent<CardManager>();
         TurnManager = GetComponent<TurnManager>();
         UiManager = GetComponent<UIManager>();
+        EnemyManager = GetComponent<EnemyManager>();
+        LevelLauncher = GetComponent<LevelLauncher>();
     }
 
 }

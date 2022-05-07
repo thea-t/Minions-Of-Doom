@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Map : MonoBehaviour {
-    [SerializeField] private VisualMap m_VisualMap;
     [SerializeField] private FloorData[] floors;
     
     private int currentFloor = 0;
 
-
-    private void Reset() {
-        m_VisualMap = GetComponent<VisualMap>();
-    }
+    //on floor climbed = current floor++;
 
     private void Start() {
-        GenerateDoors(floors[currentFloor].doorCount);
+        SpawnDoors(floors[currentFloor].doorCount);
     }
 
-    private void GenerateDoors(int doorCount) {
-        
+    private void SpawnDoors(int _doorCount) {
+        for (int i = 0; i < _doorCount; i++)
+        {
+         floors[currentFloor].PickRandomDoors();   
+        }
+
+        foreach (var item in floors[currentFloor].randomItems)
+        {
+            Instantiate(item.doorPrefab);
+        }
     }
 }

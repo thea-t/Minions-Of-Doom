@@ -7,11 +7,16 @@ using System.Collections.Generic;
 
 public class LevelLauncher : MonoBehaviour
 {
-    public FloorData floor;
-    public DoorHelper door;
+    [HideInInspector] public FloorData floor;
+    [HideInInspector] public DoorHelper door;
+
+    private void Start()
+    {
+        LaunchLevel(floor);
+    }
 
     private void LaunchLevel(FloorData floorData)
     {
-        LaunchLevel(floor);
+        
     }
 }

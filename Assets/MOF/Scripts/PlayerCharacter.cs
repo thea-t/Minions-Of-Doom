@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour, IDamagable
-{ [SerializeField] private int m_StartingHealth;
-    
+{ 
+[SerializeField] private int m_StartingHealth;
+[SerializeField] private GameObject m_CharacterPrefab;
+         
     
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }

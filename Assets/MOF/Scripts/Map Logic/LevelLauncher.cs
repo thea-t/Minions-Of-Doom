@@ -8,9 +8,11 @@ using System.Collections.Generic;
 
  public class LevelLauncher : MonoBehaviour
 {
- void Start() {
-  
-  var obj = Instantiate(Player.SelectedDoor.objectToSpawn);
+ void Start() 
+ {
+   var obj = Instantiate(Player.SelectedDoor.objectToSpawn);
  }
+
+ 
  
 }

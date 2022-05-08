@@ -27,7 +27,7 @@ public class Map : MonoBehaviour
             floors[currentFloor].PickRandomDoors();
         }
 
-        for (int i = 0; i < floors[currentFloor].randomDoors.Count; i++)
+        for (int i = 0; i < floors[currentFloor].RandomDoors.Count; i++)
         {
             Vector3 pos = Vector3.zero;
 
@@ -41,8 +41,10 @@ public class Map : MonoBehaviour
                 pos.x = (i * -DOOR_DISTANCE) - DOOR_DISTANCE;
             }
 
-            var door = Instantiate(floors[currentFloor].randomDoors[i], pos, Quaternion.identity);
+            var door = Instantiate(floors[currentFloor].RandomDoors[i].doorPrefab, pos, Quaternion.identity);
             spawnedDoors.Add(door);
+            door.gameObject.name = floors[currentFloor].RandomDoors[i].name;
+            Player.SelectedDoor = floors[currentFloor].RandomDoors[i];
         }
     }
 

@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using BNG;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
     
-    [SerializeField] private FloorItem floorItem;
+   // [SerializeField] private FloorItem floorItem;
     [SerializeField] private DoorHelper doorHelper;
 
     private void Reset()
@@ -15,14 +16,11 @@ public class Door : MonoBehaviour
         doorHelper = GetComponentInChildren<DoorHelper>();
     }
 
-    void Start()
-    {
+    private void Start() {
         doorHelper.DoorOpened += OnDoorOpened;
     }
-    
-    private void OnDoorOpened(DoorHelper _door)
+    private void OnDoorOpened()
     {
-        Player.FloorItem = floorItem;
-        
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 }

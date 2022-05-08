@@ -8,7 +8,7 @@ namespace BNG {
 
         public AudioClip DoorOpenSound;
         public AudioClip DoorCloseSound;
-        public event Action<DoorHelper> DoorOpened;
+        public event Action DoorOpened;
         /// <summary>
         /// Does the handle need to be turned in order to open the door from the closed position?
         /// </summary>
@@ -93,7 +93,7 @@ namespace BNG {
                 if(!playedOpenSound) {
                     VRUtils.Instance.PlaySpatialClipAt(DoorOpenSound, transform.position, 1f, 1f);
                     playedOpenSound = true;
-                    DoorOpened?.Invoke(this);
+                    DoorOpened?.Invoke();
                 }
             }
 

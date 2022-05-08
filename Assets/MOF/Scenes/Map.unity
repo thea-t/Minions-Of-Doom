@@ -224,6 +224,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df1b2214732362a47baed3e9e15d6d8f, type: 2}
   - {fileID: 11400000, guid: d47fc0c5fb8c33048aaf52bad6e89ac2, type: 2}
   - {fileID: 11400000, guid: 39282d9df6e5ea84d906d1538b534042, type: 2}
+  spawnedDoors: []
 --- !u!4 &967189300
 Transform:
   m_ObjectHideFlags: 0

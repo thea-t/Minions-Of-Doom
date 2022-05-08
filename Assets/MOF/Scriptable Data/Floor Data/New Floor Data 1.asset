@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd79baacec0fc8a44a1b9dd21bcede87, type: 3}
   m_Name: New Floor Data 1
   m_EditorClassIdentifier: 
-  doors:
-  - {fileID: 8507290000167684160, guid: 50a73301350ec8340ad71b5951e7587b, type: 3}
-  - {fileID: 2197248934854512586, guid: 40792680b664f0842b2222210cc2f6ab, type: 3}
-  - {fileID: 229988299448323933, guid: 4863b631715b4714b8949487713708b5, type: 3}
-  - {fileID: 229988299448323933, guid: 4863b631715b4714b8949487713708b5, type: 3}
+  doorData:
+  - {fileID: 11400000, guid: 3439b2d6cd8f6fa4b9e3386041f8dd90, type: 2}
+  - {fileID: 11400000, guid: 0f57fe844f340af409d95fa05480c193, type: 2}
+  - {fileID: 11400000, guid: 3439b2d6cd8f6fa4b9e3386041f8dd90, type: 2}
+  - {fileID: 11400000, guid: 0f57fe844f340af409d95fa05480c193, type: 2}
   doorCount: 3
-  randomDoors: []

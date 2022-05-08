@@ -4,19 +4,19 @@ using UnityEngine;
 [CreateAssetMenu]
 public class FloorData : ScriptableObject
 {
-    public Door[] doors;
+    public DoorData[] doorData;
     public int doorCount;
 
-    public List<Door> randomDoors = new List<Door>();
+    public List<DoorData> RandomDoors { get; private set; } = new List<DoorData>();
 
-    
+
     public void PickRandomDoors() { 
-        randomDoors.Clear();
+        RandomDoors.Clear();
         
         for (int i = 0; i < doorCount; i++) {
 
-            int rand = Random.Range(0, doors.Length);
-            randomDoors.Add(doors[rand]);
+            int rand = Random.Range(0, doorData.Length);
+            RandomDoors.Add(doorData[rand]);
         }
     }
 

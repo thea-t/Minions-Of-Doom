@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyBase :  MonoBehaviour, IDamagable
 {
     public VisualEnemy visualEnemy;
-    [SerializeField] private EnemyData m_EnemyData;
+    
+    [HideInInspector] public EnemyData enemyData;
+    
     [SerializeField] private Animator m_Animator;
 
     protected string m_AttackAnimation;
@@ -25,13 +27,12 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  void Start()
  {
      
-     m_EnemyData.health = m_EnemyData.maxHealth;
-     MaxHealth = m_EnemyData.maxHealth;
-     CurrentHealth = m_EnemyData.health;
+     MaxHealth = enemyData.maxHealth;
+     CurrentHealth = enemyData.maxHealth;
      
      m_TurnCount = 0;
      visualEnemy.UpdateHealthUI(CurrentHealth);
-     visualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[m_TurnCount]);
+     visualEnemy.UpdateAttackUI(enemyData.attackDamage[m_TurnCount]);
      
      GameManager.Instance.TurnManager.EnemyTurn += Attack;
  }
@@ -67,7 +68,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      
      yield return new WaitForSeconds(animInfo.length);
      
-     GameManager.Instance.Player.TakeDamage(m_EnemyData.attackDamage[m_TurnCount]);
+     GameManager.Instance.Player.TakeDamage(enemyData.attackDamage[m_TurnCount]);
 
      GameManager.Instance.TurnManager.EndEnemyTurn();
      OnTurnOver();
@@ -81,7 +82,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  private void OnTurnOver()
  {
      m_TurnCount++;
-     visualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[m_TurnCount]);
+     visualEnemy.UpdateAttackUI(enemyData.attackDamage[m_TurnCount]);
      
      Debug.Log("Turn Count: " + m_TurnCount);
  }

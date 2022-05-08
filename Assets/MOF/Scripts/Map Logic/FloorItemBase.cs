@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class FloorItemBase : ScriptableObject
 {
-  public GameObject itemPrefab; // instantiate when gameplay starts
-  public GameObject doorPrefab;
-  
+ //public GameObject[] levelItems; // instantiate when gameplay starts
 
 
 }

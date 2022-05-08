@@ -914,7 +914,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 7.24, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.5, y: 0, z: 0}
   m_UseSpring: 1
   m_Spring:
     spring: 1
@@ -1108,6 +1108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6578798986396193587}
+  - component: {fileID: 6559997190082381775}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -1131,6 +1132,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6559997190082381775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578798986396193586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24073a11637d224d8534ef9b83ec94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorItem: 2
+  doorHelper: {fileID: 6578798985510514913}
 --- !u!1 &6578798986490700243
 GameObject:
   m_ObjectHideFlags: 0

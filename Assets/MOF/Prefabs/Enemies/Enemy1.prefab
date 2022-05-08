@@ -1308,11 +1308,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2292446900209916974}
   - component: {fileID: 2292446900209916969}
-  - component: {fileID: 2292446900209916968}
   - component: {fileID: 2292446900209916971}
+  - component: {fileID: 2292446900209916968}
   - component: {fileID: 2292446900209916975}
   m_Layer: 6
-  m_Name: Adventurer Male 01 (1)
+  m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1367,21 +1367,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2292446900209916968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2292446900209916970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ce3557c77ea9e4bb4b950fa0f366a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualEnemy: {fileID: 2292446900209916975}
-  m_EnemyData: {fileID: 11400000, guid: ee4b6184addcc4a4593bbb0e1ed86b3f, type: 2}
-  m_Animator: {fileID: 2292446900209916969}
 --- !u!136 &2292446900209916971
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1396,6 +1381,21 @@ CapsuleCollider:
   m_Height: 2.3713558
   m_Direction: 1
   m_Center: {x: 0.0000000023781768, y: 0.6856762, z: 0.0000000015654202}
+--- !u!114 &2292446900209916968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292446900209916970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ce3557c77ea9e4bb4b950fa0f366a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualEnemy: {fileID: 2292446900209916975}
+  enemyData: {fileID: 0}
+  m_Animator: {fileID: 2292446900209916969}
 --- !u!114 &2292446900209916975
 MonoBehaviour:
   m_ObjectHideFlags: 0

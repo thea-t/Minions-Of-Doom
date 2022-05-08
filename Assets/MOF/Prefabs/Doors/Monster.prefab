@@ -990,6 +990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8155040500871462431}
+  - component: {fileID: 4252561794054120912}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -1013,6 +1014,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4252561794054120912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155040500871462425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24073a11637d224d8534ef9b83ec94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorItem: 6
+  doorHelper: {fileID: 3659309010794261378}
 --- !u!1 &8155040501141483692
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,19 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd79baacec0fc8a44a1b9dd21bcede87, type: 3}
   m_Name: New Floor Data 1
   m_EditorClassIdentifier: 
-  floorItems:
-  - {fileID: 11400000, guid: 5c4f95b0d9a368e4ab32cea405e65c07, type: 2}
-  - {fileID: 11400000, guid: f39d1f35b6899784c89185e10cabfb5e, type: 2}
-  - {fileID: 11400000, guid: 6df72e14f868d4a4d9372d063f3c0bc1, type: 2}
-  - {fileID: 11400000, guid: 006954e66edde924bac2fea65eb5bcc5, type: 2}
-  - {fileID: 11400000, guid: 0d559158a000bcd4297a600c71a9db00, type: 2}
-  - {fileID: 11400000, guid: 88b658c1981a9ce4c97c26e585828fbb, type: 2}
-  - {fileID: 11400000, guid: 90692b40b39a0cf47b48a2babcc2af8e, type: 2}
-  - {fileID: 11400000, guid: 789211add4834714996cecd43865a0b2, type: 2}
-  - {fileID: 11400000, guid: 8d681fe8b0d9d4a4f984d5af5874387d, type: 2}
-  - {fileID: 11400000, guid: dfadf1fd5a7dd3047961afefeaa61d9d, type: 2}
+  doors:
+  - {fileID: 8507290000167684160, guid: 50a73301350ec8340ad71b5951e7587b, type: 3}
+  - {fileID: 2197248934854512586, guid: 40792680b664f0842b2222210cc2f6ab, type: 3}
+  - {fileID: 229988299448323933, guid: 4863b631715b4714b8949487713708b5, type: 3}
+  - {fileID: 229988299448323933, guid: 4863b631715b4714b8949487713708b5, type: 3}
   doorCount: 3
-  randomItems:
-  - {fileID: 11400000, guid: dfadf1fd5a7dd3047961afefeaa61d9d, type: 2}
-  - {fileID: 11400000, guid: dfadf1fd5a7dd3047961afefeaa61d9d, type: 2}
-  - {fileID: 11400000, guid: 6df72e14f868d4a4d9372d063f3c0bc1, type: 2}
+  randomDoors: []

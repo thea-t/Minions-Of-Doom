@@ -859,8 +859,7 @@ MonoBehaviour:
   UiManager: {fileID: 705311768}
   TurnManager: {fileID: 705311764}
   CardManager: {fileID: 705311766}
-  EnemyManager: {fileID: 705311770}
-  LevelLauncher: {fileID: 0}
+  LevelLauncher: {fileID: 705311769}
 --- !u!114 &705311768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,7 +886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 0}
-  door: {fileID: 0}
 --- !u!114 &705311770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,7 +2439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 0}
-  door: {fileID: 0}
 --- !u!1 &2010264401
 GameObject:
   m_ObjectHideFlags: 0

@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 824190232071528095}
   - component: {fileID: 824190232071528093}
   m_Layer: 6
-  m_Name: Adventurer Male 01
+  m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

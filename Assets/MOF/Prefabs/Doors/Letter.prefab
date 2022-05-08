@@ -490,6 +490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3046594224462430761}
+  - component: {fileID: 7293508386761864842}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Untagged
@@ -513,6 +514,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7293508386761864842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046594224462430767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24073a11637d224d8534ef9b83ec94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorItem: 4
+  doorHelper: {fileID: 7612017159015618484}
 --- !u!1 &3046594225067091420
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +799,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 5.92, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.5, y: 0, z: 0}
   m_UseSpring: 1
   m_Spring:
     spring: 1

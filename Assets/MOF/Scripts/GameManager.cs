@@ -6,11 +6,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private LayerMask selectableLayer;
     public RaycastManager RaycastManager;
-    public Player Player;
+    public PlayerCharacter Player;
     public UIManager UiManager;
     public TurnManager TurnManager;
     public CardManager CardManager;
-    public EnemyManager EnemyManager;
     public LevelLauncher LevelLauncher;
     public static GameManager Instance { get; private set; }
 
@@ -24,12 +23,11 @@ public class GameManager : MonoBehaviour
 
     void Reset()
     {
-        Player = FindObjectOfType<Player>();
+        Player = FindObjectOfType<PlayerCharacter>();
         RaycastManager = GetComponent<RaycastManager>();
         CardManager = GetComponent<CardManager>();
         TurnManager = GetComponent<TurnManager>();
         UiManager = GetComponent<UIManager>();
-        EnemyManager = GetComponent<EnemyManager>();
         LevelLauncher = GetComponent<LevelLauncher>();
     }
 

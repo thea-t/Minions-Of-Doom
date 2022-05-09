@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f57fe844f340af409d95fa05480c193, type: 2}
   - {fileID: 11400000, guid: 3439b2d6cd8f6fa4b9e3386041f8dd90, type: 2}
   - {fileID: 11400000, guid: 0f57fe844f340af409d95fa05480c193, type: 2}
-  doorCount: 3
+  doorCount: 1

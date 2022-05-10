@@ -14,7 +14,7 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] private GameObject m_DrawPile;
     [SerializeField] private GameObject m_DiscardPile;
-    [SerializeField] private GameObject[] m_SnapPoints;
+    [SerializeField] private BNG.SnapZone[] m_SnapPoints;
 
     private CardBase draggedCard;
 
@@ -39,9 +39,7 @@ public class CardManager : MonoBehaviour
             CardBase card = deckPile[0];
             handPile.Add(card);
             deckPile.Remove(card);
-            card.transform.DOMove(m_SnapPoints[i].transform.position, 0.5f);
-            card.transform.DOScale(m_SnapPoints[i].transform.localScale, 0.5f);
-            card.transform.DORotate(m_SnapPoints[i].transform.eulerAngles, 0.5f);
+            m_SnapPoints[i].GrabGrabbable(card.grabbable);
             
             
             if (deckPile.Count == 0)

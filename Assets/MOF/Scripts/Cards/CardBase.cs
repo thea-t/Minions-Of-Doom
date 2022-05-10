@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BNG;
 using DG.Tweening;
 using UnityEngine;
 
@@ -32,6 +33,8 @@ public abstract class CardBase : MonoBehaviour
     private Vector3 dragBeginRot;
     private Vector3 screenPoint;
     private Vector3 offset;
+
+    public Grabbable grabbable;
     
     
     [SerializeField] private int m_Attack; // TEMP
@@ -51,6 +54,7 @@ public abstract class CardBase : MonoBehaviour
         m_Cost = 0;
         m_Title = "Title";
         m_Description = "Write something about this card here.";
+        grabbable = GetComponent<Grabbable>();
     }
 
     public virtual void OnCardDrawn()

@@ -18,20 +18,27 @@ public class CardManager : MonoBehaviour
 
     private CardBase draggedCard;
 
+    //Shuffling the deck pile when the game starts, and drawing random cards in the player's hand 
+    //Subscribing to Turn Manager's events.
+    //Listening for the end and the beginning of each turn in order to discard and draw cards 
     private void Start()
     {
         ShufflePile(deckPile);
         StartCoroutine(DrawCards(GameManager.Instance.Player.CardsToDrawOnStart));
-        
+
         GameManager.Instance.TurnManager.EnemyTurn += (delegate
         {
             StartCoroutine(DiscardCards(handPile.Count));
-           // DrawCards(GameManager.Instance.Player.CardsToDrawOnStart);
+            // DrawCards(GameManager.Instance.Player.CardsToDrawOnStart);
         });
 
-        GameManager.Instance.TurnManager.PlayerTurn += delegate { StartCoroutine(DrawCards(GameManager.Instance.Player.CardsToDrawOnStart)); };
+        GameManager.Instance.TurnManager.PlayerTurn += delegate
+        {
+            StartCoroutine(DrawCards(GameManager.Instance.Player.CardsToDrawOnStart));
+        };
     }
 
+    //Draws certain amount of cards by iterating through player's deck
     private IEnumerator DrawCards(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -40,11 +47,11 @@ public class CardManager : MonoBehaviour
             handPile.Add(card);
             deckPile.Remove(card);
             m_SnapPoints[i].GrabGrabbable(card.grabbable);
-            
-            
+
+
             if (deckPile.Count == 0)
             {
-               ResetDeckPile();
+                ResetDeckPile();
             }
 
             yield return new WaitForSeconds(0.1f);
@@ -52,6 +59,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    //Reseting the deck pile when the cards are over
     void ResetDeckPile()
     {
         deckPile = new List<CardBase>(discardPile);
@@ -60,10 +68,12 @@ public class CardManager : MonoBehaviour
         {
             deckPile[i].transform.DOMove(m_DrawPile.transform.position, 0.1f);
         }
+
         discardPile.Clear();
-        ShufflePile(deckPile); 
+        ShufflePile(deckPile);
     }
 
+    //Discarding certain amount of cards
     private IEnumerator DiscardCards(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -80,6 +90,7 @@ public class CardManager : MonoBehaviour
     }
 
 
+    //Shuffles the pile
     // How to shuffle items in list: https://stackoverflow.com/questions/273313/randomize-a-listt
     private void ShufflePile(List<CardBase> pile)
     {
@@ -96,6 +107,9 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    #region Deprecated
+
+    //OLD CODE THAT WAS CREATED WHILE THE TARGET PLATFORM WAS STILL MOBILE
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -106,7 +120,7 @@ public class CardManager : MonoBehaviour
             }
 
             if (draggedCard) draggedCard.OnDragBegin();
-            
+
         }
         else if (Input.GetMouseButton(0))
         {
@@ -118,7 +132,8 @@ public class CardManager : MonoBehaviour
 
             draggedCard = null;
         }
-        
+
     }
-    
+#endregion
+
 }

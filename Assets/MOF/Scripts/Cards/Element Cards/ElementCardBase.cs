@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class ElementCardBase : CardBase
 {
+    //Setting the cart type when the script is reset 
     protected override void Reset()
     {
         base.Reset();

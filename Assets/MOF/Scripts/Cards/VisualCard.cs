@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+//This class is responsible of all the visual card elements and setting their values
 public class VisualCard : MonoBehaviour
 {
     [Header("References")]

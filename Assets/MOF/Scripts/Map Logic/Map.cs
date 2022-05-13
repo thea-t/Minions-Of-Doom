@@ -7,31 +7,35 @@ public class Map : MonoBehaviour
 {
     private const float DOOR_DISTANCE = 0.75f;
     
-    [SerializeField] private FloorData[] floors;
+    [SerializeField] private LevelData[] levels;
+    private List<Door> m_SpawnedDoors = new List<Door>();
     
-    private int currentFloor = 0;
+    private int currentLevel = 0;
 
-    //on floor climbed = current floor++;
+    //on level passed = currentLevel++;
 
+    
+    //Spawning random doors based on the current level when the game starts
+    //Setting their position and distance from each other
     private void Start() {
-        SpawnDoors(floors[currentFloor].doorCount);
+        SpawnDoors(levels[currentLevel].doorCount);
     }
 
-    public List<Door> spawnedDoors = new List<Door>();
     private void SpawnDoors(int _doorCount)
     {
-        spawnedDoors.Clear();
+        m_SpawnedDoors.Clear();
         
         for (int i = 0; i < _doorCount; i++)
         {
-            floors[currentFloor].PickRandomDoors();
+            levels[currentLevel].PickRandomDoors();
         }
 
-        for (int i = 0; i < floors[currentFloor].RandomDoors.Count; i++)
+        for (int i = 0; i < levels[currentLevel].RandomDoors.Count; i++)
         {
             Vector3 pos = Vector3.zero;
 
-            //pos.x = i % 2 == 0 ? i * 1.5f : i * (-1.5f);
+            //checking if to spawn the door on the right or on the left side based on if the door count is odd or even number
+            //pos.x = i % 2 == 0 ? i * 1.5f : i * (-1.5f); // short way of writing it 
             if (i % 2 == 0)
             {
                 pos.x = i * DOOR_DISTANCE;
@@ -41,10 +45,14 @@ public class Map : MonoBehaviour
                 pos.x = (i * -DOOR_DISTANCE) - DOOR_DISTANCE;
             }
 
-            var door = Instantiate(floors[currentFloor].RandomDoors[i].doorPrefab, pos, Quaternion.identity);
-            spawnedDoors.Add(door);
-            door.gameObject.name = floors[currentFloor].RandomDoors[i].name;
-            Player.SelectedDoor = floors[currentFloor].RandomDoors[i];
+            var door = Instantiate(levels[currentLevel].RandomDoors[i].doorPrefab, pos, Quaternion.identity);
+            m_SpawnedDoors.Add(door);
+            
+            //saving the selected door in a static class in order to be able to launch a level based on the selected door
+            Player.SelectedDoor = levels[currentLevel].RandomDoors[i]; 
+            
+            door.gameObject.name = levels[currentLevel].RandomDoors[i].name;
+            Debug.Log("door: " + door.gameObject.name);
         }
     }
 

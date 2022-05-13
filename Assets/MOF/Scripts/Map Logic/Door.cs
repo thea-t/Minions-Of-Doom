@@ -5,11 +5,11 @@ using BNG;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//This class checks if a door is open and loads the Game Scene 
 public class Door : MonoBehaviour
 {
     
-   // [SerializeField] private FloorItem floorItem;
-    [SerializeField] private DoorHelper doorHelper;
+    [SerializeField] private DoorHelper doorHelper; // DoorHelper.cs comes from the VR Interaction Framework asset 
 
     private void Reset()
     {

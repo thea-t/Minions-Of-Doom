@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private LayerMask selectableLayer;
-    public RaycastManager RaycastManager;
     public PlayerCharacter Player;
     public UIManager UiManager;
     public TurnManager TurnManager;
@@ -16,15 +15,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-
-        RaycastManager = gameObject.AddComponent<RaycastManager>();
-        RaycastManager.SetLayer(selectableLayer);
     }
-
+//Finding and assigning components when the script is reset. It's faster than dragging and dropping them individually
     void Reset()
     {
         Player = FindObjectOfType<PlayerCharacter>();
-        RaycastManager = GetComponent<RaycastManager>();
         CardManager = GetComponent<CardManager>();
         TurnManager = GetComponent<TurnManager>();
         UiManager = GetComponent<UIManager>();

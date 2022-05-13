@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//Picking an element, setting its image accordingly, and loading the next scene
+//See the Menu Scene -> ElementPicker
+//See the Menu Scene -> Canvas -> 1. Campaign Panel -> Content -> Magic/Aqua/Nature/Demon -> Button (OnCLick)
 public class ElementPicker : MonoBehaviour
 {
     [SerializeField] private Image[] m_ElementImagesToGet;
     [SerializeField] private Image m_ElementImageToSet;
 
-  //  private PlayerElement m_CurrentElement;
-  
     public void OnElementSelected(int elementId)
     {
-    //    m_CurrentElement = (PlayerElement)elementId;
     m_ElementImageToSet.sprite = m_ElementImagesToGet[elementId].sprite;
     }
 

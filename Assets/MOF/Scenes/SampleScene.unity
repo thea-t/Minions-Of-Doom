@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.177579, g: 0.22232251, b: 0.30451912, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1248,7 +1248,6 @@ GameObject:
   - component: {fileID: 705311763}
   - component: {fileID: 705311767}
   - component: {fileID: 705311766}
-  - component: {fileID: 705311765}
   - component: {fileID: 705311764}
   - component: {fileID: 705311768}
   - component: {fileID: 705311769}
@@ -1286,18 +1285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EndTurnButton: {fileID: 935279897}
---- !u!114 &705311765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705311762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202c2356d3ecf2749a63bd0958a479dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &705311766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,7 +1333,6 @@ MonoBehaviour:
   selectableLayer:
     serializedVersion: 2
     m_Bits: 0
-  RaycastManager: {fileID: 705311765}
   Player: {fileID: 1954477783}
   UiManager: {fileID: 705311768}
   TurnManager: {fileID: 705311764}
@@ -1463,13 +1449,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.96, y: 0.96, z: 0.96}
   m_Children: []
   m_Father: {fileID: 83040573}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!1 &738954082
 GameObject:
   m_ObjectHideFlags: 0
@@ -7636,7 +7622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096409194401861872}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -0.033, y: -0.204, z: 0.38400006}
+  m_LocalPosition: {x: 0.15, y: 0.75, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1096409193280171188}
@@ -9103,7 +9089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5691717365765796135
 MonoBehaviour:
   m_ObjectHideFlags: 0

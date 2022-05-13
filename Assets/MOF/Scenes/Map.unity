@@ -218,12 +218,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ffc166b1b909d45a0a1103c5b6fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floors:
-  - {fileID: 11400000, guid: 53bc8ec527ed163438d547460a23ca8e, type: 2}
-  - {fileID: 11400000, guid: 862e41a4b4cecf345b3c6986094ec61f, type: 2}
-  - {fileID: 11400000, guid: df1b2214732362a47baed3e9e15d6d8f, type: 2}
-  - {fileID: 11400000, guid: d47fc0c5fb8c33048aaf52bad6e89ac2, type: 2}
-  - {fileID: 11400000, guid: 39282d9df6e5ea84d906d1538b534042, type: 2}
+  levels:
+  - {fileID: 11400000, guid: c8f2d03e47bd44946b0c8b383342f939, type: 2}
+  - {fileID: 11400000, guid: cab1daaf08e80454a83b2e6ec7e1c3b6, type: 2}
+  - {fileID: 11400000, guid: 668d2ba23da657a4794f1c61066b49b0, type: 2}
+  - {fileID: 11400000, guid: 0dbf3af46af551240acc68d031597354, type: 2}
+  - {fileID: 11400000, guid: 46b3725bf7e5bdf4db71a1e975e998d6, type: 2}
   spawnedDoors: []
 --- !u!4 &967189300
 Transform:
@@ -505,6 +505,21 @@ PrefabInstance:
     - target: {fileID: 5117709272763234211, guid: 2af1d2045149fe743b81bc4d1a6f8406,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117709273679435457, guid: 2af1d2045149fe743b81bc4d1a6f8406,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883667856760302794, guid: 2af1d2045149fe743b81bc4d1a6f8406,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552592445350430801, guid: 2af1d2045149fe743b81bc4d1a6f8406,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

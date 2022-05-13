@@ -116,7 +116,7 @@ public class CardManager : MonoBehaviour
         {
             if (draggedCard == null)
             {
-                draggedCard = GameManager.Instance.RaycastManager.GetByRay<CardBase>();
+             //   draggedCard = GameManager.Instance.RaycastManager.GetByRay<CardBase>();
             }
 
             if (draggedCard) draggedCard.OnDragBegin();

@@ -37,7 +37,9 @@ public abstract class CardBase : MonoBehaviour
     
     
     [SerializeField] private int m_Attack; // TEMP
+    
 
+    //Setting the card UI when the game starts 
     private void Start()
     {
         m_VisualCard = GetComponent<VisualCard>();
@@ -113,7 +115,7 @@ public abstract class CardBase : MonoBehaviour
     private void TargetEnemy()
     {
         
-        m_TargetedEnemy = GameManager.Instance.RaycastManager.GetByRay<EnemyBase>();
+       // m_TargetedEnemy = GameManager.Instance.RaycastManager.GetByRay<EnemyBase>();
 
         if (m_TargetedEnemy)
         {
@@ -131,7 +133,6 @@ public abstract class CardBase : MonoBehaviour
 
     #endregion
 
-   
     protected virtual void AttackTargetedEnemy(EnemyBase target)
     {
         

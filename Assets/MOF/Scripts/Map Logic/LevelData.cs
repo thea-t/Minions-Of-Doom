@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Level Data used by the map (See Map.cs) to create easily different levels
+//The idea of this class is to store different door data and pick random doors based on a given door count which will be instantiated by the map
+
 [CreateAssetMenu]
-public class FloorData : ScriptableObject
+public class LevelData : ScriptableObject
 {
     public DoorData[] doorData;
     public int doorCount;

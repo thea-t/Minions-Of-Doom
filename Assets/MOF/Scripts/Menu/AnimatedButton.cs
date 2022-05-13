@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//animating the menu buttons based on if they are being hovered over
 [RequireComponent(typeof(EventTrigger))]
 public class AnimatedButton : MonoBehaviour
 {

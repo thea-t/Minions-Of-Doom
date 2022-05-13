@@ -14,13 +14,33 @@ public class MenuUIController : MonoBehaviour
         Settings
     }
 
-    [Tooltip("0: Intro, 1: Campaign, 2: Compendium, 3: Settings")]
     [SerializeField] private GameObject[] m_Panels;
 
     private const float PANEL_ANIMATE_DURATION = 0.3f;
     private const float PANEL_ANIMATE_XPOS = 1000f;
 
     private MenuUIPanel m_CurrentPanel;
+    
+    
+    // Hiding all panels 
+    private void Awake()
+    {
+        for (int i = 1; i < m_Panels.Length; i++)
+        {
+            m_Panels[i].transform.localPosition = Vector3.zero;
+            m_Panels[i].SetActive(false);
+        }
+    }
+
+    //Button event. Setting active the chosen panel
+    public void SetPanel(int panelId)
+    {
+        CurrentPanel = (MenuUIPanel)panelId;
+    }
+    
+    
+    
+    //Enabling/disabling and animating the current panel in/out when it is active/inactive
     private MenuUIPanel CurrentPanel
     {
         get
@@ -39,27 +59,7 @@ public class MenuUIController : MonoBehaviour
             m_CurrentPanel = value;
         }
     }
-
-    private void Awake()
-    {
-        for (int i = 1; i < m_Panels.Length; i++)
-        {
-            m_Panels[i].transform.localPosition = Vector3.zero;
-            m_Panels[i].SetActive(false);
-        }
-    }
-
-    #region Button Events
-    public void SetPanel(int panelId)
-    {
-        CurrentPanel = (MenuUIPanel)panelId;
-    }
-
-    public void QuitApplication()
-    {
-        Application.Quit();
-    }
-    #endregion
+      
     private void AnimatePanelIn(CanvasGroup panel)
     {
         panel.transform.localPosition = new Vector3(PANEL_ANIMATE_XPOS, panel.transform.localPosition.y, panel.transform.localPosition.z);
@@ -74,4 +74,6 @@ public class MenuUIController : MonoBehaviour
         panel.alpha = 1;
         panel.DOFade(0, PANEL_ANIMATE_DURATION).onComplete = ()=>{ onComplete.Invoke(); };
     }
+
+
 }

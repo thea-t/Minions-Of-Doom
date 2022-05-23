@@ -64,10 +64,8 @@ public abstract class CardBase : MonoBehaviour
     }
 
     #region Deprecated
+    /*
     
-    //https://forum.unity.com/threads/drag-drop-game-objects-without-rigidbody-with-the-mouse.64169/
-    //OLD CODE THAT WAS CREATED WHILE THE TARGET PLATFORM WAS STILL MOBILE
-    //NEEDS REWORK AS MOST OF IT IS DEPRECATED DUE TO THE VR INTERACTIONS
     
     public void OnDragBegin()
     {
@@ -130,7 +128,7 @@ public abstract class CardBase : MonoBehaviour
         }
     }
 
-
+*/
     #endregion
 
     protected virtual void AttackTargetedEnemy(EnemyBase target)

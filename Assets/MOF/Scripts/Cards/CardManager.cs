@@ -29,7 +29,6 @@ public class CardManager : MonoBehaviour
         GameManager.Instance.TurnManager.EnemyTurn += (delegate
         {
             StartCoroutine(DiscardCards(handPile.Count));
-            // DrawCards(GameManager.Instance.Player.CardsToDrawOnStart);
         });
 
         GameManager.Instance.TurnManager.PlayerTurn += delegate
@@ -108,7 +107,7 @@ public class CardManager : MonoBehaviour
     }
 
     #region Deprecated
-
+/*
     //OLD CODE THAT WAS CREATED WHILE THE TARGET PLATFORM WAS STILL MOBILE
     void Update()
     {
@@ -133,7 +132,7 @@ public class CardManager : MonoBehaviour
             draggedCard = null;
         }
 
-    }
+    }*/
 #endregion
 
 }

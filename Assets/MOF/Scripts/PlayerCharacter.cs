@@ -25,13 +25,21 @@ public class PlayerCharacter : MonoBehaviour, IDamagable
     //Reducing player's health and updating its UI when the enemy takes damage
     public void TakeDamage(int amount)
     {
-        CurrentHealth -= amount;
-        Debug.Log("Damage taken! Current health: " + CurrentHealth);
-        GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
+        if (CurrentHealth >0) {
+            CurrentHealth -= amount;
+            Debug.Log("Damage taken! Current health: " + CurrentHealth);
+            GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
+        }
+        else {
+            Die();
+        }
+       
+        
     }
 
 
     public void Die()
-    {
+    { 
+        Debug.Log("DEAD");
     }
 }

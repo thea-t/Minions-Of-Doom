@@ -18,8 +18,6 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  public int CurrentHealth { get; set; }
  public float Block { get; set; }
 
- private int m_TurnCount;
- 
  //Getting and assigning components on Reset in order to save time from dragging and dropping them
  void Reset()
  {
@@ -36,11 +34,10 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      MaxHealth = enemyData.maxHealth;
      CurrentHealth = enemyData.maxHealth;
      
-     m_TurnCount = 0;
      visualEnemy.UpdateHealthUI(CurrentHealth);
-     visualEnemy.UpdateAttackUI(enemyData.attackDamage[m_TurnCount]);
+     visualEnemy.UpdateAttackUI(enemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
      
-     GameManager.Instance.TurnManager.EnemyTurn += Attack;
+     GameManager.Instance.TurnManager.EnemyTurn += OnEnemyTurn;
  }
 
  //Reducing enemy's health and updating its UI when the enemy takes damage
@@ -58,6 +55,14 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  //Playing animation while the enemy is attacking and dealing damage to the player at the end of the animation
  //Also notifying the Turn Manager that the turn is over 
 //https://answers.unity.com/questions/692593/get-animation-clip-length-using-animator.html
+ 
+
+ private void OnEnemyTurn() {
+     
+     Attack();
+     Debug.Log("turnCount: " + GameManager.Instance.TurnManager.turnCount);
+     visualEnemy.UpdateAttackUI(enemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+ }
  protected virtual void Attack()
  {
      m_AttackAnimation = "Melee Right Attack 01";
@@ -65,22 +70,25 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      
      StartCoroutine(DealDamageToPlayer());
  }
-
- IEnumerator DealDamageToPlayer()
- { 
+ IEnumerator DealDamageToPlayer() {
+     
      AnimatorStateInfo animInfo;
-     
-     
-
      m_Animator.SetTrigger(m_AttackAnimation);
      animInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
      
      yield return new WaitForSeconds(animInfo.length);
-     
-     GameManager.Instance.Player.TakeDamage(enemyData.attackDamage[m_TurnCount]);
 
+     int turnCount = GameManager.Instance.TurnManager.turnCount;
+     if (turnCount < enemyData.attackDamage.Length) {
+         GameManager.Instance.Player.TakeDamage(enemyData.attackDamage[turnCount]);
+     }
+     else {
+         GameManager.Instance.TurnManager.turnCount = 0;
+     }
+     
+     
      GameManager.Instance.TurnManager.EndEnemyTurn();
-     OnTurnOver();
+     visualEnemy.UpdateAttackUI(enemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
  }
 
  //Setting active an selection particle when the enemy was hovered over
@@ -89,12 +97,5 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      visualEnemy.selectionParticle.SetActive(hovering);
  }
 
- //Increasing the turn count and updating enemy's UI as enemy deals different attack damage every turn
- private void OnTurnOver()
- {
-     m_TurnCount++;
-     visualEnemy.UpdateAttackUI(enemyData.attackDamage[m_TurnCount]);
-     
-     Debug.Log("Turn Count: " + m_TurnCount);
- }
+ 
 }

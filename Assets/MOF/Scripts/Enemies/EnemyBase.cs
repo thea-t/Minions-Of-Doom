@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemyBase :  MonoBehaviour, IDamagable
 {
-    public VisualEnemy visualEnemy;
-    
-    public EnemyData enemyData;
+    [SerializeField] private VisualEnemy m_VisualEnemy;
+    [SerializeField] private EnemyData m_EnemyData;
     
     [SerializeField] private Animator m_Animator;
 
@@ -22,7 +21,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  void Reset()
  {
      m_Animator = GetComponent<Animator>();
-     visualEnemy = GetComponent<VisualEnemy>();
+     m_VisualEnemy = GetComponent<VisualEnemy>();
  }
  
  //Setting the enemy's health and updating its UI.
@@ -31,11 +30,11 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  
  void Start()
  {
-     MaxHealth = enemyData.maxHealth;
-     CurrentHealth = enemyData.maxHealth;
+     MaxHealth = m_EnemyData.maxHealth;
+     CurrentHealth = m_EnemyData.maxHealth;
      
-     visualEnemy.UpdateHealthUI(CurrentHealth);
-     visualEnemy.UpdateAttackUI(enemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+     m_VisualEnemy.UpdateHealthUI(CurrentHealth);
+     m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
      
      GameManager.Instance.TurnManager.EnemyTurn += OnEnemyTurn;
  }
@@ -44,7 +43,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  public void TakeDamage(int amount)
  {
      CurrentHealth -= amount;
-     visualEnemy.UpdateHealthUI(CurrentHealth);
+     m_VisualEnemy.UpdateHealthUI(CurrentHealth);
  }
 
  public void Die()
@@ -61,7 +60,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      
      Attack();
      Debug.Log("turnCount: " + GameManager.Instance.TurnManager.turnCount);
-     visualEnemy.UpdateAttackUI(enemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+     m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
  }
  protected virtual void Attack()
  {
@@ -79,8 +78,8 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      yield return new WaitForSeconds(animInfo.length);
 
      int turnCount = GameManager.Instance.TurnManager.turnCount;
-     if (turnCount < enemyData.attackDamage.Length) {
-         GameManager.Instance.Player.TakeDamage(enemyData.attackDamage[turnCount]);
+     if (turnCount < m_EnemyData.attackDamage.Length) {
+         GameManager.Instance.Player.TakeDamage(m_EnemyData.attackDamage[turnCount]);
      }
      else {
          GameManager.Instance.TurnManager.turnCount = 0;
@@ -88,13 +87,13 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      
      
      GameManager.Instance.TurnManager.EndEnemyTurn();
-     visualEnemy.UpdateAttackUI(enemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+     m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
  }
 
  //Setting active an selection particle when the enemy was hovered over
  public void HoveringWithCard(bool hovering)
  {
-     visualEnemy.selectionParticle.SetActive(hovering);
+     m_VisualEnemy.selectionParticle.SetActive(hovering);
  }
 
  

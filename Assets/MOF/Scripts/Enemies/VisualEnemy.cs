@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 //This class is responsible for all the UI and visual elements of the enemy and setting their values
-public class VisualEnemy : MonoBehaviour
+public class VisualEnemy : CharacterLookChanger
 {
    
     public GameObject selectionParticle; // used by the Enemy (See EnemyBase.cs) to indicate that an enemy is selected

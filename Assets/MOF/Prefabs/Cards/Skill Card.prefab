@@ -681,7 +681,6 @@ GameObject:
   - component: {fileID: 4168050292341144202}
   - component: {fileID: 6264260796823042844}
   - component: {fileID: 4168050292341144204}
-  - component: {fileID: 6068809737530516614}
   m_Layer: 6
   m_Name: Skill Card
   m_TagString: Untagged
@@ -786,22 +785,6 @@ MonoBehaviour:
   m_SkillImage: {fileID: 2801583688073426248}
   m_ElementImage: {fileID: 8490285452581227446}
   m_MinionImage: {fileID: 468382032323558707}
---- !u!114 &6068809737530516614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4168050292341144200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b339fba786f806a4a987555ae8fd866b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Cost: 0
-  m_Title: Title
-  m_Description: Write something about this card here.
-  m_CardType: 0
 --- !u!1 &4168050292451176208
 GameObject:
   m_ObjectHideFlags: 0

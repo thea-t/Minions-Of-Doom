@@ -13,17 +13,13 @@ public enum MinionType
     Elemental,
     Fighter
 };
-[RequireComponent(typeof(VisualCard))]
+[RequireComponent(typeof(VisualMinion))]
 public abstract class MinionBase : MonoBehaviour
 {
-    [Header("Settings")] [SerializeField] private int m_Cost;
-    [SerializeField] private string m_Title;
-    [SerializeField] private string m_Description;
-
-    [SerializeField] protected MinionType m_MinionType;
-
-
-    private VisualCard m_VisualCard;
+    [SerializeField] private MinionData m_MinionData;
+    [SerializeField] private VisualMinion m_VisualMinion;
+    
+    protected MinionType m_MinionType;
     private EnemyBase m_TargetedEnemy;
     private EnemyBase m_PreviouslyTargetedEnemy;
 
@@ -33,29 +29,23 @@ public abstract class MinionBase : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
 
-    public Grabbable grabbable;
+    public Grabbable grabbable{ get; set; }
     
-    
-    [SerializeField] private int m_Attack; // TEMP
     
 
     //Setting the card UI when the game starts 
-    private void Start()
-    {
-        m_VisualCard = GetComponent<VisualCard>();
-
-        m_VisualCard.SetCardTypeUI(m_MinionType);
-        m_VisualCard.SetCardCostUI(m_Cost);
-        m_VisualCard.SetCardTitle(m_Title);
-        m_VisualCard.SetCardDescription(m_Description);
+    private void Start() {
+        m_VisualMinion.SetCharacterLook(m_MinionData);
+        m_VisualMinion.SetMinionTypeParticle(m_MinionType);
+        m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
+        m_VisualMinion.SetMinionTitle(m_MinionData.name);
+        m_VisualMinion.SetMinionDescription(m_MinionData.description);
     }
 
     //Setting the card data to a default one when the script is reset 
     protected virtual void Reset()
     {
-        m_Cost = 0;
-        m_Title = "Title";
-        m_Description = "Write something about this card here.";
+        m_VisualMinion = GetComponent<VisualMinion>();
         grabbable = GetComponent<Grabbable>();
     }
 

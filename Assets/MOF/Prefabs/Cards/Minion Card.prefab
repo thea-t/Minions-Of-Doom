@@ -1499,7 +1499,6 @@ GameObject:
   - component: {fileID: 8221350604158127295}
   - component: {fileID: 8221350604158127288}
   - component: {fileID: 8221350604158127294}
-  - component: {fileID: 7262669475467113043}
   - component: {fileID: 1490793110}
   - component: {fileID: 1490793106}
   - component: {fileID: 1490793107}
@@ -1559,24 +1558,6 @@ MonoBehaviour:
   m_SkillImage: {fileID: 7867437795648209786}
   m_ElementImage: {fileID: 4475580610374040964}
   m_MinionImage: {fileID: 5570952200205568769}
---- !u!114 &7262669475467113043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8221350604158127290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab2cb6bfca9a6444bad08ba05311cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Cost: 0
-  m_Title: Title
-  m_Description: Write something about this card here.
-  m_CardType: 2
-  grabbable: {fileID: 1490793107}
-  m_Attack: 0
 --- !u!54 &1490793110
 Rigidbody:
   m_ObjectHideFlags: 0

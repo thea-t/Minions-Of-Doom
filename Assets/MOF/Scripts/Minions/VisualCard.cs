@@ -16,19 +16,19 @@ public class VisualCard : MonoBehaviour
     [SerializeField] private Image m_ElementImage;
     [SerializeField] private Image m_MinionImage;
 
-    public void SetCardTypeUI(CardType type)
+    public void SetCardTypeUI(MinionType type)
     {
         switch (type)
         {
-            case CardType.Element:
+            case MinionType.Elemental:
                 m_ElementImage.gameObject.SetActive(true);
                 break;
 
-            case CardType.Skill:
+            case MinionType.Skillful:
                 m_SkillImage.gameObject.SetActive(true);
                 break;
 
-            case CardType.Minion:
+            case MinionType.Fighter:
                 m_MinionImage.gameObject.SetActive(true);
                 break;
             

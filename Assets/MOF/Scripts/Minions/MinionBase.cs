@@ -7,20 +7,20 @@ using UnityEngine;
 
 //Base card class that holds common card functionalities.
 
-public enum CardType
+public enum MinionType
 {
-    Skill,
-    Element,
-    Minion
+    Skillful,
+    Elemental,
+    Fighter
 };
 [RequireComponent(typeof(VisualCard))]
-public abstract class CardBase : MonoBehaviour
+public abstract class MinionBase : MonoBehaviour
 {
     [Header("Settings")] [SerializeField] private int m_Cost;
     [SerializeField] private string m_Title;
     [SerializeField] private string m_Description;
 
-    [SerializeField] protected CardType m_CardType;
+    [SerializeField] protected MinionType m_MinionType;
 
 
     private VisualCard m_VisualCard;
@@ -44,7 +44,7 @@ public abstract class CardBase : MonoBehaviour
     {
         m_VisualCard = GetComponent<VisualCard>();
 
-        m_VisualCard.SetCardTypeUI(m_CardType);
+        m_VisualCard.SetCardTypeUI(m_MinionType);
         m_VisualCard.SetCardCostUI(m_Cost);
         m_VisualCard.SetCardTitle(m_Title);
         m_VisualCard.SetCardDescription(m_Description);
@@ -59,7 +59,7 @@ public abstract class CardBase : MonoBehaviour
         grabbable = GetComponent<Grabbable>();
     }
 
-    public virtual void OnCardDrawn()
+    public virtual void OnMinionDrawn()
     {
     }
 

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerCharacter Player;
     public UIManager UiManager;
     public TurnManager TurnManager;
-    public CardManager CardManager;
+    public DeckManager DeckManager;
     public LevelLauncher LevelLauncher;
     public static GameManager Instance { get; private set; }
 
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     void Reset()
     {
         Player = FindObjectOfType<PlayerCharacter>();
-        CardManager = GetComponent<CardManager>();
+        DeckManager = GetComponent<DeckManager>();
         TurnManager = GetComponent<TurnManager>();
         UiManager = GetComponent<UIManager>();
         LevelLauncher = GetComponent<LevelLauncher>();

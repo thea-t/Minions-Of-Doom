@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
+  m_Name: Enemy1 1
+  m_EditorClassIdentifier: 
+  minionMaterial: {fileID: 2100000, guid: bc3f4da6c88fe9344848b3770bc639d0, type: 2}
+  head:
+  - {fileID: 105032, guid: 464fab8a3521f4340b842ccf4a13160e, type: 3}
+  back: {fileID: 187820, guid: c6349ce8f2fcbfc42bc83ab9f1c6ea74, type: 3}
+  rightHand: {fileID: 100000, guid: 7f32de709fc79474cbd3bb7b2ee452e7, type: 3}
+  leftHand: {fileID: 100000, guid: aab49def371451d4daa96487684ff404, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 8507290000167684160, guid: 50a73301350ec8340ad71b5951e7587b,
     type: 3}
-  objectToSpawn: {fileID: 2292446900209916970, guid: d9887ca8ca7f57248a4fb407d3034da3,
+  objectToSpawn: {fileID: 9060200521828884929, guid: d9887ca8ca7f57248a4fb407d3034da3,
     type: 3}

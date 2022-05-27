@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCharacter : MonoBehaviour, IDamagable
 { 
 [SerializeField] private int m_StartingHealth;
-[SerializeField] private GameObject m_CharacterPrefab;
+//[SerializeField] private GameObject m_CharacterPrefab;
 [SerializeField][Range(0,10)] private int m_CardsToDrawOnStart;
          
     

@@ -35,7 +35,7 @@ public abstract class MinionBase : MonoBehaviour
 
     //Setting the card UI when the game starts 
     private void Start() {
-        m_VisualMinion.SetCharacterLook(m_MinionData);
+        m_VisualMinion.SetCharacterLook();
         m_VisualMinion.SetMinionTypeParticle(m_MinionType);
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
         m_VisualMinion.SetMinionTitle(m_MinionData.name);

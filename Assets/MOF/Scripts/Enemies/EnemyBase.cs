@@ -30,6 +30,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  
  void Start()
  {
+     m_VisualEnemy.SetCharacterLook();
      MaxHealth = m_EnemyData.maxHealth;
      CurrentHealth = m_EnemyData.maxHealth;
      

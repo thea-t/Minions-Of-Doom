@@ -13,7 +13,7 @@ public class CharacterLookChanger : MonoBehaviour {
     [SerializeField] private Transform m_LeftHandTransform;
     [SerializeField] private Transform m_RightHandTransform;
     
-    public void SetCharacterLook(MinionData minionData)
+    public void SetCharacterLook()
     {
         if (m_MeshRenderer.material != null)
         {

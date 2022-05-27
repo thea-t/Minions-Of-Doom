@@ -552,8 +552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ce3557c77ea9e4bb4b950fa0f366a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualEnemy: {fileID: 824190232071528093}
-  enemyData: {fileID: 0}
+  m_VisualEnemy: {fileID: 824190232071528093}
+  m_EnemyData: {fileID: 11400000, guid: 8e5da3ad4ced5c646b745a7cc0f4f6e1, type: 2}
   m_Animator: {fileID: 824190232062087442}
 --- !u!114 &824190232071528093
 MonoBehaviour:
@@ -567,6 +567,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5b87aaa7612e546a8362e4417ef867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CharacterLookData: {fileID: 11400000, guid: f018f731405393b408c05b5cfcef2622,
+    type: 2}
+  m_MeshRenderer: {fileID: 824190232057909552}
+  m_HeadTransform: {fileID: 824190232071943658}
+  m_BackTransform: {fileID: 824190232072022986}
+  m_LeftHandTransform: {fileID: 824190232072000292}
+  m_RightHandTransform: {fileID: 824190232071918782}
   selectionParticle: {fileID: 824190232071532158}
   cardSnapPoint: {fileID: 3542094103781240078}
   m_HealthTMP: {fileID: 3542094104262040884}
@@ -648,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &824190232071953988
 Transform:
   m_ObjectHideFlags: 0

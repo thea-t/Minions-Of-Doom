@@ -7,12 +7,12 @@ using System.Collections.Generic;
 
 //Launches a level by instantiating a prefab stored in the opened by the player door
  public class LevelLauncher : MonoBehaviour
-{
- void Start() 
  {
+  [SerializeField] private DoorData debugDoor;
+  void Awake()
+  {
+   if (!Player.SelectedDoor) { Player.SelectedDoor = debugDoor; Debug.Log("!!!DOOR NOT SELECTED!!!"); }
+   
    GameObject obj = Instantiate(Player.SelectedDoor.objectToSpawn);
+  }
  }
-
- 
- 
-}

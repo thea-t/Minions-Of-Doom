@@ -12,8 +12,6 @@ public class Map : MonoBehaviour
     
     private int currentLevel = 0;
 
-    //on level passed = currentLevel++;
-
     
     //Spawning random doors based on the current level when the game starts
     //Setting their position and distance from each other

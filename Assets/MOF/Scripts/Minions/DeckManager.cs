@@ -23,7 +23,6 @@ public class DeckManager : MonoBehaviour
     private void Start()
     {
         ShufflePile(deckPile);
-        StartCoroutine(DrawCards(GameManager.Instance.Player.CardsToDrawOnStart));
 
         GameManager.Instance.TurnManager.EnemyTurn += (delegate
         {
@@ -32,19 +31,21 @@ public class DeckManager : MonoBehaviour
 
         GameManager.Instance.TurnManager.PlayerTurn += delegate
         {
-            StartCoroutine(DrawCards(GameManager.Instance.Player.CardsToDrawOnStart));
+            StartCoroutine(DrawingCards(GameManager.Instance.Player.CardsToDrawOnStart));
         };
     }
 
     //Draws certain amount of cards by iterating through player's deck
-    private IEnumerator DrawCards(int amount)
+    private IEnumerator DrawingCards(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
             MinionBase minion = deckPile[0];
             handPile.Add(minion);
             deckPile.Remove(minion);
-            m_SnapPoints[i].GrabGrabbable(minion.grabbable);
+            minion.transform.position = m_SnapPoints[i].transform.position;
+            minion.transform.rotation = Quaternion.Euler(0, m_SnapPoints[i].transform.eulerAngles.y, 0);
+            
 
 
             if (deckPile.Count == 0)

@@ -31,7 +31,6 @@ public abstract class MinionBase : MonoBehaviour
 
     public Grabbable grabbable{ get; set; }
     
-    
 
     //Setting the card UI when the game starts 
     private void Start() {

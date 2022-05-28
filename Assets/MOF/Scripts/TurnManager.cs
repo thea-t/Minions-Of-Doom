@@ -20,6 +20,8 @@ public class TurnManager : MonoBehaviour
     {
         m_EndTurnButton.onButtonDown.AddListener(EndPlayerTurn);
         turnCount = 0;
+
+        StartCoroutine(StartGameIn(3));
     }
 
     public void EndPlayerTurn() {
@@ -31,6 +33,12 @@ public class TurnManager : MonoBehaviour
         turnCount++;
         PlayerTurn?.Invoke();
         Debug.Log("Player Turn");
+    }
+
+    private IEnumerator StartGameIn( int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        PlayerTurn.Invoke();
     }
 
 }

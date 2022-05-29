@@ -9,7 +9,8 @@ public class MinionData : ScriptableObject
     public string name;
     public string description;
     public int cost;
-
+    public bool isMale;
+    
     public MinionRarity minionRarity;
     
     //Spells

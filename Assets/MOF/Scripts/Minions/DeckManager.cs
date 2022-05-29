@@ -26,17 +26,17 @@ public class DeckManager : MonoBehaviour
 
         GameManager.Instance.TurnManager.EnemyTurn += (delegate
         {
-            StartCoroutine(DiscardCards(handPile.Count));
+            StartCoroutine(DiscardMinions(handPile.Count));
         });
 
         GameManager.Instance.TurnManager.PlayerTurn += delegate
         {
-            StartCoroutine(DrawingCards(GameManager.Instance.Player.CardsToDrawOnStart));
+            StartCoroutine(DrawingMinions(GameManager.Instance.Player.CardsToDrawOnStart));
         };
     }
 
     //Draws certain amount of cards by iterating through player's deck
-    private IEnumerator DrawingCards(int amount)
+    private IEnumerator DrawingMinions(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
@@ -73,7 +73,7 @@ public class DeckManager : MonoBehaviour
     }
 
     //Discarding certain amount of cards
-    private IEnumerator DiscardCards(int amount)
+    private IEnumerator DiscardMinions(int amount)
     {
         for (int i = 0; i < amount; i++)
         {

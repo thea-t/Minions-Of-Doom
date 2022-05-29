@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,4 +11,8 @@ public class MinionUiPopup : MonoBehaviour
     public TextMeshProUGUI titleTMP;
     public TextMeshProUGUI descriptionTMP;
 
+    private void LateUpdate()
+    {
+        transform.LookAt(GameManager.Instance.Player.centerEye.transform);
+    }
 }

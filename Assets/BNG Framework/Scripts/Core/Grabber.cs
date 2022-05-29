@@ -609,7 +609,12 @@ namespace BNG {
         }
 
         public virtual void TryRelease() {
-            if (HeldGrabbable != null && HeldGrabbable.CanBeDropped) {
+            if (HeldGrabbable != null && HeldGrabbable.CanBeDropped)
+            {
+
+                MinionBase grabbableMinion = HeldGrabbable.transform.parent.GetComponent<MinionBase>();
+                if (grabbableMinion) { grabbableMinion.OnReleased();}
+                
                 HeldGrabbable.DropItem(this);
             }
 

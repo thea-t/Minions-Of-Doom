@@ -7,7 +7,7 @@ public class PlayerCharacter : MonoBehaviour, IDamagable
 [SerializeField] private int m_StartingHealth;
 //[SerializeField] private GameObject m_CharacterPrefab;
 [SerializeField][Range(0,10)] private int m_CardsToDrawOnStart;
-         
+public GameObject centerEye;
     
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }

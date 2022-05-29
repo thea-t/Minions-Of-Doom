@@ -8,7 +8,7 @@ using UnityEngine.UI;
 //This class is responsible of all the visual card elements and setting their values
 public class VisualMinion : CharacterLookChanger {
 
-    [SerializeField] private MinionUiPopup m_MinionUiPopup;
+    public MinionUiPopup minionUiPopup;
     
     [Header("Accessories and look")]
     [SerializeField] private GameObject m_SkillfulParticle;
@@ -39,17 +39,17 @@ public class VisualMinion : CharacterLookChanger {
 
     public void SetMinionCostUI(int cost)
     {
-        m_MinionUiPopup.costTMP.text = cost.ToString();
+        minionUiPopup.costTMP.text = cost.ToString();
     }
     
     public void SetMinionTitle(string title)
     {
-        m_MinionUiPopup.titleTMP.text = title;
+        minionUiPopup.titleTMP.text = title;
     }
     
     public void SetMinionDescription(string desc)
     {
-        m_MinionUiPopup.descriptionTMP.text = desc;
+        minionUiPopup.descriptionTMP.text = desc;
     }
     
 }

@@ -8,10 +8,10 @@ public class GroundTrigger : MonoBehaviour
     [SerializeField] private MinionBase m_Minion;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Desk")
+        if (other.tag == "PlayArea")
         {
             m_Minion.OnTableCollided();
-            //GetComponent<Collider>().enabled = false;
+            GetComponent<Collider>().enabled = false;
                 
         }
     }

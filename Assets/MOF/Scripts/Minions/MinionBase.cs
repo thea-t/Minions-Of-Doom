@@ -25,6 +25,8 @@ public abstract class MinionBase : MonoBehaviour
     [SerializeField] private NavMeshAgent m_NavAgent;
     [SerializeField] private AudioSource m_AudioSource;
     
+    Coroutine timerOnReleased;
+    private const float RESET_TIME = 1;
     
     [SerializeField] private Collider m_GroundTrigger;
     [SerializeField] private Collider m_HeadCollider;
@@ -45,7 +47,7 @@ public abstract class MinionBase : MonoBehaviour
     //Setting the card UI when the game starts 
     private void Start() {
         m_VisualMinion.SetCharacterLook();
-        m_VisualMinion.SetMinionTypeParticle(m_MinionType);
+        m_VisualMinion.SetMinionParticle(m_MinionType, true);
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
         m_VisualMinion.SetMinionTitle(m_MinionData.name);
         m_VisualMinion.SetMinionDescription(m_MinionData.description);
@@ -72,107 +74,105 @@ public abstract class MinionBase : MonoBehaviour
     
     public void OnGrab()
     {
-      /*  bool canBeGrabbed = false;
-
-        if (expr)
-        {
-            
-        }
+       /* bool canBeGrabbed = GameManager.Instance.deckManager.TryToGrabMinion(minionData.minionCost);
 
         if (canBeGrabbed)
         {*/
             m_RagdollToAnimator.ToggleRagdoll(true);
 
             m_VisualMinion.minionUiPopup.gameObject.SetActive(true);
-/*
-            if (minionData.isMale)
-                audioSource.clip = GameManager.Instance.audioManager.maleMinionOnGrabbed;
+
+            if (m_MinionData.isMale)
+                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnGrabbed;
             else
-                audioSource.clip = GameManager.Instance.audioManager.femaleMinionOnGrabbed;
-            audioSource.Play();
-        }
+                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnGrabbed;
+                m_AudioSource.Play();
+       /* }
         else
         {
-            if(minionData.isMale)
-                audioSource.clip = GameManager.Instance.audioManager.maleMinionOnUnsuccessfulGrab;
+            if(m_MinionData.isMale)
+                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnUnsuccessfulGrab;
             else
-                audioSource.clip = GameManager.Instance.audioManager.femaleMinionOnUnsuccessfulGrab;
-            audioSource.Play();
+                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnUnsuccessfulGrab;
+            m_AudioSource.Play();
 
             animator.SetTrigger("Shake Head");
 
             recentGrabFailed = true;
-        } */
+        }*/
          
          
     }
     public void OnTableCollided()
     {
-       // if (GameManager.Instance.player.remainingMana >= minionData.minionCost)
-        //{
+       /* if (GameManager.Instance.Player.remainingMana >= minionData.minionCost)
+        {*/
+       Debug.Log("collided");
             m_RagdollToAnimator.ToggleRagdoll(false);
             m_GroundTrigger.enabled = false;
-/*            animator.SetTrigger("Get Up");
+            m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
+            m_VisualMinion.SetMinionParticle(m_MinionType, false);
+            m_Animator.SetTrigger("Get Up");
 
-            minionHome.HideCostText();
+          //  minionHome.HideCostText();
 
-            GameManager.Instance.deckManager.minionsInHand.Remove(this);
-            if (!minionData.exhausts)
+            GameManager.Instance.DeckManager.handPile.Remove(this);
+            if (!m_MinionData.exhausts)
             {
-                GameManager.Instance.deckManager.minionsInDiscard.Add(this);
-                GameManager.Instance.deckManager.recentlyPlayedMinions.Add(this);
+                GameManager.Instance.DeckManager.discardPile.Add(this);
+              //  GameManager.Instance.DeckManager.recentlyPlayedMinions.Add(this);
 
             }
 
-            GameManager.Instance.player.remainingMana -= minionData.minionCost;
-            GameManager.Instance.uiManager.UpdateManaText();
+           /* GameManager.Instance.player.remainingMana -= minionData.minionCost;
+            GameManager.Instance.uiManager.UpdateManaText();*/
 
 
-            if (minionData.isMale)
-                audioSource.clip = GameManager.Instance.audioManager.maleMinionOnTableCollided;
+            if (m_MinionData.isMale)
+                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnTableCollided;
             else
-                audioSource.clip = GameManager.Instance.audioManager.femaleMinionOnTableCollided;
-            audioSource.Play();
+                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnTableCollided;
+            m_AudioSource.Play();
 
             StopCoroutine(timerOnReleased);
-        }
+        /*}
         else
         {
             Debug.LogError("Not enough mana. I don't think this is supposed to happen as this function isn't supposed to be called unless the mana is enough.");
         }*/
     }
     
-   /* IEnumerator ReturToOriginalPosition()
+   IEnumerator ReturToOriginalPosition()
     {
         yield return new WaitForSeconds(RESET_TIME);
 
-        GameManager.Instance.DeckManager.grabbedManaTotal += minionData.minionCost;
+       // GameManager.Instance.DeckManager.grabbedManaTotal += minionData.minionCost;
 
         m_RagdollToAnimator.ToggleRagdoll(false);
         OnMinionDrawn();
     }
     
-    */
+    
     public void OnReleased()
     {
-        /*if (!recentGrabFailed)
+        if (!recentGrabFailed)
         {
             if (m_MinionData.isMale)
-                audioSource.clip = GameManager.Instance.audioManager.maleMinionOnDropped;
+                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnDropped;
             else
-                audioSource.clip = GameManager.Instance.audioManager.femaleMinionOnDropped;
-            audioSource.Play();
+                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnDropped;
+            m_AudioSource.Play();
 
           //  HideDescriptionUI();
 
-           // timerOnReleased = StartCoroutine(ReturToOriginalPosition());
+            timerOnReleased = StartCoroutine(ReturToOriginalPosition());
 
-            headCollider.enabled = false;
+            m_HeadCollider.enabled = false;
         }
         else
         {
             recentGrabFailed = false;
-        }*/
+        }
     }
     
     

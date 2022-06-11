@@ -6,7 +6,6 @@ public class EnemyBase :  MonoBehaviour, IDamagable
 {
     [SerializeField] private VisualEnemy m_VisualEnemy;
     [SerializeField] private EnemyData m_EnemyData;
-    
     [SerializeField] private Animator m_Animator;
 
     protected string m_AttackAnimation;

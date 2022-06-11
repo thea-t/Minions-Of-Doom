@@ -15,20 +15,20 @@ public class VisualMinion : CharacterLookChanger {
     [SerializeField] private GameObject m_ElementalParticle;
     [SerializeField] private GameObject m_FighterParticle;
 
-    public void SetMinionTypeParticle(MinionType type)
+    public void SetMinionParticle(MinionType type, bool showParticle)
     {
         switch (type)
         {
             case MinionType.Elemental:
-                m_ElementalParticle.SetActive(true);
+                m_ElementalParticle.SetActive(showParticle);
                 break;
 
             case MinionType.Skillful:
-                m_SkillfulParticle.SetActive(true);
+                m_SkillfulParticle.SetActive(showParticle);
                 break;
 
             case MinionType.Fighter:
-                m_FighterParticle.SetActive(true);
+                m_FighterParticle.SetActive(showParticle);
                 break;
             
             default:

@@ -8,10 +8,12 @@ using UnityEngine.UI;
 
 public class DeckManager : MonoBehaviour
 {
-    private List<MinionBase> handPile = new List<MinionBase>();
+    public List<MinionBase> handPile = new List<MinionBase>();
+    public List<MinionBase> discardPile = new List<MinionBase>();
     [SerializeField] private List<MinionBase> deckPile = new List<MinionBase>();
-    private List<MinionBase> discardPile = new List<MinionBase>();
 
+    //public List<MinionBase> recentlyPlayedMinions;
+    
     [SerializeField] private GameObject m_DrawPile;
     [SerializeField] private GameObject m_DiscardPile;
     [SerializeField] private BNG.SnapZone[] m_SnapPoints;

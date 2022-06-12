@@ -74,10 +74,10 @@ public abstract class MinionBase : MonoBehaviour
     
     public void OnGrab()
     {
-       /* bool canBeGrabbed = GameManager.Instance.deckManager.TryToGrabMinion(minionData.minionCost);
+        bool canBeGrabbed = GameManager.Instance.ManaManager.TryToGrabMinion(m_MinionData.cost);
 
         if (canBeGrabbed)
-        {*/
+        {
             m_RagdollToAnimator.ToggleRagdoll(true);
 
             m_VisualMinion.minionUiPopup.gameObject.SetActive(true);
@@ -87,7 +87,7 @@ public abstract class MinionBase : MonoBehaviour
             else
                 m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnGrabbed;
                 m_AudioSource.Play();
-       /* }
+        }
         else
         {
             if(m_MinionData.isMale)
@@ -96,10 +96,10 @@ public abstract class MinionBase : MonoBehaviour
                 m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnUnsuccessfulGrab;
             m_AudioSource.Play();
 
-            animator.SetTrigger("Shake Head");
+            m_Animator.SetTrigger("Shake Head");
 
             recentGrabFailed = true;
-        }*/
+        }
          
          
     }

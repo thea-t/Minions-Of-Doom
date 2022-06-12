@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public DeckManager DeckManager;
     public LevelLauncher LevelLauncher;
     public AudioManager AudioManager;
+    public ManaManager ManaManager;
     public static GameManager Instance { get; private set; }
 
     void Awake()
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         UiManager = GetComponent<UIManager>();
         LevelLauncher = GetComponent<LevelLauncher>();
         AudioManager = GetComponent<AudioManager>();
+        ManaManager = GetComponent<ManaManager>();
     }
 
 }

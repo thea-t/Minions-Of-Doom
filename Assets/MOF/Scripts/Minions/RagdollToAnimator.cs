@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class RagdollToAnimator : MonoBehaviour
 {
-    [SerializeField] Collider headCollider;
-    Rigidbody[] rigids;
-    Animator anim;
-    bool isRagdolled = false;
+    [SerializeField] private Collider headCollider;
+    private Rigidbody[] rigids;
+    private Animator anim;
 
 
     private void Start()
@@ -23,9 +22,8 @@ public class RagdollToAnimator : MonoBehaviour
         {
             transform.position = rigids[3].position;
         }
-        isRagdolled = _isRagdolled;
 
-        //headCollider.enabled = !_isRagdolled;
+        headCollider.enabled = !_isRagdolled;
 
         foreach (Rigidbody ragdollBone in rigids)
         {
@@ -33,6 +31,5 @@ public class RagdollToAnimator : MonoBehaviour
         }
 
         anim.enabled = !_isRagdolled;
-
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class DeckManager : MonoBehaviour
@@ -16,7 +17,7 @@ public class DeckManager : MonoBehaviour
     
     [SerializeField] private GameObject m_DrawPile;
     [SerializeField] private GameObject m_DiscardPile;
-    [SerializeField] private BNG.SnapZone[] m_SnapPoints;
+    [SerializeField] private BNG.SnapZone[] m_SnapZones;
 
 
     //Shuffling the deck pile when the game starts, and drawing random cards in the player's hand 
@@ -31,10 +32,13 @@ public class DeckManager : MonoBehaviour
             StartCoroutine(DiscardMinions(handPile.Count));
         });
 
-        GameManager.Instance.TurnManager.PlayerTurn += delegate
-        {
-            StartCoroutine(DrawingMinions(GameManager.Instance.Player.CardsToDrawOnStart));
-        };
+        GameManager.Instance.TurnManager.PlayerTurn += OnPlayerTurnBegin;
+    }
+
+    private void OnPlayerTurnBegin()
+    {
+        StartCoroutine(DrawingMinions(GameManager.Instance.Player.CardsToDrawOnStart));
+        GameManager.Instance.ManaManager.RechargeManaOnTurnBegin();
     }
 
     //Draws certain amount of cards by iterating through player's deck
@@ -45,10 +49,7 @@ public class DeckManager : MonoBehaviour
             MinionBase minion = deckPile[0];
             handPile.Add(minion);
             deckPile.Remove(minion);
-            minion.transform.position = m_SnapPoints[i].transform.position;
-            minion.transform.rotation = Quaternion.Euler(0, m_SnapPoints[i].transform.eulerAngles.y, 0);
-            
-
+            minion.SetSnapZone(m_SnapZones[i]);
 
             if (deckPile.Count == 0)
             {

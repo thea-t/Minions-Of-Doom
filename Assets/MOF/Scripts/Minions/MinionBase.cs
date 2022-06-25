@@ -15,6 +15,7 @@ public enum MinionType
     Elemental,
     Fighter
 };
+
 [RequireComponent(typeof(VisualMinion))]
 public abstract class MinionBase : MonoBehaviour
 {
@@ -24,28 +25,30 @@ public abstract class MinionBase : MonoBehaviour
     [SerializeField] private Animator m_Animator;
     [SerializeField] private NavMeshAgent m_NavAgent;
     [SerializeField] private AudioSource m_AudioSource;
-    
+
     Coroutine timerOnReleased;
     private const float RESET_TIME = 1;
-    
+
     [SerializeField] private Collider m_GroundTrigger;
     [SerializeField] private Collider m_HeadCollider;
-    
+
     protected MinionType m_MinionType;
     private EnemyBase m_TargetedEnemy;
     private EnemyBase m_PreviouslyTargetedEnemy;
+    private SnapZone m_SnapZone;
+
+    private Vector3 m_DragBeginPos;
+    private Vector3 m_DragBeginRot;
+    private Vector3 m_ScreenPoint;
+    private Vector3 m_Offset;
 
 
-    private Vector3 dragBeginPos;
-    private Vector3 dragBeginRot;
-    private Vector3 screenPoint;
-    private Vector3 offset;
-
-    public Grabbable grabbable{ get; set; }
-    private bool recentGrabFailed = false;
+    public Grabbable grabbable { get; set; }
+    private bool m_RecentGrabFailed = false;
 
     //Setting the card UI when the game starts 
-    private void Start() {
+    private void Start()
+    {
         m_VisualMinion.SetCharacterLook();
         m_VisualMinion.SetMinionParticle(m_MinionType, true);
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
@@ -64,14 +67,21 @@ public abstract class MinionBase : MonoBehaviour
         grabbable = GetComponent<Grabbable>();
     }
 
+    public void SetSnapZone(SnapZone snapZone)
+    {
+        m_SnapZone = snapZone;
+    }
+
     public virtual void OnMinionDrawn()
-    { 
+    {
         m_GroundTrigger.enabled = true;
         m_HeadCollider.enabled = true;
-
         m_NavAgent.enabled = false;
+        
+        transform.position = m_SnapZone.transform.position;
+        transform.rotation = Quaternion.Euler(0, m_SnapZone.transform.eulerAngles.y, 0);
     }
-    
+
     public void OnGrab()
     {
         bool canBeGrabbed = GameManager.Instance.ManaManager.TryToGrabMinion(m_MinionData.cost);
@@ -86,101 +96,80 @@ public abstract class MinionBase : MonoBehaviour
                 m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnGrabbed;
             else
                 m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnGrabbed;
-                m_AudioSource.Play();
+            
+            m_AudioSource.Play();
         }
         else
         {
-            if(m_MinionData.isMale)
+            if (m_MinionData.isMale)
                 m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnUnsuccessfulGrab;
             else
                 m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnUnsuccessfulGrab;
+            
             m_AudioSource.Play();
 
             m_Animator.SetTrigger("Shake Head");
 
-            recentGrabFailed = true;
+            m_RecentGrabFailed = true;
         }
-         
-         
     }
+
     public void OnTableCollided()
     {
-       /* if (GameManager.Instance.Player.remainingMana >= minionData.minionCost)
-        {*/
-       Debug.Log("collided");
-            m_RagdollToAnimator.ToggleRagdoll(false);
-            m_GroundTrigger.enabled = false;
-            m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
-            m_VisualMinion.SetMinionParticle(m_MinionType, false);
-            m_Animator.SetTrigger("Get Up");
-
-          //  minionHome.HideCostText();
-
-            GameManager.Instance.DeckManager.handPile.Remove(this);
-            if (!m_MinionData.exhausts)
-            {
-                GameManager.Instance.DeckManager.discardPile.Add(this);
-              //  GameManager.Instance.DeckManager.recentlyPlayedMinions.Add(this);
-
-            }
-
-           /* GameManager.Instance.player.remainingMana -= minionData.minionCost;
-            GameManager.Instance.uiManager.UpdateManaText();*/
+        Debug.Log("collided");
+        m_RagdollToAnimator.ToggleRagdoll(false);
+        m_GroundTrigger.enabled = false;
+        m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
+        m_VisualMinion.SetMinionParticle(m_MinionType, false);
+        m_Animator.SetTrigger("Get Up");
 
 
-            if (m_MinionData.isMale)
-                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnTableCollided;
-            else
-                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnTableCollided;
-            m_AudioSource.Play();
-
-            StopCoroutine(timerOnReleased);
-        /*}
-        else
+        GameManager.Instance.DeckManager.handPile.Remove(this);
+        if (!m_MinionData.exhausts)
         {
-            Debug.LogError("Not enough mana. I don't think this is supposed to happen as this function isn't supposed to be called unless the mana is enough.");
-        }*/
+            GameManager.Instance.DeckManager.discardPile.Add(this);
+        }
+
+        if (m_MinionData.isMale)
+            m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnTableCollided;
+        else
+            m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnTableCollided;
+        
+        m_AudioSource.Play();
+        StopCoroutine(timerOnReleased);
     }
-    
-   IEnumerator ReturToOriginalPosition()
+
+    IEnumerator ReturnToOriginalPosition()
     {
         yield return new WaitForSeconds(RESET_TIME);
 
-       // GameManager.Instance.DeckManager.grabbedManaTotal += minionData.minionCost;
+        GameManager.Instance.ManaManager.AddMana(m_MinionData.cost);
 
         m_RagdollToAnimator.ToggleRagdoll(false);
         OnMinionDrawn();
     }
-    
-    
+
+
     public void OnReleased()
     {
-        if (!recentGrabFailed)
+        Debug.Log("released");
+        if (m_MinionData.isMale)
         {
-            if (m_MinionData.isMale)
-                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnDropped;
-            else
-                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnDropped;
-            m_AudioSource.Play();
-
-          //  HideDescriptionUI();
-
-            timerOnReleased = StartCoroutine(ReturToOriginalPosition());
-
-            m_HeadCollider.enabled = false;
+            m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnDropped;
         }
         else
         {
-            recentGrabFailed = false;
+            m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnDropped;
         }
+
+        m_AudioSource.Play();
+        m_HeadCollider.enabled = false;
+        timerOnReleased = StartCoroutine(ReturnToOriginalPosition());
     }
-    
-    
-    
-    
-    
-    
+
+
     #region Deprecated
+
     /*
     
     
@@ -246,8 +235,6 @@ public abstract class MinionBase : MonoBehaviour
     }
 
 */
-    #endregion
-    
 
-  
+    #endregion
 }

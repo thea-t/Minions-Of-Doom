@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class ManaManager : MonoBehaviour
 {
-    [SerializeField] private int m_StartingMana;
-    [SerializeField] private int m_MaxMana;
-    public int CurrentMana { get; set; }
-
+    [SerializeField] private int ManaToGainOnTurnBegin;
+    private int CurrentMana;
     private void Start()
     {
-        CurrentMana = m_StartingMana;
+        CurrentMana = ManaToGainOnTurnBegin;
+        GameManager.Instance.UiManager.UpdateManaUI(CurrentMana);
     }
     
     public bool TryToGrabMinion(int cost)
@@ -20,12 +19,22 @@ public class ManaManager : MonoBehaviour
         if (cost <= CurrentMana)
         {
             CurrentMana -= cost;
+            GameManager.Instance.UiManager.UpdateManaUI(CurrentMana);
             return true;
         }
-        else
-        {
             return false;
-        }
     }
-    
+
+    public void AddMana(int amount)
+    {
+        CurrentMana += amount;
+        GameManager.Instance.UiManager.UpdateManaUI(CurrentMana);
+    }
+
+    public void RechargeManaOnTurnBegin()
+    {
+        CurrentMana = ManaToGainOnTurnBegin;
+        GameManager.Instance.UiManager.UpdateManaUI(CurrentMana);
+    }
+
 }

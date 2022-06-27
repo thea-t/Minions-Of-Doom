@@ -77,14 +77,16 @@ public abstract class MinionBase : MonoBehaviour
         m_GroundTrigger.enabled = true;
         m_HeadCollider.enabled = true;
         m_NavAgent.enabled = false;
-        
+        m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
+
         transform.position = m_SnapZone.transform.position;
         transform.rotation = Quaternion.Euler(0, m_SnapZone.transform.eulerAngles.y, 0);
     }
 
+    private bool canBeGrabbed;
     public void OnGrab()
     {
-        bool canBeGrabbed = GameManager.Instance.ManaManager.TryToGrabMinion(m_MinionData.cost);
+        canBeGrabbed = GameManager.Instance.ManaManager.TryToGrabMinion(m_MinionData.cost);
 
         if (canBeGrabbed)
         {
@@ -142,11 +144,11 @@ public abstract class MinionBase : MonoBehaviour
     IEnumerator ReturnToOriginalPosition()
     {
         yield return new WaitForSeconds(RESET_TIME);
-
-        GameManager.Instance.ManaManager.AddMana(m_MinionData.cost);
-
+        
         m_RagdollToAnimator.ToggleRagdoll(false);
         OnMinionDrawn();
+
+        if (canBeGrabbed) GameManager.Instance.ManaManager.AddMana(m_MinionData.cost);
     }
 
 
@@ -161,8 +163,9 @@ public abstract class MinionBase : MonoBehaviour
         {
             m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnDropped;
         }
-
-        m_AudioSource.Play();
+        
+        if (canBeGrabbed) m_AudioSource.Play();
+        
         m_HeadCollider.enabled = false;
         timerOnReleased = StartCoroutine(ReturnToOriginalPosition());
     }

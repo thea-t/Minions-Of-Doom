@@ -94,6 +94,12 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
  }
 
+ public void DealDamage(int damage)
+ {
+     CurrentHealth -= damage;
+     m_VisualEnemy.UpdateHealthUI(CurrentHealth);
+ }
+ 
  //Setting active an selection particle when the enemy was hovered over
  public void HoveringWithCard(bool hovering)
  {

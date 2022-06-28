@@ -835,6 +835,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1731869188}
     m_Modifications:
+    - target: {fileID: -8539279461886020030, guid: 132cde9c1b736924f918e5a05525a9c9,
+        type: 3}
+      propertyPath: m_Speed
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 2975887248641830073, guid: 132cde9c1b736924f918e5a05525a9c9,
         type: 3}
       propertyPath: m_IsActive
@@ -1893,6 +1898,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1731869188}
     m_Modifications:
+    - target: {fileID: -8539279461886020030, guid: 132cde9c1b736924f918e5a05525a9c9,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.89
+      objectReference: {fileID: 0}
     - target: {fileID: 2975887248641830073, guid: 132cde9c1b736924f918e5a05525a9c9,
         type: 3}
       propertyPath: m_IsActive
@@ -2420,6 +2430,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ManaToGainOnTurnBegin: 5
+--- !u!114 &695950540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5131594081228622967, guid: bb1be51f383ecfc46b32c948f2710b26,
+    type: 3}
+  m_PrefabInstance: {fileID: 4565345353635045714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695950538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504a19e4144f4504e86f4ee35c98c3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,7 +5339,7 @@ GameObject:
   m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1611169587
 Transform:
@@ -5327,8 +5349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611169586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: 1.864}
-  m_LocalScale: {x: 0.061180506, y: 0.17789, z: 0.1329593}
+  m_LocalPosition: {x: 0, y: 0.61, z: 1.897}
+  m_LocalScale: {x: 0.061180506, y: 0.17789, z: 0.135}
   m_Children: []
   m_Father: {fileID: 83040573}
   m_RootOrder: 6
@@ -5354,7 +5376,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611169586}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5366,7 +5388,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7795615c21b908641ac3099359fe47a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7397,6 +7419,11 @@ PrefabInstance:
       propertyPath: ManaManager
       value: 
       objectReference: {fileID: 695950539}
+    - target: {fileID: 4565345353266599237, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: EnemyManager
+      value: 
+      objectReference: {fileID: 695950540}
     - target: {fileID: 4565345353266599238, guid: bb1be51f383ecfc46b32c948f2710b26,
         type: 3}
       propertyPath: m_EndTurnButton
@@ -7462,6 +7489,56 @@ PrefabInstance:
       propertyPath: deckPile.Array.data[9]
       value: 
       objectReference: {fileID: 711086370}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[0]
+      value: 
+      objectReference: {fileID: 1755141963}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[1]
+      value: 
+      objectReference: {fileID: 365115894}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[2]
+      value: 
+      objectReference: {fileID: 825191331}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[3]
+      value: 
+      objectReference: {fileID: 1176367924}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[4]
+      value: 
+      objectReference: {fileID: 2110719834}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[5]
+      value: 
+      objectReference: {fileID: 1188086327}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[6]
+      value: 
+      objectReference: {fileID: 1959515653}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[7]
+      value: 
+      objectReference: {fileID: 1809895873}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[8]
+      value: 
+      objectReference: {fileID: 653908373}
+    - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_SnapZones.Array.data[9]
+      value: 
+      objectReference: {fileID: 334164561}
     - target: {fileID: 4565345353266599239, guid: bb1be51f383ecfc46b32c948f2710b26,
         type: 3}
       propertyPath: m_SnapPoints.Array.data[0]

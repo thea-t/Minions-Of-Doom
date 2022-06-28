@@ -38,6 +38,10 @@ public GameObject centerEye;
         
     }
 
+    private void Win()
+    {
+        
+    }
 
     public void Die()
     { 

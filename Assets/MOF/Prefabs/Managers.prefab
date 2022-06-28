@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 4565345353266599243}
   - component: {fileID: 4565345353266599239}
   - component: {fileID: 4565345353266599236}
+  - component: {fileID: 695950539}
+  - component: {fileID: 941566825118520100}
+  - component: {fileID: 5131594081228622967}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -57,6 +60,8 @@ MonoBehaviour:
   DeckManager: {fileID: 4565345353266599239}
   LevelLauncher: {fileID: 4565345353266599243}
   AudioManager: {fileID: 4565345353266599236}
+  ManaManager: {fileID: 695950539}
+  RewardManager: {fileID: 941566825118520100}
 --- !u!114 &4565345353266599238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerHealthTMP: {fileID: 0}
+  m_ManaTMP: {fileID: 0}
 --- !u!114 &4565345353266599243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7d13a7316cd1d45936ce45a35eb042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handPile: []
+  discardPile: []
   deckPile:
   - {fileID: 0}
   - {fileID: 0}
@@ -121,7 +129,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_DrawPile: {fileID: 0}
   m_DiscardPile: {fileID: 0}
-  m_SnapPoints:
+  m_SnapZones:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -163,3 +171,42 @@ MonoBehaviour:
   wonAgainstEliteEnemy: {fileID: 8300000, guid: 3c5c1bfacf8113e439c47fc58052203b,
     type: 3}
   wonAgainstBossEnemy: {fileID: 8300000, guid: 133f499f049746a4285bc2712a997437, type: 3}
+--- !u!114 &695950539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565345353266599232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697096306ce7fcf4c906d8a6681f03ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ManaToGainOnTurnBegin: 5
+--- !u!114 &941566825118520100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565345353266599232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9044712a133de140be7233101a57a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RewardPrefab: {fileID: -7394572545274714725, guid: f2b8da730809b0e419b37847b408d0c5,
+    type: 3}
+--- !u!114 &5131594081228622967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565345353266599232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504a19e4144f4504e86f4ee35c98c3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

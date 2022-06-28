@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,8 +36,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      
      m_VisualEnemy.UpdateHealthUI(CurrentHealth);
      m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
-     
-     GameManager.Instance.TurnManager.EnemyTurn += OnEnemyTurn;
+     GameManager.Instance.EnemyManager.enemies.Add(this);
  }
 
  //Reducing enemy's health and updating its UI when the enemy takes damage
@@ -46,9 +46,11 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      m_VisualEnemy.UpdateHealthUI(CurrentHealth);
  }
 
+ public Action Dead;
  public void Die()
  {
-     
+     Dead?.Invoke();
+     GameManager.Instance.EnemyManager.enemies.Remove(this);
  }
  
  //Playing animation while the enemy is attacking and dealing damage to the player at the end of the animation
@@ -56,11 +58,13 @@ public class EnemyBase :  MonoBehaviour, IDamagable
 //https://answers.unity.com/questions/692593/get-animation-clip-length-using-animator.html
  
 
- private void OnEnemyTurn() {
+ public void OnEnemyTurn() 
+ {
      
      Attack();
-     Debug.Log("turnCount: " + GameManager.Instance.TurnManager.turnCount);
      m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+     
+     Debug.Log("turnCount: " + GameManager.Instance.TurnManager.turnCount);
  }
  protected virtual void Attack()
  {

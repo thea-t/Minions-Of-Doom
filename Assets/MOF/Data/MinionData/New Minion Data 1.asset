@@ -15,5 +15,7 @@ MonoBehaviour:
   name: Minion JB 02
   description: hello world
   cost: 2
+  isMale: 0
+  damage: 20
   minionRarity: 2
   exhausts: 0

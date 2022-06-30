@@ -58,6 +58,7 @@ public abstract class MinionBase : MonoBehaviour
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
         m_VisualMinion.SetMinionTitle(m_MinionData.name);
         m_VisualMinion.SetMinionDescription(m_MinionData.description);
+        m_VisualMinion.SetDamage(m_MinionData.damage);
     }
 
     //Setting the card data to a default one when the script is reset 
@@ -113,7 +114,9 @@ public abstract class MinionBase : MonoBehaviour
 
             m_AudioSource.Play();
 
-            m_Animator.SetTrigger("Shake Head");
+            m_Animator.SetTrigger("Shake Head");            
+            m_VisualMinion.NotEnoughManaPopUp();
+
         }
     }
 
@@ -176,28 +179,7 @@ public abstract class MinionBase : MonoBehaviour
         yield return new WaitForSeconds(m_Animator.GetCurrentAnimatorStateInfo(0).length);
         m_NavAgent.enabled = true;
 
-        //OnArriveToEnemy();
         StartCoroutine(MoveToTarget());
-    }
-
-    private void OnArriveToEnemy()
-    {
-        m_Animator.SetBool("Run", true);
-        Transform enemyTransform = GameManager.Instance.EnemyManager.GetSelectedEnemy().transform;
-        
-        m_NavAgent.destination = enemyTransform.position;
-        LookAtTarget(enemyTransform);
-        
-        if (!m_NavAgent.pathPending)
-        {
-            if (m_NavAgent.remainingDistance <= m_NavAgent.stoppingDistance)
-            {
-                if (!m_NavAgent.hasPath || m_NavAgent.velocity.sqrMagnitude == 0f)
-                {
-                    OnArriveToTarget();
-                }
-            }
-        }
     }
 
     private IEnumerator MoveToTarget()
@@ -213,29 +195,30 @@ public abstract class MinionBase : MonoBehaviour
             yield return null;
 
         } while (m_NavAgent.remainingDistance > 0.2f);
-        
-        yield return new WaitForSeconds(0.5f);
 
         OnArriveToTarget();
-        
-        yield return new WaitForSeconds(0.5f);
-        Attack();
     }
 
     private void OnArriveToTarget()
     {        
         Debug.Log("ARRIVED");
+        Attack();       
         m_Animator.SetBool("Run", false);
-        Attack();
+    
     }
     
     private void Attack()
-    {               Debug.Log("Attack");
-
-        m_Animator.SetTrigger("Fly Left Punch Attack");
-        GameManager.Instance.EnemyManager.GetSelectedEnemy().DealDamage(m_MinionData.damage);
+    {               
+        Debug.Log("Attack");
+        m_Animator.SetTrigger("Hit");
     }
-    
+
+    //anim event
+    private void DealDamage() 
+    {
+        GameManager.Instance.EnemyManager.GetSelectedEnemy().TakeDamage(m_MinionData.damage);
+    }
+
     protected void LookAtTarget(Transform target)
     {
         transform.DOLookAt(target.position, LOOK_SPEED);

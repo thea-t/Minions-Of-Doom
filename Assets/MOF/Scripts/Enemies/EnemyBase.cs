@@ -12,8 +12,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
     protected string m_AttackAnimation;
     protected string m_BuffAnimation;
 
-    
- public int MaxHealth { get; set; }
+    public int MaxHealth { get; set; }
  public int CurrentHealth { get; set; }
  public float Block { get; set; }
 
@@ -44,6 +43,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  {
      CurrentHealth -= amount;
      m_VisualEnemy.UpdateHealthUI(CurrentHealth);
+     m_Animator.SetTrigger("Take Damage");
  }
 
  public Action Dead;
@@ -94,12 +94,6 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
  }
 
- public void DealDamage(int damage)
- {
-     CurrentHealth -= damage;
-     m_VisualEnemy.UpdateHealthUI(CurrentHealth);
- }
- 
  //Setting active an selection particle when the enemy was hovered over
  public void HoveringWithCard(bool hovering)
  {

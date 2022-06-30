@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool vrFree;
+    
     [SerializeField] private LayerMask selectableLayer;
     public PlayerCharacter Player;
     public UIManager UiManager;

@@ -10,6 +10,7 @@ public class MinionUiPopup : MonoBehaviour
     public TextMeshProUGUI costTMP;
     public TextMeshProUGUI titleTMP;
     public TextMeshProUGUI descriptionTMP;
+    public TextMeshProUGUI damageTMP;
 
     private void LateUpdate()
     {

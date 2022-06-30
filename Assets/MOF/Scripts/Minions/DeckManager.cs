@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DeckManager : MonoBehaviour
 {
@@ -33,8 +34,22 @@ public class DeckManager : MonoBehaviour
         });
 
         GameManager.Instance.TurnManager.PlayerTurn += OnPlayerTurnBegin;
+        
+        if (GameManager.Instance.vrFree) 
+        {
+            StartCoroutine(VrFreeTest());
+        }
     }
 
+    private Vector3 testPos = new Vector3(-0.35800001f, 0.737999976f, 1.32799995f);
+    private MinionBase GetRandomMinionFromHand() { return handPile[Random.Range(0, handPile.Count)]; }
+
+    IEnumerator VrFreeTest() {
+        yield return new WaitForSeconds(10);
+        GetRandomMinionFromHand().transform.position = testPos;
+    }
+    
+    
     private void OnPlayerTurnBegin()
     {
         StartCoroutine(DrawingMinions(GameManager.Instance.Player.CardsToDrawOnStart));
@@ -90,8 +105,7 @@ public class DeckManager : MonoBehaviour
 
         handPile.Clear();
     }
-
-
+    
     //Shuffles the pile
     // How to shuffle items in list: https://stackoverflow.com/questions/273313/randomize-a-listt
     private void ShufflePile(List<MinionBase> pile)

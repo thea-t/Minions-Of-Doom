@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 //This class checks if a door is open and loads the Game Scene 
 public class Door : MonoBehaviour
 {
-    
     [SerializeField] private DoorHelper doorHelper; // DoorHelper.cs comes from the VR Interaction Framework asset 
 
     private void Reset()
@@ -21,6 +20,7 @@ public class Door : MonoBehaviour
     }
     private void OnDoorOpened()
     {
+        Debug.Log("door opened");
         SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 }

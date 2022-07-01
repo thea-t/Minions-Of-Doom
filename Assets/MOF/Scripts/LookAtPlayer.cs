@@ -10,7 +10,6 @@ public class LookAtPlayer : MonoBehaviour
     void Update()
     {
         LookAt(GameManager.Instance.Player.transform);
-        Debug.Log("UPDATE ");
     }
 
     void LookAt(Transform _transform) 

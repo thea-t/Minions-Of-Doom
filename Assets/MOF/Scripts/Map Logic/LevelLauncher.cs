@@ -9,9 +9,10 @@ using System.Collections.Generic;
  public class LevelLauncher : MonoBehaviour
  {
   [SerializeField] private DoorData debugDoor;
+  [SerializeField] private bool debug;
   void Awake()
   {
-   if (!Player.SelectedDoor) { Player.SelectedDoor = debugDoor; Debug.Log("!!!DOOR NOT SELECTED!!!"); }
+   if (debug && !Player.SelectedDoor) { Player.SelectedDoor = debugDoor; Debug.Log("!!!DOOR NOT SELECTED!!!"); }
    
    GameObject obj = Instantiate(Player.SelectedDoor.objectToSpawn);
   }

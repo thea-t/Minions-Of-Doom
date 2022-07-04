@@ -15,8 +15,7 @@ MonoBehaviour:
   doorData:
   - {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}
   - {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}
-  - {fileID: 11400000, guid: 3439b2d6cd8f6fa4b9e3386041f8dd90, type: 2}
-  - {fileID: 11400000, guid: 3439b2d6cd8f6fa4b9e3386041f8dd90, type: 2}
-  - {fileID: 11400000, guid: 0f57fe844f340af409d95fa05480c193, type: 2}
-  - {fileID: 11400000, guid: 0f57fe844f340af409d95fa05480c193, type: 2}
-  doorCount: 3
+  - {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}
+  - {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}
+  - {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}
+  - {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}

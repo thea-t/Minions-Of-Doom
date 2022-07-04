@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Map : MonoBehaviour 
 {
-    private const float DOOR_DISTANCE = 1.45f;
+    private const float DOOR_DISTANCE = 1f;
     
     [SerializeField] private LevelData[] levels;
     private List<Door> m_SpawnedDoors = new List<Door>();

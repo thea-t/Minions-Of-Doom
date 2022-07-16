@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealAction : Choice
 {
-    protected override void OnExecute()
+    public override void OnExecute()
     {
         base.OnExecute();
         

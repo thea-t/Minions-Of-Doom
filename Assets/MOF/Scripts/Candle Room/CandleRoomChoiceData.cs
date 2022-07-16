@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CandleRoomChoiceData : ScriptableObject
 {
-    public string[] questions;
-    public Choice[] choices;
+    public string questionLineOne;
+    public string questionLineTwo;
+    public List<Choice> choices;
 }

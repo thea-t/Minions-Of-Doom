@@ -1759,7 +1759,7 @@ GameObject:
   - component: {fileID: 258577746}
   - component: {fileID: 258577745}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: line2 (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1977,7 +1977,7 @@ GameObject:
   - component: {fileID: 289472791}
   - component: {fileID: 289472790}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3591,7 +3591,7 @@ GameObject:
   - component: {fileID: 569193794}
   - component: {fileID: 569193793}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: line1 (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5486,7 +5486,7 @@ GameObject:
   - component: {fileID: 921834269}
   - component: {fileID: 921834268}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BtnText1 (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5637,7 +5637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9387f31d9b8005c4d9029713838ed9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChoiceData: {fileID: 0}
+  m_ChoiceData:
+  - {fileID: 11400000, guid: 6e245893b193cfd459255fe12560a40f, type: 2}
+  m_ChoiceUi: {fileID: 1417062362}
 --- !u!4 &937538227
 Transform:
   m_ObjectHideFlags: 0
@@ -5650,7 +5652,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &941525519
 PrefabInstance:
@@ -7879,7 +7881,7 @@ GameObject:
   - component: {fileID: 1196824475}
   - component: {fileID: 1196824474}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BtnText2 (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8756,7 +8758,7 @@ GameObject:
   - component: {fileID: 1308543648}
   - component: {fileID: 1308543647}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9473,6 +9475,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2af1d2045149fe743b81bc4d1a6f8406, type: 3}
+--- !u!1 &1417062361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417062363}
+  - component: {fileID: 1417062362}
+  m_Layer: 0
+  m_Name: Ui
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1417062362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417062361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ba77d47cb0ddf4f983abd3dccd548c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ButtonOptionOne: {fileID: 289472790}
+  m_ButtonOptionTwo: {fileID: 1308543647}
+  m_ButtonOneTMP: {fileID: 921834268}
+  m_ButtonTwoTMP: {fileID: 1196824474}
+  m_LineOneTMP: {fileID: 569193793}
+  m_LineTwoTMP: {fileID: 258577745}
+--- !u!4 &1417062363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417062361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2013286920}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1440081394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12970,7 +13022,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013286916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12978,8 +13030,8 @@ RectTransform:
   - {fileID: 941677389}
   - {fileID: 289472789}
   - {fileID: 1308543646}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1417062363}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

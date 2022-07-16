@@ -5,7 +5,7 @@ using UnityEngine;
 public class Choice: MonoBehaviour
 { 
    public string buttonDesc;
-   protected virtual void OnExecute()
+   public virtual void OnExecute()
    {
       
    }

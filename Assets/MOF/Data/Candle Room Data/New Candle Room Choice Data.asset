@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927caad4642131d4fb3b956d271bffc5, type: 3}
   m_Name: New Candle Room Choice Data
   m_EditorClassIdentifier: 
-  questions: []
+  questionLineOne: When death approaches, readjust.
+  questionLineTwo: Your final choice is who to trust.
   choices:
   - {fileID: 7725723032791713792, guid: 5ebbd45af9910164789707ba9a7bab9e, type: 3}
   - {fileID: 7725723032791713792, guid: 5ebbd45af9910164789707ba9a7bab9e, type: 3}

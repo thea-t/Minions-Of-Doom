@@ -23,4 +23,5 @@ public class Door : MonoBehaviour
         Debug.Log("door opened");
        // SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
+    
 }

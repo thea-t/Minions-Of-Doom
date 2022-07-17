@@ -7,16 +7,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class LevelData : ScriptableObject
 {
-    private const int DOOR_COUNT = 3;
-    
     public DoorData[] doorData;
-    [HideInInspector] public int doorCount { get; private set; }
+    public int doorCount { get; private set; } 
 
     public List<DoorData> RandomDoors { get; private set; } = new List<DoorData>();
 
-    private void Start()
+    private void Awake() 
     {
-        doorCount = DOOR_COUNT;
+        doorCount = 3;
     }
     
     public void PickRandomDoors() { 

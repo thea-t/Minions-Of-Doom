@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using BNG;
+using DG.Tweening;
 using UnityEngine;
 
 public class Map : MonoBehaviour 
 {
     private const float DOOR_DISTANCE = 1f;
     
+    [SerializeField] private GameObject m_Player;
     [SerializeField] private LevelData[] levels;
     private List<Door> m_SpawnedDoors = new List<Door>();
     
     private int currentLevel = 0;
+    
 
     
     //Spawning random doors based on the current level when the game starts
     //Setting their position and distance from each other
-    private void Start() {
+    private void Start() 
+    {
         SpawnDoors(levels[currentLevel].doorCount);
+        
+        m_Player.transform.DOMove(new Vector3(m_Player.transform.position.x, 0.7f, -3f), 8).onComplete = () => 
+        {
+            m_Player.GetComponentInChildren<PlayerGravity>().GravityEnabled = true;
+            m_Player.GetComponent<InputBridge>().enabled = true;
+        };
     }
 
     private void SpawnDoors(int _doorCount)

@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ChoiceUi : MonoBehaviour
 {
-    public Button m_ButtonOptionOne;
-    public Button m_ButtonOptionTwo;
-    public TextMeshProUGUI m_ButtonOneTMP;
-    public TextMeshProUGUI m_ButtonTwoTMP;
-    public TextMeshProUGUI m_LineOneTMP;
-    public TextMeshProUGUI m_LineTwoTMP;
-    
-    
+    public GameObject question;
+    public GameObject choiceSelected;
+    public Button buttonOptionOne;
+    public Button buttonOptionTwo;
+    public TextMeshProUGUI buttonOneTMP;
+    public TextMeshProUGUI buttonTwoTMP;
+    public TextMeshProUGUI lineOneTMP;
+    public TextMeshProUGUI lineTwoTMP;
+
 }

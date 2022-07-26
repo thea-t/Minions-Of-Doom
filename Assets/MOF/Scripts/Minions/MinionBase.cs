@@ -44,6 +44,7 @@ public abstract class MinionBase : MonoBehaviour
     private Vector3 m_DragBeginRot;
     private Vector3 m_ScreenPoint;
     private Vector3 m_Offset;
+    private float m_StartScale;
 
 
     public Grabbable grabbable { get; set; }
@@ -59,6 +60,8 @@ public abstract class MinionBase : MonoBehaviour
         m_VisualMinion.SetMinionTitle(m_MinionData.name);
         m_VisualMinion.SetMinionDescription(m_MinionData.description);
         m_VisualMinion.SetDamage(m_MinionData.damage);
+
+        m_StartScale = transform.localScale.x;
     }
 
     //Setting the card data to a default one when the script is reset 
@@ -77,8 +80,8 @@ public abstract class MinionBase : MonoBehaviour
         m_SnapZone = snapZone;
     }
 
-    public void OnMinionDrawn()
-    {
+    public void OnMinionDrawn() {
+        Show();
         m_GroundTrigger.enabled = true;
         m_HeadCollider.enabled = true;
         m_NavAgent.enabled = false;
@@ -188,30 +191,38 @@ public abstract class MinionBase : MonoBehaviour
         m_Animator.SetBool("Run", true);
         m_NavAgent.destination = enemyTransform.position;
         LookAtTarget(enemyTransform);
-
+        float elapsedTime = 0;
+        
         //wait until the distance between target and minion is less than 0.2
         do
         {
             yield return null;
+            elapsedTime += Time.deltaTime;
 
-        } while (m_NavAgent.remainingDistance > 0.2f);
+        } while (m_NavAgent.remainingDistance > 0.2f || elapsedTime < 1.5f);
 
-        OnArriveToTarget();
+        OnArrivalToTarget();
     }
 
-    private void OnArriveToTarget()
+    private void OnArrivalToTarget()
     {        
         Debug.Log("ARRIVED");
-        Attack();       
+        StartCoroutine(Attack());       
         m_Animator.SetBool("Run", false);
     
     }
     
-    private void Attack()
+    private IEnumerator Attack()
     {               
         Debug.Log("Attack");
         m_Animator.SetTrigger("Hit");
+
+        yield return new WaitForSeconds(2);
+        
+        Hide();
     }
+    
+    
 
     //anim event
     private void DealDamage() 
@@ -222,6 +233,14 @@ public abstract class MinionBase : MonoBehaviour
     protected void LookAtTarget(Transform target)
     {
         transform.DOLookAt(target.position, LOOK_SPEED);
+    }
+
+    private void Show() {
+        transform.DOScale(m_StartScale,0.5f);
+    }
+
+    private void Hide() {
+        transform.DOScale(0,0.5f);
     }
     
     #region Deprecated

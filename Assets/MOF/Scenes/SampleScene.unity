@@ -17968,6 +17968,11 @@ PrefabInstance:
       propertyPath: m_PlayerHealthTMP
       value: 
       objectReference: {fileID: 122333333}
+    - target: {fileID: 4565345353266599243, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb1be51f383ecfc46b32c948f2710b26, type: 3}
 --- !u!1001 &6394436279477863581
@@ -17995,7 +18000,7 @@ PrefabInstance:
     - target: {fileID: 2285674198059615722, guid: d7cd29ac67c7c9d419b623f8b9b6c715,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 1.046
       objectReference: {fileID: 0}
     - target: {fileID: 2285674198059615722, guid: d7cd29ac67c7c9d419b623f8b9b6c715,
         type: 3}
@@ -18416,6 +18421,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.7372225
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328644062119503214, guid: d7cd29ac67c7c9d419b623f8b9b6c715,
+        type: 3}
+      propertyPath: TrackingOrigin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6308034207380509805, guid: d7cd29ac67c7c9d419b623f8b9b6c715,
         type: 3}

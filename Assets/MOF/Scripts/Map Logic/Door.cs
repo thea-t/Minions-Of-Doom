@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
     private void OnDoorOpened()
     {
         Debug.Log("door opened");
-       // SceneManager.LoadScene(2, LoadSceneMode.Single);
+       SceneLoader.FadeToScene("SampleScene");
     }
     
 }

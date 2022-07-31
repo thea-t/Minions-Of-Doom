@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MOF/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/MOF/Scenes/CandleRoom.unity
+    guid: 250e8cefe2586834f86a098fff6fda00
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dfb6be9d9c83f1a4e96a74cb93384660,
       type: 2}

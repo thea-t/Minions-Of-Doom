@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class EnemyBase :  MonoBehaviour, IDamagable
@@ -12,6 +13,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
     protected string m_AttackAnimation;
     protected string m_BuffAnimation;
 
+    public Action Dead;
     public int MaxHealth { get; set; }
  public int CurrentHealth { get; set; }
  public float Block { get; set; }
@@ -41,14 +43,23 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  //Reducing enemy's health and updating its UI when the enemy takes damage
  public void TakeDamage(int amount)
  {
+     
      CurrentHealth -= amount;
+         m_Animator.SetTrigger("Take Damage");
+     
      m_VisualEnemy.UpdateHealthUI(CurrentHealth);
-     m_Animator.SetTrigger("Take Damage");
+     
+     if (CurrentHealth <= 0) {
+         Die();
+     }
+     
+
  }
 
- public Action Dead;
- public void Die()
+public void Die()
  {
+     Debug.Log("Die");
+     m_Animator.SetTrigger("Die");
      Dead?.Invoke();
      GameManager.Instance.EnemyManager.enemies.Remove(this);
  }
@@ -94,11 +105,5 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
  }
 
- //Setting active an selection particle when the enemy was hovered over
- public void HoveringWithCard(bool hovering)
- {
-     m_VisualEnemy.selectionParticle.SetActive(hovering);
- }
 
- 
 }

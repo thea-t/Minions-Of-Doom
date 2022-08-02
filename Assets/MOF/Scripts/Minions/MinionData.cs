@@ -11,7 +11,8 @@ public class MinionData : ScriptableObject
     public int cost;
     public bool isMale;
     public int damage;
-    public MinionRarity minionRarity;
+    public int block;
+    public int strength;
     
     //Spells
     public bool exhausts;

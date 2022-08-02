@@ -9,5 +9,6 @@ public class RewardManager : MonoBehaviour
     public void SpawnRewardPrefab()
     {
         Instantiate(m_RewardPrefab);
+        Debug.Log("m_RewardPrefab");
     }
 }

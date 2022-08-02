@@ -21,7 +21,7 @@ public enum MinionType
 [RequireComponent(typeof(VisualMinion))]
 public abstract class MinionBase : MonoBehaviour
 {
-    [SerializeField] private MinionData m_MinionData;
+    [SerializeField] protected MinionData m_MinionData;
     [SerializeField] private VisualMinion m_VisualMinion;
     [SerializeField] private RagdollToAnimator m_RagdollToAnimator;
     [SerializeField] private Animator m_Animator;
@@ -47,7 +47,8 @@ public abstract class MinionBase : MonoBehaviour
     private Vector3 m_Offset;
     private float m_StartScale;
 
-
+    protected string m_MinionPowerAnimation;
+    
     public Grabbable grabbable { get; set; }
     private bool canBeGrabbed;
 
@@ -56,11 +57,10 @@ public abstract class MinionBase : MonoBehaviour
     private void Start()
     {
         m_VisualMinion.SetCharacterLook();
-        m_VisualMinion.SetMinionParticle(m_MinionType, true);
+        m_VisualMinion.SetMinionParticle(m_MinionType, true, m_MinionData);
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
         m_VisualMinion.SetMinionTitle(m_MinionData.name);
         m_VisualMinion.SetMinionDescription(m_MinionData.description);
-        m_VisualMinion.SetDamage(m_MinionData.damage);
 
         m_StartScale = transform.localScale.x;
     }
@@ -130,7 +130,7 @@ public abstract class MinionBase : MonoBehaviour
         m_RagdollToAnimator.ToggleRagdoll(false);
         m_GroundTrigger.enabled = false;
         m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
-        m_VisualMinion.SetMinionParticle(m_MinionType, false);
+        m_VisualMinion.SetMinionParticle(m_MinionType, false, null);
         m_Animator.SetTrigger("Get Up");
 
 
@@ -199,36 +199,27 @@ public abstract class MinionBase : MonoBehaviour
         //wait until the distance between target and minion is less than 0.2
         do
         {
-            yield return null;
             elapsedTime += Time.deltaTime;
-
-        } while (m_NavAgent.remainingDistance > 0.2f || elapsedTime < 1.5f);
+            yield return null;
+        } 
+        while (m_NavAgent.remainingDistance > 0.2f || elapsedTime < 1.5f);
 
         OnArrivalToTarget();
     }
 
     private void OnArrivalToTarget()
     {        
-        StartCoroutine(Attack());       
+        StartCoroutine(UseMinionPower());       
         m_Animator.SetBool("Run", false);
     
     }
     
-    private IEnumerator Attack()
+    private IEnumerator UseMinionPower()
     {               
-        m_Animator.SetTrigger("Hit");
-
+        m_Animator.SetTrigger(m_MinionPowerAnimation);
         yield return new WaitForSeconds(2);
         
         Hide();
-    }
-    
-    
-
-    //anim event
-    private void DealDamage() 
-    {
-        GameManager.Instance.EnemyManager.GetSelectedEnemy().TakeDamage(m_MinionData.damage);
     }
 
     protected void LookAtTarget(Transform target)
@@ -242,6 +233,22 @@ public abstract class MinionBase : MonoBehaviour
 
     private void Hide() {
         transform.DOScale(0,0.5f);
-        m_VisualMinion.SetMinionParticle(MinionType.None, false);
+        m_VisualMinion.SetMinionParticle(MinionType.None, false, null);
     }
+
+    //anim event
+    protected virtual void Attack() 
+    {
+        
+    } 
+    //anim event
+    protected virtual void Defend() 
+    {
+        
+    } 
+    //anim event
+    protected virtual void GainStrength() 
+    {
+        
+    } 
 }

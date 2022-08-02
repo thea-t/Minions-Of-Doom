@@ -11,9 +11,10 @@ public GameObject centerEye;
     
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }
+    public int CurrentStrength { get; set; }
+    public int CurrentBlock { get; set; }
     public float Block { get; set; }
     public int CardsToDrawOnStart { get; set; }
-    public int CardToDrawOnEveryTurn{ get; set; }
     
    //Setting player's health and updating its UI
     void Start() {
@@ -21,6 +22,8 @@ public GameObject centerEye;
         MaxHealth = m_StartingHealth;
         CurrentHealth = MaxHealth;
         GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
+        CurrentStrength = 0;
+        CurrentBlock = 0;
     }
     
     //Reducing player's health and updating its UI when the enemy takes damage
@@ -34,14 +37,8 @@ public GameObject centerEye;
         else {
             Die();
         }
-       
-        
     }
 
-    private void Win()
-    {
-        
-    }
 
     public void Die()
     { 

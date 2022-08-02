@@ -17,5 +17,6 @@ MonoBehaviour:
   cost: 2
   isMale: 0
   damage: 20
-  minionRarity: 0
+  block: 5
+  strength: 0
   exhausts: 0

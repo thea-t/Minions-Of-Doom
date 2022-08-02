@@ -17,20 +17,29 @@ public class VisualMinion : CharacterLookChanger {
     [SerializeField] private GameObject m_ElementalParticle;
     [SerializeField] private GameObject m_FighterParticle;
 
-    public void SetMinionParticle(MinionType type, bool showParticle)
+    public void SetMinionParticle(MinionType type, bool showParticle, MinionData minionData)
     {
         switch (type)
         {
             case MinionType.Elemental:
                 m_ElementalParticle.SetActive(showParticle);
+                if (minionData) {
+                    SetStrengthTMP(minionData.strength);
+                }
                 break;
 
             case MinionType.Skillful:
                 m_SkillfulParticle.SetActive(showParticle);
+                if (minionData) {
+                    SetBlockTMP(minionData.block);
+                }
                 break;
 
             case MinionType.Fighter:
                 m_FighterParticle.SetActive(showParticle);
+                if (minionData) {
+                    SetDamageTMP(minionData.damage);
+                }
                 break;
             
             default: 
@@ -55,7 +64,16 @@ public class VisualMinion : CharacterLookChanger {
     {
         minionUiPopup.descriptionTMP.text = desc;
     }
-    public void SetDamage(int damage)
+    
+    private void SetDamageTMP(int damage)
+    {
+        minionUiPopup.damageTMP.text =  "damage: " + damage;
+    }
+    private void SetStrengthTMP(int damage)
+    {
+        minionUiPopup.damageTMP.text =  "damage: " + damage;
+    }
+    private void SetBlockTMP(int damage)
     {
         minionUiPopup.damageTMP.text =  "damage: " + damage;
     }

@@ -12,7 +12,7 @@ public class ElementalMinionBase : MinionBase {
     void Start() 
     {
         m_MinionType = MinionType.Elemental;
-        m_MinionPowerAnimation = "";
+        m_MinionPowerAnimation = "GainStrength";
     }
     
     protected override void Reset()

@@ -7,7 +7,7 @@ public class SkillfulMinionBase : MinionBase
     void Start() 
     {
         m_MinionType = MinionType.Skillful;
-        m_MinionPowerAnimation = "";
+        m_MinionPowerAnimation = "Block";
     }
     //Setting the cart type when the script is reset 
     protected override void Reset()

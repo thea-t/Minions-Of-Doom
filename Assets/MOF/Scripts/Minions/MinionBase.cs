@@ -161,7 +161,6 @@ public abstract class MinionBase : MonoBehaviour
 
     public void OnReleased()
     {
-        Debug.Log("released");
         if (m_MinionData.isMale)
         {
             m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnDropped;
@@ -206,7 +205,6 @@ public abstract class MinionBase : MonoBehaviour
 
     private void OnArrivalToTarget()
     {        
-        Debug.Log("ARRIVED");
         StartCoroutine(Attack());       
         m_Animator.SetBool("Run", false);
     
@@ -214,7 +212,6 @@ public abstract class MinionBase : MonoBehaviour
     
     private IEnumerator Attack()
     {               
-        Debug.Log("Attack");
         m_Animator.SetTrigger("Hit");
 
         yield return new WaitForSeconds(2);
@@ -242,74 +239,4 @@ public abstract class MinionBase : MonoBehaviour
     private void Hide() {
         transform.DOScale(0,0.5f);
     }
-    
-    #region Deprecated
-
-        /*
-        
-        
-        public void OnDragBegin()
-        {
-            dragBeginPos = transform.position;
-            dragBeginRot = transform.rotation.eulerAngles;
-    
-            screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-            offset = gameObject.transform.position -
-                     Camera.main.ScreenToWorldPoint(
-                         new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-    
-            transform.DORotate(Vector3.zero, 0.3f);
-    
-            this.GetComponent<Collider>().enabled = false;
-        }
-    
-        public void OnDrag()
-        {
-            Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z - 0.1f);
-            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-            transform.position = cursorPosition;
-    
-            TargetEnemy();
-        }
-    
-        public void OnDragEnd()
-        {
-            if (m_TargetedEnemy)
-            {
-                m_TargetedEnemy.TakeDamage(m_Attack);
-               // AttackTargetedEnemy(m_TargetedEnemy);
-            }
-            else
-            {
-                ReturnToHand();
-            this.GetComponent<Collider>().enabled = true;
-            }
-        }
-    
-        private void ReturnToHand()
-        {
-            transform.DOMove(dragBeginPos, 0.3f);
-            transform.DORotate(dragBeginRot, 0.3f);
-        } 
-        private void TargetEnemy()
-        {
-            
-           // m_TargetedEnemy = GameManager.Instance.RaycastManager.GetByRay<EnemyBase>();
-    
-            if (m_TargetedEnemy)
-            {
-                m_PreviouslyTargetedEnemy = m_TargetedEnemy;
-                m_TargetedEnemy.HoveringWithCard(true);
-                transform.DOMove(new Vector3(m_TargetedEnemy.visualEnemy.cardSnapPoint.transform.position.x, m_TargetedEnemy.visualEnemy.cardSnapPoint.transform.position.y, transform.position.z) , 0.5f);
-            }
-            
-            if (m_PreviouslyTargetedEnemy && m_TargetedEnemy == null)
-            {
-                m_PreviouslyTargetedEnemy.HoveringWithCard(false);
-            }
-        }
-    
-    */
-
-        #endregion
-    }
+}

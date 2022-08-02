@@ -20,6 +20,7 @@ public class DeckManager : MonoBehaviour
     [SerializeField] private GameObject m_DiscardPile;
     [SerializeField] private BNG.SnapZone[] m_SnapZones;
 
+    public event Action MinionsDrawned;
 
     //Shuffling the deck pile when the game starts, and drawing random cards in the player's hand 
     //Subscribing to Turn Manager's events.
@@ -73,6 +74,12 @@ public class DeckManager : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f);
             minion.OnMinionDrawn();
+
+            if(i == amount-1) {
+                yield return new WaitForSeconds(5);
+                MinionsDrawned?.Invoke();
+                //play epic sound
+            }
         }
     }
 

@@ -33,8 +33,10 @@ public class VisualMinion : CharacterLookChanger {
                 m_FighterParticle.SetActive(showParticle);
                 break;
             
-            default:
-                Debug.Log("TYPE NOT ASSIGNED");
+            default: 
+                m_SkillfulParticle.SetActive(false);
+                m_ElementalParticle.SetActive(false);
+                m_FighterParticle.SetActive(false);
                 break;
         }
     }

@@ -11,14 +11,12 @@ using UnityEngine.UI;
 //The idea behind the turn manager is to create events which are listened by the Enemies and the Card Manager
 public class TurnManager : MonoBehaviour
 {
-    [SerializeField] private BNG.Button m_EndTurnButton;
     public event Action EnemyTurn;
     public event Action PlayerTurn;
 
     public int turnCount { get; set; }
     void Start()
     {
-        m_EndTurnButton.onButtonDown.AddListener(EndPlayerTurn);
         turnCount = 0;
 
         StartCoroutine(StartGameIn(3));
@@ -26,6 +24,7 @@ public class TurnManager : MonoBehaviour
 
     public void EndPlayerTurn() {
         EnemyTurn?.Invoke();
+
         Debug.Log("Enemy Turn");
     }
 

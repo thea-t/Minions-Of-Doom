@@ -12,6 +12,7 @@ using UnityEngine.Timeline;
 
 public enum MinionType
 {
+    None,
     Skillful,
     Elemental,
     Fighter
@@ -145,7 +146,10 @@ public abstract class MinionBase : MonoBehaviour
             m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnTableCollided;
 
         m_AudioSource.Play();
-        StopCoroutine(timerOnReleased);
+        if (timerOnReleased != null) {
+            StopCoroutine(timerOnReleased);
+        }
+        
         StartCoroutine(OnGetUp());
     }
 
@@ -238,5 +242,6 @@ public abstract class MinionBase : MonoBehaviour
 
     private void Hide() {
         transform.DOScale(0,0.5f);
+        m_VisualMinion.SetMinionParticle(MinionType.None, false);
     }
 }

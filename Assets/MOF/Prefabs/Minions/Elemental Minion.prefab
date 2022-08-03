@@ -1981,7 +1981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e6e7b29a819584baa4fd999d691dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterLookData: {fileID: 11400000, guid: d9fe98c999aaf24408832a472dc6fac0,
+  m_CharacterLookData: {fileID: 11400000, guid: f018f731405393b408c05b5cfcef2622,
     type: 2}
   m_MeshRenderer: {fileID: 273977885030661262}
   m_HeadTransform: {fileID: 273977885025687696}

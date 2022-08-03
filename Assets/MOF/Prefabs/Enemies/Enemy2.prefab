@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5b87aaa7612e546a8362e4417ef867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterLookData: {fileID: 11400000, guid: f018f731405393b408c05b5cfcef2622,
+  m_CharacterLookData: {fileID: 11400000, guid: c2d47ac1faf449244a6dedafa2131b77,
     type: 2}
   m_MeshRenderer: {fileID: 824190232057909552}
   m_HeadTransform: {fileID: 824190232071943658}

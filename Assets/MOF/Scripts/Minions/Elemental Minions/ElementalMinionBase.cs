@@ -23,9 +23,10 @@ public class ElementalMinionBase : MinionBase {
     //anim event
     protected override void GainStrength() 
     {
-        base.GainStrength();
         GameManager.Instance.Player.Strength += m_MinionData.strength;
-        GameManager.Instance.UiManager.UpdateStrengthUI(GameManager.Instance.Player.Strength);
+        GameManager.Instance.UiManager.UpdateStrengthUI(GameManager.Instance.Player.Strength);                    
+        base.GainStrength();
+
     }
 
 }

@@ -31,7 +31,7 @@ public GameObject centerEye;
     public void TakeDamage(int amount)
     {
         if (CurrentHealth >0) {
-            CurrentHealth -= amount;
+            CurrentHealth -= amount + (int)Block;
             Debug.Log("Damage taken! Current health: " + CurrentHealth);
             GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
         }

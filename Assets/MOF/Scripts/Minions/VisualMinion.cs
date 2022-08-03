@@ -71,7 +71,7 @@ public class VisualMinion : CharacterLookChanger {
         minionUiPopup.descriptionTMP.text = desc;
     }
     
-    private void SetSpecialPowerTMP(string text, int damage, int booster)
+    public void SetSpecialPowerTMP(string text, int damage, int booster)
     {
         if (booster>0) {
             minionUiPopup.boosterTMP.text =  " + " + booster;

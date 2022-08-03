@@ -100,7 +100,7 @@ public abstract class MinionBase : MonoBehaviour
         {
             m_RagdollToAnimator.ToggleRagdoll(true);
 
-            m_VisualMinion.minionUiPopup.gameObject.SetActive(true);
+            EnableUiPopUp();
 
             if (m_MinionData.isMale)
                 m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnGrabbed;
@@ -121,6 +121,21 @@ public abstract class MinionBase : MonoBehaviour
             m_Animator.SetTrigger("Shake Head");            
             m_VisualMinion.NotEnoughManaPopUp();
 
+        }
+    }
+
+    void EnableUiPopUp() 
+    {
+        m_VisualMinion.minionUiPopup.gameObject.SetActive(true);
+
+        foreach (var minion in GameManager.Instance.DeckManager.handPile) {
+            if (minion is FighterMinionBase ) {
+                
+                string attackText = "Attack: ";
+                minion.m_VisualMinion.SetSpecialPowerTMP(attackText, m_MinionData.damage, GameManager.Instance.Player.Strength);  
+      
+
+            }
         }
     }
 
@@ -235,7 +250,7 @@ public abstract class MinionBase : MonoBehaviour
         transform.DOScale(0,0.5f);
         m_VisualMinion.SetMinionParticle(MinionType.None, false, null);
     }
-
+    
     //anim event
     protected virtual void Attack() 
     {

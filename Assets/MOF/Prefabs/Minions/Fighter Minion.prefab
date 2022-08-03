@@ -3262,7 +3262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e6e7b29a819584baa4fd999d691dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterLookData: {fileID: 11400000, guid: d9fe98c999aaf24408832a472dc6fac0,
+  m_CharacterLookData: {fileID: 11400000, guid: 12152c88fb10bc44ebf5f0ebf7f7f6db,
     type: 2}
   m_MeshRenderer: {fileID: 7239976242822852337}
   m_HeadTransform: {fileID: 7239976242817878767}
@@ -3390,7 +3390,6 @@ MonoBehaviour:
   m_AudioSource: {fileID: 956380228370569417}
   m_GroundTrigger: {fileID: 4712843142824300284}
   m_HeadCollider: {fileID: 265237326579497139}
-  m_StartScale: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1 &7239976242817717627
 GameObject:
   m_ObjectHideFlags: 0

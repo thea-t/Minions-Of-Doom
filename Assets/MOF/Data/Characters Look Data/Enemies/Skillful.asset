@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
-  m_Name: Enemy1
+  m_Name: Skillful
   m_EditorClassIdentifier: 
   minionMaterial: {fileID: 2100000, guid: df29d79d124a8fb4d99503b201bce464, type: 2}
   head:

@@ -7516,6 +7516,11 @@ PrefabInstance:
       propertyPath: m_PlayerHealthTMP
       value: 
       objectReference: {fileID: 122333333}
+    - target: {fileID: 4565345353266599243, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb1be51f383ecfc46b32c948f2710b26, type: 3}
 --- !u!1001 &6394436279477863581
@@ -8559,11 +8564,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Elemental Minion
-      objectReference: {fileID: 0}
-    - target: {fileID: 273977885025583570, guid: 9e40c7d224017444da7a3b84373dddd3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 273977885025742584, guid: 9e40c7d224017444da7a3b84373dddd3,
         type: 3}

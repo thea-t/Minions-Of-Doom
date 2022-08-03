@@ -11,7 +11,6 @@ public class EnemyBase :  MonoBehaviour, IDamagable
     [SerializeField] private Animator m_Animator;
 
     protected string m_AttackAnimation;
-    protected string m_BuffAnimation;
 
     public Action Dead;
     public int MaxHealth { get; set; }
@@ -64,10 +63,11 @@ public void Die()
 private IEnumerator StartDying()
 {
     m_Animator.SetTrigger("Die");
-    Dead?.Invoke();
     GameManager.Instance.EnemyManager.enemies.Remove(this);
-    yield return new WaitForSeconds(Time());
+    Dead?.Invoke();
     
+    yield return new WaitForSeconds(Time()/1.5f);
+    transform.DOScale(Vector3.zero, Time() / 1.5f);
     this.gameObject.SetActive(false);
     //play particle and sound
 }
@@ -97,7 +97,6 @@ private IEnumerator StartDying()
  protected virtual void Attack()
  {
      m_AttackAnimation = "Melee Right Attack 01";
-     m_BuffAnimation = "";
      
      StartCoroutine(DealingDamageToPlayer());
  }

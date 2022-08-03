@@ -15,7 +15,6 @@ public class ManaManager : MonoBehaviour
     
     public bool TryToGrabMinion(int cost)
     {
-        Debug.Log("TRY TO GRAB");
         if (cost <= CurrentMana)
         {
             CurrentMana -= cost;

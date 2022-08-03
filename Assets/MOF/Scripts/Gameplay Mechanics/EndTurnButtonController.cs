@@ -23,7 +23,6 @@ public class EndTurnButtonController : MonoBehaviour
     
     private void OnButtonPressed() {
         GameManager.Instance.TurnManager.EndPlayerTurn();
-        Debug.Log("btn down");
         m_InnerButton.transform.DOMoveY(BUTTON_DOWN_POSY, 0.2f).onComplete += () =>
         {
             m_JointHelper.LockYPosition = true;
@@ -34,7 +33,6 @@ public class EndTurnButtonController : MonoBehaviour
     private void RaiseButton() {
         if (m_Collider) {
             
-            Debug.Log("btn up");
             m_JointHelper.LockYPosition = false;
             m_Collider.isTrigger = false;
         }

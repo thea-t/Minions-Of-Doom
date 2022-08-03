@@ -22,7 +22,7 @@ public enum MinionType
 public abstract class MinionBase : MonoBehaviour
 {
     [SerializeField] protected MinionData m_MinionData;
-    [SerializeField] private VisualMinion m_VisualMinion;
+    [SerializeField] protected VisualMinion m_VisualMinion;
     [SerializeField] private RagdollToAnimator m_RagdollToAnimator;
     [SerializeField] private Animator m_Animator;
     [SerializeField] private NavMeshAgent m_NavAgent;
@@ -46,7 +46,6 @@ public abstract class MinionBase : MonoBehaviour
     private Vector3 m_ScreenPoint;
     private Vector3 m_Offset;
     private float m_StartScale;
-
     protected string m_MinionPowerAnimation;
     
     public Grabbable grabbable { get; set; }
@@ -61,7 +60,8 @@ public abstract class MinionBase : MonoBehaviour
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
         m_VisualMinion.SetMinionTitle(m_MinionData.name);
         m_VisualMinion.SetMinionDescription(m_MinionData.description);
-
+        
+        m_NavAgent.enabled = true;
         m_StartScale = transform.localScale.x;
     }
 

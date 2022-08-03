@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ElementalMinionBase : MinionBase {
     //Setting the cart type when the script is reset 
 
-    void Start() 
+    void Awake() 
     {
         m_MinionType = MinionType.Elemental;
         m_MinionPowerAnimation = "GainStrength";
@@ -24,8 +24,8 @@ public class ElementalMinionBase : MinionBase {
     protected override void GainStrength() 
     {
         base.GainStrength();
-        GameManager.Instance.Player.CurrentStrength += m_MinionData.strength;
-        GameManager.Instance.UiManager.UpdateStrengthUI(GameManager.Instance.Player.CurrentStrength);
+        GameManager.Instance.Player.Strength += m_MinionData.strength;
+        GameManager.Instance.UiManager.UpdateStrengthUI(GameManager.Instance.Player.Strength);
     }
 
 }

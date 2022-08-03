@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillfulMinionBase : MinionBase
 {  
-    void Start() 
+    void Awake() 
     {
         m_MinionType = MinionType.Skillful;
         m_MinionPowerAnimation = "Block";
@@ -20,8 +20,8 @@ public class SkillfulMinionBase : MinionBase
     protected override void Defend() 
     {
         base.Defend();
-        GameManager.Instance.Player.CurrentBlock += m_MinionData.block;        
-        GameManager.Instance.UiManager.UpdateBlockUI(GameManager.Instance.Player.CurrentBlock);
+        GameManager.Instance.Player.Block += m_MinionData.block;        
+        GameManager.Instance.UiManager.UpdateBlockUI(GameManager.Instance.Player.Block);
 
     }
 }

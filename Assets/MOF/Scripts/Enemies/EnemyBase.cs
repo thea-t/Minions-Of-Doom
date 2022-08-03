@@ -56,19 +56,36 @@ public class EnemyBase :  MonoBehaviour, IDamagable
 
  }
 
-public void Die()
- {
-     Debug.Log("Die");
-     m_Animator.SetTrigger("Die");
-     Dead?.Invoke();
-     GameManager.Instance.EnemyManager.enemies.Remove(this);
- }
- 
- //Playing animation while the enemy is attacking and dealing damage to the player at the end of the animation
- //Also notifying the Turn Manager that the turn is over 
-//https://answers.unity.com/questions/692593/get-animation-clip-length-using-animator.html
- 
+public void Die() 
+{
+    StartCoroutine(StartDying());
+}
 
+private IEnumerator StartDying()
+{
+    m_Animator.SetTrigger("Die");
+    Dead?.Invoke();
+    GameManager.Instance.EnemyManager.enemies.Remove(this);
+    yield return new WaitForSeconds(Time());
+    
+    this.gameObject.SetActive(false);
+    //play particle and sound
+}
+
+
+   private float Time() 
+    { 
+        RuntimeAnimatorController ac = m_Animator.runtimeAnimatorController;    //Get Animator controller
+        for(int i = 0; i<ac.animationClips.Length; i++)                 //For all animations
+        {
+            if(ac.animationClips[i].name == "Die")        //If it has the same name as your clip
+            {
+                return ac.animationClips[i].length;
+            }
+        }
+        return 0.1f;
+    }
+    
  public void OnEnemyTurn() 
  {
      
@@ -82,9 +99,13 @@ public void Die()
      m_AttackAnimation = "Melee Right Attack 01";
      m_BuffAnimation = "";
      
-     StartCoroutine(DealDamageToPlayer());
+     StartCoroutine(DealingDamageToPlayer());
  }
- IEnumerator DealDamageToPlayer() {
+ 
+ //Playing animation while the enemy is attacking and dealing damage to the player at the end of the animation
+ //Also notifying the Turn Manager that the turn is over 
+//https://answers.unity.com/questions/692593/get-animation-clip-length-using-animator.html
+ IEnumerator DealingDamageToPlayer() {
      
      AnimatorStateInfo animInfo;
      m_Animator.SetTrigger(m_AttackAnimation);

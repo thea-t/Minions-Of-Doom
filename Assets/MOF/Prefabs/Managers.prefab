@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 695950539}
   - component: {fileID: 941566825118520100}
   - component: {fileID: 5131594081228622967}
+  - component: {fileID: 2155620496592717133}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9ab835a716a624492439e960720797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vrFree: 1
   selectableLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -60,8 +62,9 @@ MonoBehaviour:
   DeckManager: {fileID: 4565345353266599239}
   LevelLauncher: {fileID: 4565345353266599243}
   AudioManager: {fileID: 4565345353266599236}
-  ManaManager: {fileID: 695950539}
+  ManaManager: {fileID: 2155620496592717133}
   RewardManager: {fileID: 941566825118520100}
+  EnemyManager: {fileID: 5131594081228622967}
 --- !u!114 &4565345353266599238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd102c56269a3784199c56063704d476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EndTurnButton: {fileID: 0}
 --- !u!114 &4565345353266599242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerHealthTMP: {fileID: 0}
   m_ManaTMP: {fileID: 0}
+  m_StrengthTMP: {fileID: 0}
+  m_BlockTMP: {fileID: 0}
 --- !u!114 &4565345353266599243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugDoor: {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}
+  debug: 1
 --- !u!114 &4565345353266599239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,3 +215,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504a19e4144f4504e86f4ee35c98c3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
+--- !u!114 &2155620496592717133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565345353266599232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697096306ce7fcf4c906d8a6681f03ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ManaToGainOnTurnBegin: 5

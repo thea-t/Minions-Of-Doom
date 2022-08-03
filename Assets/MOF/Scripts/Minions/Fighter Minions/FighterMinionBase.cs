@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FighterMinionBase : MinionBase
 { 
-    void Start() 
+    void Awake() 
     {
         m_MinionType = MinionType.Fighter;
         m_MinionPowerAnimation = "Hit";
@@ -21,7 +21,8 @@ public class FighterMinionBase : MinionBase
     protected override void Attack() 
     {
         base.Attack();
-        GameManager.Instance.EnemyManager.GetSelectedEnemy().TakeDamage(m_MinionData.damage);
+        int damage = m_MinionData.damage + GameManager.Instance.Player.Strength;
+        GameManager.Instance.EnemyManager.GetSelectedEnemy().TakeDamage(damage);
     }
 }
 

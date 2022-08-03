@@ -16,8 +16,11 @@ public class GroundTrigger : MonoBehaviour
         }
     }
 
-    private void Reset()
-    {
+    private void Start() {
+        m_Minion = GetComponentInParent<MinionBase>();
+    }
+
+    private void Reset() {
         m_Minion = GetComponentInParent<MinionBase>();
     }
 }

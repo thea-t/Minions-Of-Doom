@@ -10,8 +10,6 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("enemies count "+enemies.Count);
-        
         GameManager.Instance.TurnManager.EnemyTurn += OnEnemyTurn;
 
         foreach (var enemy in enemies)

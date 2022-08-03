@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     {
         m_StrengthTMP.text = "Strength: " + amount;
     }
-    public void UpdateBlockUI(int amount)
+    public void UpdateBlockUI(float amount)
     {
         m_BlockTMP.text = "Shield: " + amount;
     }

@@ -22,23 +22,29 @@ public class VisualMinion : CharacterLookChanger {
         switch (type)
         {
             case MinionType.Elemental:
+                string strengthText = "Strength: ";
+                
                 m_ElementalParticle.SetActive(showParticle);
                 if (minionData) {
-                    SetStrengthTMP(minionData.strength);
+                    SetSpecialPowerTMP(strengthText, minionData.strength, 0);      
                 }
                 break;
 
-            case MinionType.Skillful:
+            case MinionType.Skillful:               
+                string blockText = "Shield: ";
+                
                 m_SkillfulParticle.SetActive(showParticle);
                 if (minionData) {
-                    SetBlockTMP(minionData.block);
+                    SetSpecialPowerTMP(blockText, minionData.block, 0);   
                 }
                 break;
 
             case MinionType.Fighter:
+                string attackText = "Attack: ";
+
                 m_FighterParticle.SetActive(showParticle);
                 if (minionData) {
-                    SetDamageTMP(minionData.damage);
+                    SetSpecialPowerTMP(attackText, minionData.damage, GameManager.Instance.Player.Strength);  
                 }
                 break;
             
@@ -65,17 +71,15 @@ public class VisualMinion : CharacterLookChanger {
         minionUiPopup.descriptionTMP.text = desc;
     }
     
-    private void SetDamageTMP(int damage)
+    private void SetSpecialPowerTMP(string text, int damage, int booster)
     {
-        minionUiPopup.damageTMP.text =  "damage: " + damage;
-    }
-    private void SetStrengthTMP(int damage)
-    {
-        minionUiPopup.damageTMP.text =  "damage: " + damage;
-    }
-    private void SetBlockTMP(int damage)
-    {
-        minionUiPopup.damageTMP.text =  "damage: " + damage;
+        if (booster>0) {
+            minionUiPopup.boosterTMP.text =  " + " + booster;
+        }
+        else {
+            minionUiPopup.boosterTMP.text = " ";
+        }
+            minionUiPopup.specialPowerTMP.text =  text + damage;
     }
 
     public void NotEnoughManaPopUp() {

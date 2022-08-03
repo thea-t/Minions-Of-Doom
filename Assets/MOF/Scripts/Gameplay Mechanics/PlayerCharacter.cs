@@ -11,8 +11,7 @@ public GameObject centerEye;
     
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }
-    public int CurrentStrength { get; set; }
-    public int CurrentBlock { get; set; }
+    public int Strength { get; set; }
     public float Block { get; set; }
     public int CardsToDrawOnStart { get; set; }
     
@@ -21,9 +20,11 @@ public GameObject centerEye;
         CardsToDrawOnStart = m_CardsToDrawOnStart;
         MaxHealth = m_StartingHealth;
         CurrentHealth = MaxHealth;
+        Strength = 0;
+        Block = 0;
         GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
-        CurrentStrength = 0;
-        CurrentBlock = 0;
+        GameManager.Instance.UiManager.UpdateBlockUI(Block);
+        GameManager.Instance.UiManager.UpdateStrengthUI(Strength);
     }
     
     //Reducing player's health and updating its UI when the enemy takes damage

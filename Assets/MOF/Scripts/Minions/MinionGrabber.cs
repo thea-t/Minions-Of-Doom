@@ -11,4 +11,12 @@ public class MinionGrabber : GrabbableEvents
         m_Minion.OnGrab();
         base.OnGrab(grabber);
     }
+
+    private void Start() {
+        m_Minion = GetComponentInParent<MinionBase>();
+    }
+
+    private void Reset() {
+        m_Minion = GetComponentInParent<MinionBase>();
+    }
 }

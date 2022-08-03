@@ -250,7 +250,7 @@ MonoBehaviour:
   costTMP: {fileID: 4792746583297877800}
   titleTMP: {fileID: 4274880527489421394}
   descriptionTMP: {fileID: 7415952082123358956}
-  damageTMP: {fileID: 585166900424293066}
+  specialPowerTMP: {fileID: 585166900424293066}
 --- !u!1 &2782569532961373510
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
   costTMP: {fileID: 0}
   titleTMP: {fileID: 0}
   descriptionTMP: {fileID: 8390502833468130818}
-  damageTMP: {fileID: 0}
+  specialPowerTMP: {fileID: 0}
 --- !u!1 &4631723530270422951
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 1530214469772299509}
   - component: {fileID: 585166900424293066}
   m_Layer: 5
-  m_Name: Damage TMP
+  m_Name: SpecialPower TMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2814,6 +2814,7 @@ MonoBehaviour:
   m_AudioSource: {fileID: 672861619749182711}
   m_GroundTrigger: {fileID: 5004804350337698498}
   m_HeadCollider: {fileID: 557757120358464653}
+  m_StartScale: {x: 0, y: 0, z: 0}
 --- !u!114 &5073519484503909191
 MonoBehaviour:
   m_ObjectHideFlags: 0

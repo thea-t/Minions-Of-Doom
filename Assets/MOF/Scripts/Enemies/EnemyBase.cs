@@ -15,7 +15,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
     public Action Dead;
     public int MaxHealth { get; set; }
  public int CurrentHealth { get; set; }
- public float Block { get; set; }
+ public int Block { get; set; }
 
  //Getting and assigning components on Reset in order to save time from dragging and dropping them
  void Reset()

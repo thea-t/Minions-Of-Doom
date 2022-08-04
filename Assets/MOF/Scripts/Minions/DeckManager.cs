@@ -55,6 +55,8 @@ public class DeckManager : MonoBehaviour
     {
         StartCoroutine(DrawingMinions(GameManager.Instance.Player.CardsToDrawOnStart));
         GameManager.Instance.ManaManager.RechargeManaOnTurnBegin();
+        GameManager.Instance.Player.Block = 0;
+        GameManager.Instance.UiManager.UpdateBlockUI(GameManager.Instance.Player.Block);
     }
 
     //Draws certain amount of cards by iterating through player's deck

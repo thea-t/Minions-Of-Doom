@@ -7,7 +7,7 @@ public interface IDamagable
 {
     int MaxHealth { get; set; }
     int CurrentHealth { get; set; }
-    float Block { get; set; }
+    int Block { get; set; }
     
 
     void TakeDamage(int amount);

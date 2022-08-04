@@ -3145,8 +3145,8 @@ GameObject:
   - component: {fileID: 2703504237655032965}
   - component: {fileID: 9075358463893694868}
   - component: {fileID: 967605720388629116}
-  - component: {fileID: 4790424565819385721}
   - component: {fileID: 956380228370569417}
+  - component: {fileID: 4790424565819385721}
   - component: {fileID: 7239976242817717164}
   m_Layer: 0
   m_Name: Fighter Minion
@@ -3250,30 +3250,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4790424565819385721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7239976242817717165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e6e7b29a819584baa4fd999d691dee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CharacterLookData: {fileID: 11400000, guid: 12152c88fb10bc44ebf5f0ebf7f7f6db,
-    type: 2}
-  m_MeshRenderer: {fileID: 7239976242822852337}
-  m_HeadTransform: {fileID: 7239976242817878767}
-  m_BackTransform: {fileID: 7239976242817809171}
-  m_LeftHandTransform: {fileID: 7239976242817873915}
-  m_RightHandTransform: {fileID: 7239976242817877121}
-  minionUiPopup: {fileID: 4112008084605212302}
-  m_NotEnoughManaPopup: {fileID: 4465290004729186912}
-  m_SkillfulParticle: {fileID: 3269537994284066951}
-  m_ElementalParticle: {fileID: 8732517446940753569}
-  m_FighterParticle: {fileID: 7030657542361515792}
 --- !u!82 &956380228370569417
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3370,6 +3346,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4790424565819385721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7239976242817717165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e6e7b29a819584baa4fd999d691dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CharacterLookData: {fileID: 11400000, guid: 12152c88fb10bc44ebf5f0ebf7f7f6db,
+    type: 2}
+  m_MeshRenderer: {fileID: 7239976242822852337}
+  m_HeadTransform: {fileID: 7239976242817878767}
+  m_BackTransform: {fileID: 7239976242817809171}
+  m_LeftHandTransform: {fileID: 7239976242817873915}
+  m_RightHandTransform: {fileID: 7239976242817877121}
+  minionUiPopup: {fileID: 4112008084605212302}
+  m_NotEnoughManaPopup: {fileID: 4465290004729186912}
+  m_SkillfulParticle: {fileID: 3269537994284066951}
+  m_ElementalParticle: {fileID: 8732517446940753569}
+  m_FighterParticle: {fileID: 7030657542361515792}
 --- !u!114 &7239976242817717164
 MonoBehaviour:
   m_ObjectHideFlags: 0

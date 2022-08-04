@@ -133,8 +133,6 @@ public abstract class MinionBase : MonoBehaviour
                 
                 string attackText = "Attack: ";
                 minion.m_VisualMinion.SetSpecialPowerTMP(attackText, m_MinionData.damage, GameManager.Instance.Player.Strength);  
-      
-
             }
         }
     }

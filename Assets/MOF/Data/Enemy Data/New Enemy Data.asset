@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Enemy Data
   m_EditorClassIdentifier: 
   attackDamage: 040000000700000002000000040000000800000005000000030000000600000007000000
-  maxHealth: 50
-  enemyType: 1
+  maxHealth: 15
+  enemyType: 3

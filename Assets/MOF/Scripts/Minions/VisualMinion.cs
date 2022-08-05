@@ -17,14 +17,14 @@ public class VisualMinion : CharacterLookChanger {
     [SerializeField] private GameObject m_ElementalParticle;
     [SerializeField] private GameObject m_FighterParticle;
 
-    public void SetMinionParticle(MinionType type, bool showParticle, MinionData minionData)
+    public void VisualizeSpecialPower(bool show, MinionType type, MinionData minionData)
     {
         switch (type)
         {
             case MinionType.Elemental:
                 string strengthText = "Strength: ";
                 
-                m_ElementalParticle.SetActive(showParticle);
+                m_ElementalParticle.SetActive(show);
                 if (minionData) {
                     SetSpecialPowerTMP(strengthText, minionData.strength, 0);      
                 }
@@ -33,7 +33,7 @@ public class VisualMinion : CharacterLookChanger {
             case MinionType.Skillful:               
                 string blockText = "Shield: ";
                 
-                m_SkillfulParticle.SetActive(showParticle);
+                m_SkillfulParticle.SetActive(show);
                 if (minionData) {
                     SetSpecialPowerTMP(blockText, minionData.block, 0);   
                 }
@@ -42,7 +42,7 @@ public class VisualMinion : CharacterLookChanger {
             case MinionType.Fighter:
                 string attackText = "Attack: ";
 
-                m_FighterParticle.SetActive(showParticle);
+                m_FighterParticle.SetActive(show);
                 if (minionData) {
                     SetSpecialPowerTMP(attackText, minionData.damage, GameManager.Instance.Player.Strength);  
                 }

@@ -5,5 +5,6 @@ using UnityEngine;
 public static class Player
 {
     public static DoorData SelectedDoor { get; set; }
-    
+    public static List<MinionBase> WonMinions { get; set; }
+
 }

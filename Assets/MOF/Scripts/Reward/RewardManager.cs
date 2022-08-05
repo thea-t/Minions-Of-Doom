@@ -11,7 +11,8 @@ public class RewardManager : MonoBehaviour
     {
         Chest randomChest = m_Chests[Random.Range(0, m_Chests.Length)];
 
-        randomChest.EnemyType = enemyType;
+        Debug.Log("enemyType SPAWN"+ enemyType);
+        randomChest.SetEnemyType(enemyType);
         
         Instantiate(randomChest, pos, Quaternion.Euler(new Vector3(270,180,0)));
     }

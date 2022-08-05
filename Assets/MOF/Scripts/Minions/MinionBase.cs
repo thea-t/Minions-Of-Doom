@@ -25,13 +25,12 @@ public abstract class MinionBase : MonoBehaviour
     [SerializeField] protected VisualMinion m_VisualMinion;
     [SerializeField] private RagdollToAnimator m_RagdollToAnimator;
     [SerializeField] private Animator m_Animator;
-    [SerializeField] private NavMeshAgent m_NavAgent;
+    [SerializeField] public NavMeshAgent m_NavAgent;
     [SerializeField] private AudioSource m_AudioSource;
 
     Coroutine timerOnReleased;
     private const float RESET_TIME = 1;
     private const float LOOK_SPEED = 1;
-    
 
     [SerializeField] private Collider m_GroundTrigger;
     [SerializeField] private Collider m_HeadCollider;
@@ -56,15 +55,15 @@ public abstract class MinionBase : MonoBehaviour
     private void Start()
     {
         m_VisualMinion.SetCharacterLook();
-        m_VisualMinion.SetMinionParticle(m_MinionType, true, m_MinionData);
+        m_VisualMinion.VisualizeSpecialPower(true, m_MinionType, m_MinionData);
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
         m_VisualMinion.SetMinionTitle(m_MinionData.name);
         m_VisualMinion.SetMinionDescription(m_MinionData.description);
         
+        if (m_MinionData.minionRarity == MinionRarity.None)  { m_MinionData.minionRarity = MinionRarity.Common; }
+        
         m_NavAgent.enabled = true;
         m_StartScale = transform.localScale.x;
-
-        if (m_MinionData.minionRarity == MinionRarity.None)  { m_MinionData.minionRarity = MinionRarity.Common; }
     }
 
     //Setting the card data to a default one when the script is reset 
@@ -78,6 +77,20 @@ public abstract class MinionBase : MonoBehaviour
         grabbable = GetComponent<Grabbable>();
     }
 
+    public void PrepareForDisplaying()
+    {
+        transform.localScale = Vector3.zero;
+        m_NavAgent.enabled = false;
+        m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
+        m_VisualMinion.VisualizeSpecialPower(false, m_MinionType,m_MinionData);
+    }
+    
+    //Change the scale of a minion based on a divider. The higher divider = the smaller minion
+    public Vector3 SetMinionScale(float divider)
+    {
+        Vector3 startingScale = this.transform.localScale;
+        return new Vector3(startingScale.x/divider, startingScale.y/divider, startingScale.z/divider);
+    }
     public void SetSnapZone(SnapZone snapZone)
     {
         m_SnapZone = snapZone;
@@ -145,7 +158,7 @@ public abstract class MinionBase : MonoBehaviour
         m_RagdollToAnimator.ToggleRagdoll(false);
         m_GroundTrigger.enabled = false;
         m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
-        m_VisualMinion.SetMinionParticle(m_MinionType, false, null);
+        m_VisualMinion.VisualizeSpecialPower(false, m_MinionType, null);
         m_Animator.SetTrigger("Get Up");
 
 
@@ -248,7 +261,7 @@ public abstract class MinionBase : MonoBehaviour
 
     private void Hide() {
         transform.DOScale(0,0.5f);
-        m_VisualMinion.SetMinionParticle(MinionType.None, false, null);
+        m_VisualMinion.VisualizeSpecialPower(false, MinionType.None, null);
     }
     
     //anim event

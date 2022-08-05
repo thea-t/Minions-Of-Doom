@@ -14,8 +14,8 @@ public class EnemyData : ScriptableObject
 }
 public enum EnemyType
 {
-    None,
-    Monster,
-    Beast,
-    Boss
+    None = 0,
+    Monster = 1,
+    Beast = 2,
+    Boss = 3
 };

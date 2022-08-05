@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BNG;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -27,6 +28,13 @@ public class DeckManager : MonoBehaviour
     //Listening for the end and the beginning of each turn in order to discard and draw cards 
     private void Start()
     {
+        Debug.Log(Player.WonMinions.Count);
+        //add won minions to the deck pile
+        foreach (var minion in Player.WonMinions)
+        {
+            deckPile.Add(minion);
+        }
+        
         ShufflePile(deckPile);
 
         GameManager.Instance.TurnManager.EnemyTurn += (delegate

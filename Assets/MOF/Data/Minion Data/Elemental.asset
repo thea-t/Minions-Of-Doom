@@ -19,4 +19,5 @@ MonoBehaviour:
   damage: 0
   block: 0
   strength: 1
+  minionRarity: 3
   exhausts: 0

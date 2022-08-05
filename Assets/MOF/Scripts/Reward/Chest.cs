@@ -5,18 +5,22 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    [SerializeField] Animator m_Animator;
-    [SerializeField] ParticleSystem m_GlowParticle;
-    [SerializeField] RewardData m_RewardData;
-    [SerializeField] AudioSource m_AudioSource;
-    [SerializeField] Vector3 m_EndPos;
-    
-    public EnemyType EnemyType { get; set; }
+    [SerializeField] private Animator m_Animator;
+    [SerializeField] private ParticleSystem m_GlowParticle;
+    [SerializeField] private RewardData m_RewardData;
+    [SerializeField] private AudioSource m_AudioSource;
+    [SerializeField] private Vector3 m_EndPos;
+    [SerializeField] private EnemyType m_EnemyType;
     private void Start()
     {
         gameObject.transform.DOJump(m_EndPos, 0.2f, 3, 2).onComplete = () => { PlayAnimation(); };
     }
 
+    public void SetEnemyType(EnemyType enemyType)
+    {
+        m_EnemyType = enemyType;
+        Debug.Log("m_EnemyType " + m_EnemyType);
+    }
     private void PlayAnimation()
     {
         m_Animator.Play("Full");
@@ -24,39 +28,32 @@ public class Chest : MonoBehaviour
 
     //spawning rewards based on the enemy type. The higher enemy type it is, the more rewards will be spawned
     // animation event
-    private void PlayParticle()
+   private void PlayParticle() 
     {
         m_AudioSource.Play();
         m_GlowParticle.Play();
-        StartCoroutine(SpawningReward((int) EnemyType));
-        
-        //TODO THEA CONTINUE FROM HERE / FIND ME
+
+        StartCoroutine(SpawnMinionReward());
     }
 
-    IEnumerator SpawningReward(int count)
-    {            Debug.Log("count");
+    IEnumerator SpawnMinionReward()
+    {
+        float spawnDuration = 5;
+        MinionBase minionReward = Instantiate(m_RewardData.MinionReward(m_EnemyType), transform.position, Quaternion.identity);
+        Debug.Log("Instantiate EnemyType " + m_EnemyType);
 
-        float spawnDuration = 0.5f;
+        Vector3 endScale = minionReward.SetMinionScale(1.5f);
+        minionReward.transform.localScale= Vector3.zero;
+        minionReward.transform.LookAt(GameManager.Instance.Player.transform);
+        
+        yield return null;
+        minionReward.PrepareForDisplaying();
 
-        for (int i = 0; i < count; i++)
+        minionReward.transform.DOMove(new Vector3(0, 0.9f, minionReward.transform.position.z), spawnDuration);
+
+        minionReward.transform.DOScale(endScale, spawnDuration).onComplete = () =>
         {
-            Debug.Log("spawned reward!!!!!!!!!!1");
-            MinionBase minionReward = Instantiate(m_RewardData.MinionReward(EnemyType), transform.position, Quaternion.identity);
-
-            Vector3 midPos = (minionReward.transform.position + GameManager.Instance.Player.transform.position) / 1.5f;
-            midPos = Quaternion.Euler(0, -25 + i * 25, 0) * midPos;
-
-            Vector3 startScale = minionReward.transform.localScale;
-            minionReward.transform.localScale = Vector3.zero;
-            minionReward.transform.DOScale(startScale, spawnDuration);
-
-            Tween t = minionReward.transform.DOMove(midPos, spawnDuration);
-            t.SetEase(Ease.InOutCirc);
-            t.onComplete = () =>
-            {
-                //loot.PlayParticle();
-            };
-            yield return new WaitForSeconds(spawnDuration);
-        }
+            Player.WonMinions.Add(minionReward);
+        };
     }
 }

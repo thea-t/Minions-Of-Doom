@@ -1687,8 +1687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VisualEnemy: {fileID: 5450844867222538207}
-  m_EnemyData: {fileID: 11400000, guid: 8e5da3ad4ced5c646b745a7cc0f4f6e1, type: 2}
   m_Animator: {fileID: 5341750240305127526}
+  EnemyData: {fileID: 11400000, guid: 8e5da3ad4ced5c646b745a7cc0f4f6e1, type: 2}
 --- !u!114 &5450844867222538207
 MonoBehaviour:
   m_ObjectHideFlags: 0

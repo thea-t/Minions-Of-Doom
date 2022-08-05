@@ -13,6 +13,7 @@ public class MinionData : ScriptableObject
     public int damage;
     public int block;
     public int strength;
+    public MinionRarity minionRarity;
     
     //Spells
     public bool exhausts;
@@ -21,6 +22,7 @@ public class MinionData : ScriptableObject
 
 public enum MinionRarity
 {
+    None,
     Common,
     Rare,
     Legendary

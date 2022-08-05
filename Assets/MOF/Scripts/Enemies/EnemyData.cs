@@ -9,4 +9,13 @@ public class EnemyData : ScriptableObject
 {
     public int[] attackDamage; // used to assign different attack damage to the enemy every turn 
     public int maxHealth;
+    public EnemyType enemyType;
+
 }
+public enum EnemyType
+{
+    None,
+    Monster,
+    Beast,
+    Boss
+};

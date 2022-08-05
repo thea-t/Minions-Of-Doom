@@ -7,8 +7,8 @@ using UnityEngine;
 public class EnemyBase :  MonoBehaviour, IDamagable
 {
     [SerializeField] private VisualEnemy m_VisualEnemy;
-    [SerializeField] private EnemyData m_EnemyData;
     [SerializeField] private Animator m_Animator;
+    public EnemyData EnemyData;
 
     protected string m_AttackAnimation;
 
@@ -27,17 +27,26 @@ public class EnemyBase :  MonoBehaviour, IDamagable
  //Setting the enemy's health and updating its UI.
  //Resetting the turn count as this int is used for setting different attack values each turn
  //Subscribing to TurnManager's event and listening for the enemy's turn in order to attack the player
- 
  void Start()
  {
      m_VisualEnemy.SetCharacterLook();
-     MaxHealth = m_EnemyData.maxHealth;
-     CurrentHealth = m_EnemyData.maxHealth;
+     MaxHealth = EnemyData.maxHealth;
+     CurrentHealth = EnemyData.maxHealth;
      
      m_VisualEnemy.UpdateHealthUI(CurrentHealth);
-     m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
-     GameManager.Instance.EnemyManager.enemies.Add(this);
+     m_VisualEnemy.UpdateAttackUI(EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+
+     //notify  the enemy manager that this enemy has just spawned
+     GameManager.Instance.EnemyManager.OnEnemySpawned(this);
+     StartCoroutine(TestDie());
  }
+
+ private IEnumerator TestDie()
+ {
+     yield return new WaitForSeconds(5);
+     Die();
+ }
+ 
 
  //Reducing enemy's health and updating its UI when the enemy takes damage
  public void TakeDamage(int amount)
@@ -51,12 +60,10 @@ public class EnemyBase :  MonoBehaviour, IDamagable
      if (CurrentHealth <= 0) {
          Die();
      }
-     
-
  }
-
-public void Die() 
-{
+ 
+ public void Die() 
+ {
     StartCoroutine(StartDying());
 }
 
@@ -67,13 +74,10 @@ private IEnumerator StartDying()
     Dead?.Invoke();
     
     yield return new WaitForSeconds(Time()/1.5f);
-    transform.DOScale(Vector3.zero, Time() / 1.5f);
-    this.gameObject.SetActive(false);
+    transform.DOScale(Vector3.zero, Time() / 2f).onComplete = () => {this.gameObject.SetActive(false);} ;
     //play particle and sound
 }
-
-
-   private float Time() 
+private float Time() 
     { 
         RuntimeAnimatorController ac = m_Animator.runtimeAnimatorController;    //Get Animator controller
         for(int i = 0; i<ac.animationClips.Length; i++)                 //For all animations
@@ -90,7 +94,7 @@ private IEnumerator StartDying()
  {
      
      Attack();
-     m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+     m_VisualEnemy.UpdateAttackUI(EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
      
      Debug.Log("turnCount: " + GameManager.Instance.TurnManager.turnCount);
  }
@@ -113,8 +117,8 @@ private IEnumerator StartDying()
      yield return new WaitForSeconds(animInfo.length);
 
      int turnCount = GameManager.Instance.TurnManager.turnCount;
-     if (turnCount < m_EnemyData.attackDamage.Length) {
-         GameManager.Instance.Player.TakeDamage(m_EnemyData.attackDamage[turnCount]);
+     if (turnCount < EnemyData.attackDamage.Length) {
+         GameManager.Instance.Player.TakeDamage(EnemyData.attackDamage[turnCount]);
      }
      else {
          GameManager.Instance.TurnManager.turnCount = 0;
@@ -122,7 +126,7 @@ private IEnumerator StartDying()
      
      
      GameManager.Instance.TurnManager.EndEnemyTurn();
-     m_VisualEnemy.UpdateAttackUI(m_EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
+     m_VisualEnemy.UpdateAttackUI(EnemyData.attackDamage[GameManager.Instance.TurnManager.turnCount]);
  }
 
 

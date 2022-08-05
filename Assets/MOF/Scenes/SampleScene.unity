@@ -7301,6 +7301,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 941566825118520100, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_Chests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941566825118520100, guid: bb1be51f383ecfc46b32c948f2710b26,
+        type: 3}
+      propertyPath: m_Chests.Array.data[0]
+      value: 
+      objectReference: {fileID: 4354835672576939043, guid: d54a37e0b5037a14587b6606a3fb9114,
+        type: 3}
     - target: {fileID: 4565345353266599232, guid: bb1be51f383ecfc46b32c948f2710b26,
         type: 3}
       propertyPath: m_Name
@@ -7519,7 +7530,7 @@ PrefabInstance:
     - target: {fileID: 4565345353266599243, guid: bb1be51f383ecfc46b32c948f2710b26,
         type: 3}
       propertyPath: debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb1be51f383ecfc46b32c948f2710b26, type: 3}

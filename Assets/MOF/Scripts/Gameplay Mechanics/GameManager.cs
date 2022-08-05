@@ -34,5 +34,4 @@ public class GameManager : MonoBehaviour
         ManaManager = GetComponent<ManaManager>();
         EnemyManager = GetComponent<EnemyManager>();
     }
-
 }

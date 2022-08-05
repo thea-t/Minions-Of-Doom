@@ -22,7 +22,7 @@ public class FighterMinionBase : MinionBase
     {
         base.Attack();
         int damage = m_MinionData.damage + GameManager.Instance.Player.Strength;
-        GameManager.Instance.EnemyManager.GetSelectedEnemy().TakeDamage(damage);
+        GameManager.Instance.EnemyManager.GetRandomEnemy().TakeDamage(damage);
     }
 }
 

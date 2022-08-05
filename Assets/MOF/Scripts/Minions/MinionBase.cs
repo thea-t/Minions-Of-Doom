@@ -63,6 +63,8 @@ public abstract class MinionBase : MonoBehaviour
         
         m_NavAgent.enabled = true;
         m_StartScale = transform.localScale.x;
+
+        if (m_MinionData.minionRarity == MinionRarity.None)  { m_MinionData.minionRarity = MinionRarity.Common; }
     }
 
     //Setting the card data to a default one when the script is reset 
@@ -203,7 +205,7 @@ public abstract class MinionBase : MonoBehaviour
 
     private IEnumerator MoveToTarget()
     {
-        Transform enemyTransform = GameManager.Instance.EnemyManager.GetSelectedEnemy().transform;
+        Transform enemyTransform = GameManager.Instance.EnemyManager.GetRandomEnemy().transform;
         m_Animator.SetBool("Run", true);
         m_NavAgent.destination = enemyTransform.position;
         LookAtTarget(enemyTransform);

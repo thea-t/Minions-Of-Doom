@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4565345353266599242}
   - component: {fileID: 4565345353266599243}
   - component: {fileID: 4565345353266599239}
-  - component: {fileID: 4565345353266599236}
   - component: {fileID: 695950539}
   - component: {fileID: 941566825118520100}
   - component: {fileID: 5131594081228622967}
@@ -61,7 +60,7 @@ MonoBehaviour:
   TurnManager: {fileID: 4565345353266599238}
   DeckManager: {fileID: 4565345353266599239}
   LevelLauncher: {fileID: 4565345353266599243}
-  AudioManager: {fileID: 4565345353266599236}
+  AudioManager: {fileID: 0}
   ManaManager: {fileID: 2155620496592717133}
   RewardManager: {fileID: 941566825118520100}
   EnemyManager: {fileID: 5131594081228622967}
@@ -131,7 +130,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   m_DrawPile: {fileID: 0}
   m_DiscardPile: {fileID: 0}
   m_SnapZones:
@@ -145,37 +143,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &4565345353266599236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4565345353266599232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c4de8bb2a9f4448a4a41d9032dc304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maleMinionOnDropped: {fileID: 8300000, guid: 0d248d312aa2b4d38a128fe721b9ac35, type: 3}
-  femaleMinionOnDropped: {fileID: 8300000, guid: 2a7c0fcebaa8743539ca86953eceafaf,
-    type: 3}
-  maleMinionOnGrabbed: {fileID: 8300000, guid: efa3e46b071ce4af99e2b2575da7b0ce, type: 3}
-  femaleMinionOnGrabbed: {fileID: 8300000, guid: e48ae410056c9404f8121c758b51f43a,
-    type: 3}
-  maleMinionOnUnsuccessfulGrab: {fileID: 8300000, guid: a86b767874f7b4efbab2a732dcfb286e,
-    type: 3}
-  femaleMinionOnUnsuccessfulGrab: {fileID: 8300000, guid: a86b767874f7b4efbab2a732dcfb286e,
-    type: 3}
-  maleMinionOnTableCollided: {fileID: 8300000, guid: afb9e52b521271e4bb95ac93df339f9e,
-    type: 3}
-  femaleMinionOnTableCollided: {fileID: 8300000, guid: afb9e52b521271e4bb95ac93df339f9e,
-    type: 3}
-  wonAgainstBasicEnemy: {fileID: 8300000, guid: 09bdee83e6137544d87f86ec635546d3,
-    type: 3}
-  wonAgainstEliteEnemy: {fileID: 8300000, guid: 3c5c1bfacf8113e439c47fc58052203b,
-    type: 3}
-  wonAgainstBossEnemy: {fileID: 8300000, guid: 133f499f049746a4285bc2712a997437, type: 3}
 --- !u!114 &695950539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9044712a133de140be7233101a57a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RewardPrefab: {fileID: -7394572545274714725, guid: f2b8da730809b0e419b37847b408d0c5,
-    type: 3}
+  m_Chests:
+  - {fileID: 4354835672576939043, guid: d54a37e0b5037a14587b6606a3fb9114, type: 3}
 --- !u!114 &5131594081228622967
 MonoBehaviour:
   m_ObjectHideFlags: 0

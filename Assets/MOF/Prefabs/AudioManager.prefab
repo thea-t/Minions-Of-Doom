@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1384486225856315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7702170619615721766}
+  - component: {fileID: 4782791086227979720}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7702170619615721766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384486225856315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4782791086227979720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384486225856315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c4de8bb2a9f4448a4a41d9032dc304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maleMinionOnDropped: {fileID: 8300000, guid: 0d248d312aa2b4d38a128fe721b9ac35, type: 3}
+  femaleMinionOnDropped: {fileID: 8300000, guid: 2a7c0fcebaa8743539ca86953eceafaf,
+    type: 3}
+  maleMinionOnGrabbed: {fileID: 8300000, guid: efa3e46b071ce4af99e2b2575da7b0ce, type: 3}
+  femaleMinionOnGrabbed: {fileID: 8300000, guid: e48ae410056c9404f8121c758b51f43a,
+    type: 3}
+  maleMinionOnUnsuccessfulGrab: {fileID: 8300000, guid: a86b767874f7b4efbab2a732dcfb286e,
+    type: 3}
+  femaleMinionOnUnsuccessfulGrab: {fileID: 8300000, guid: a86b767874f7b4efbab2a732dcfb286e,
+    type: 3}
+  maleMinionOnTableCollided: {fileID: 8300000, guid: afb9e52b521271e4bb95ac93df339f9e,
+    type: 3}
+  femaleMinionOnTableCollided: {fileID: 8300000, guid: afb9e52b521271e4bb95ac93df339f9e,
+    type: 3}
+  wonAgainstBasicEnemy: {fileID: 8300000, guid: 09bdee83e6137544d87f86ec635546d3,
+    type: 3}
+  wonAgainstEliteEnemy: {fileID: 8300000, guid: 3c5c1bfacf8113e439c47fc58052203b,
+    type: 3}
+  wonAgainstBossEnemy: {fileID: 8300000, guid: 133f499f049746a4285bc2712a997437, type: 3}

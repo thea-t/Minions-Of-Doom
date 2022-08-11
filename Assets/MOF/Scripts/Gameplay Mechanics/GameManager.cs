@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public TurnManager TurnManager;
     public DeckManager DeckManager;
     public LevelLauncher LevelLauncher;
-    public AudioManager AudioManager;
     public ManaManager ManaManager;
     public RewardManager RewardManager;
     public EnemyManager EnemyManager;
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour
         TurnManager = GetComponent<TurnManager>();
         UiManager = GetComponent<UIManager>();
         LevelLauncher = GetComponent<LevelLauncher>();
-        AudioManager = GetComponent<AudioManager>();
         ManaManager = GetComponent<ManaManager>();
         EnemyManager = GetComponent<EnemyManager>();
     }

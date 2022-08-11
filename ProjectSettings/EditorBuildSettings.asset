@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/MOF/Scenes/Map.unity
     guid: 0e70b7de489026245bebe2e33e9aa4e4
   - enabled: 1
-    path: Assets/MOF/Scenes/SampleScene.unity
+    path: Assets/MOF/Scenes/GameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/MOF/Scenes/CandleRoom.unity

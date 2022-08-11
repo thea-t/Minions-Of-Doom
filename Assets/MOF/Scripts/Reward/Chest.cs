@@ -40,7 +40,6 @@ public class Chest : MonoBehaviour
     {
         float spawnDuration = 5;
         MinionBase minionReward = Instantiate(m_RewardData.MinionReward(m_EnemyType), transform.position, Quaternion.identity);
-        Debug.Log("Instantiate EnemyType " + m_EnemyType);
 
         Vector3 endScale = minionReward.SetMinionScale(1.5f);
         minionReward.transform.localScale= Vector3.zero;
@@ -54,6 +53,12 @@ public class Chest : MonoBehaviour
         minionReward.transform.DOScale(endScale, spawnDuration).onComplete = () =>
         {
             Player.WonMinions.Add(minionReward);
+            
+            Debug.Log(Player.WonMinions.Count);
         };
+
+        yield return new WaitForSeconds(3);
+        
+        SceneLoader.FadeToScene("Map");
     }
 }

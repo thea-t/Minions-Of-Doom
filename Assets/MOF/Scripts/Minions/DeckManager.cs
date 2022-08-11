@@ -29,12 +29,17 @@ public class DeckManager : MonoBehaviour
     private void Start()
     {
         Debug.Log(Player.WonMinions.Count);
-        //add won minions to the deck pile
-        foreach (var minion in Player.WonMinions)
-        {
-            deckPile.Add(minion);
-        }
         
+        //add won minions to the deck pile
+        if (Player.WonMinions.Count > 0)
+        { 
+            foreach (var minion in Player.WonMinions)
+            {
+                deckPile.Add(minion);
+            }
+        }
+
+                
         ShufflePile(deckPile);
 
         GameManager.Instance.TurnManager.EnemyTurn += (delegate

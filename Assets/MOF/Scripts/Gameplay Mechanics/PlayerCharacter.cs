@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour, IDamagable
@@ -7,6 +8,7 @@ public class PlayerCharacter : MonoBehaviour, IDamagable
 [SerializeField] private int m_StartingHealth;
 //[SerializeField] private GameObject m_CharacterPrefab;
 [SerializeField][Range(0,10)] private int m_CardsToDrawOnStart;
+[SerializeField] private GameObject m_DeadPanel;
 public GameObject centerEye;
     
     public int MaxHealth { get; set; }
@@ -30,7 +32,7 @@ public GameObject centerEye;
     //Reducing player's health and updating its UI when the enemy takes damage
     public void TakeDamage(int amount)
     {
-        if (CurrentHealth >0) {
+        if (CurrentHealth > 0) {
             CurrentHealth -= amount + Block;
             GameManager.Instance.UiManager.UpdatePlayerHealth(CurrentHealth);
         }
@@ -41,7 +43,14 @@ public GameObject centerEye;
 
 
     public void Die()
-    { 
-        Debug.Log("DEAD");
+    {
+        StartCoroutine(Dying());
+    }
+
+    IEnumerator Dying()
+    {
+        //play heartbeat sounds
+        yield return new WaitForSeconds(3);
+        m_DeadPanel.transform.DOScale(Vector3.one, 5);
     }
 }

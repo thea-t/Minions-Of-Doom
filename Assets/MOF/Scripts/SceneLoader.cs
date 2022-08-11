@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     private static Image blackImage;
-    private const float FADE_DURATION = 5.5f;
+    private const float FADE_DURATION = 2f;
 
     private void Awake()
     {

@@ -118,18 +118,18 @@ public abstract class MinionBase : MonoBehaviour
             EnableUiPopUp();
 
             if (m_MinionData.isMale)
-                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnGrabbed;
+                m_AudioSource.clip = AudioManager.Instance.maleMinionOnGrabbed;
             else
-                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnGrabbed;
+                m_AudioSource.clip = AudioManager.Instance.femaleMinionOnGrabbed;
 
             m_AudioSource.Play();
         }
         else
         {
             if (m_MinionData.isMale)
-                m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnUnsuccessfulGrab;
+                m_AudioSource.clip = AudioManager.Instance.maleMinionOnUnsuccessfulGrab;
             else
-                m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnUnsuccessfulGrab;
+                m_AudioSource.clip = AudioManager.Instance.femaleMinionOnUnsuccessfulGrab;
 
             m_AudioSource.Play();
 
@@ -169,9 +169,9 @@ public abstract class MinionBase : MonoBehaviour
         }
 
         if (m_MinionData.isMale)
-            m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnTableCollided;
+            m_AudioSource.clip = AudioManager.Instance.maleMinionOnTableCollided;
         else
-            m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnTableCollided;
+            m_AudioSource.clip = AudioManager.Instance.femaleMinionOnTableCollided;
 
         m_AudioSource.Play();
         if (timerOnReleased != null) {
@@ -195,11 +195,11 @@ public abstract class MinionBase : MonoBehaviour
     {
         if (m_MinionData.isMale)
         {
-            m_AudioSource.clip = GameManager.Instance.AudioManager.maleMinionOnDropped;
+            m_AudioSource.clip = AudioManager.Instance.maleMinionOnDropped;
         }
         else
         {
-            m_AudioSource.clip = GameManager.Instance.AudioManager.femaleMinionOnDropped;
+            m_AudioSource.clip = AudioManager.Instance.femaleMinionOnDropped;
         }
 
         if (canBeGrabbed) m_AudioSource.Play();

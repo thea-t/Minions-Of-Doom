@@ -63,7 +63,6 @@ public class Map : MonoBehaviour
             Player.SelectedDoor = levels[currentLevel].RandomDoors[i]; 
             
             door.gameObject.name = levels[currentLevel].RandomDoors[i].name;
-            Debug.Log("door: " + door.gameObject.name);
         }
     }
 

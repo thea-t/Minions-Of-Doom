@@ -20,8 +20,7 @@ public class Door : MonoBehaviour
     }
     private void OnDoorOpened()
     {
-        Debug.Log("door opened");
-       SceneLoader.FadeToScene("SampleScene");
+       SceneLoader.FadeToScene("GameScene");
     }
     
 }

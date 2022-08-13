@@ -6,5 +6,6 @@ public static class Player
 {
     public static DoorData SelectedDoor { get; set; }
     public static List<MinionBase> WonMinions = new List<MinionBase>();
+    public static int CurrentLevel{ get; set; }
 
 }

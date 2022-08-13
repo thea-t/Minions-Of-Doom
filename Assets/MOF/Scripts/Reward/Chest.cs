@@ -53,8 +53,7 @@ public class Chest : MonoBehaviour
         minionReward.transform.DOScale(endScale, spawnDuration).onComplete = () =>
         {
             Player.WonMinions.Add(minionReward);
-            
-            Debug.Log(Player.WonMinions.Count);
+            Player.CurrentLevel++;
         };
 
         yield return new WaitForSeconds(3);

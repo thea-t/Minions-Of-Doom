@@ -10,8 +10,7 @@ public class RewardManager : MonoBehaviour
     public void SpawnRewardPrefab(Vector3 pos, EnemyType enemyType)
     {
         Chest randomChest = m_Chests[Random.Range(0, m_Chests.Length)];
-
-        Debug.Log("enemyType SPAWN"+ enemyType);
+        
         randomChest.SetEnemyType(enemyType);
         
         Instantiate(randomChest, pos, Quaternion.Euler(new Vector3(270,180,0)));

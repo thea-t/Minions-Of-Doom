@@ -11,17 +11,13 @@ public class Map : MonoBehaviour
     [SerializeField] private PlayerVR m_Player;
     [SerializeField] private LevelData[] levels;
     private List<Door> m_SpawnedDoors = new List<Door>();
-    
-    private int currentLevel = 0;
-    
 
-    
     //Spawning random doors based on the current level when the game starts
     //Setting their position and distance from each other
     private void Start()
     {
         int duration = 8; 
-        SpawnDoors(levels[currentLevel].doorCount);
+        SpawnDoors(levels[Player.CurrentLevel].doorCount);
         m_Player.EnterScene(new Vector3(m_Player.transform.position.x, 0.7f, -3f), duration);
         StartCoroutine(AllowPlayerToInteractWithDoors(duration));
     }
@@ -38,10 +34,10 @@ public class Map : MonoBehaviour
         
         for (int i = 0; i < _doorCount; i++)
         {
-            levels[currentLevel].PickRandomDoors();
+            levels[Player.CurrentLevel].PickRandomDoors();
         }
 
-        for (int i = 0; i < levels[currentLevel].RandomDoors.Count; i++)
+        for (int i = 0; i < levels[Player.CurrentLevel].RandomDoors.Count; i++)
         {
             Vector3 pos = Vector3.zero;
 
@@ -56,13 +52,13 @@ public class Map : MonoBehaviour
                 pos.x = (i * -DOOR_DISTANCE) - DOOR_DISTANCE;
             }
 
-            var door = Instantiate(levels[currentLevel].RandomDoors[i].doorPrefab, pos, Quaternion.identity);
+            var door = Instantiate(levels[Player.CurrentLevel].RandomDoors[i].doorPrefab, pos, Quaternion.identity);
             m_SpawnedDoors.Add(door);
             
             //saving the selected door in a static class in order to be able to launch a level based on the selected door
-            Player.SelectedDoor = levels[currentLevel].RandomDoors[i]; 
+            Player.SelectedDoor = levels[Player.CurrentLevel].RandomDoors[i]; 
             
-            door.gameObject.name = levels[currentLevel].RandomDoors[i].name;
+            door.gameObject.name = levels[Player.CurrentLevel].RandomDoors[i].name;
         }
     }
 

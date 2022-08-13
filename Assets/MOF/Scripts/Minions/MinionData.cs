@@ -13,11 +13,10 @@ public class MinionData : ScriptableObject
     public int damage;
     public int block;
     public int strength;
+    public int manaToGainOnTurnBegin;
+    public int playerHealthToGain;
     public MinionRarity minionRarity;
-    
-    //Spells
-    public bool exhausts;
-    
+
 }
 
 public enum MinionRarity

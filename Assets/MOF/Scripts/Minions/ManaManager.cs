@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ManaManager : MonoBehaviour
 {
-    [SerializeField] private int ManaToGainOnTurnBegin;
+    public int ManaToGainOnTurnBegin { get; set; }
     private int CurrentMana;
     private void Start()
     {

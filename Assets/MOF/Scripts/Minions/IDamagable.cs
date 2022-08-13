@@ -6,7 +6,6 @@ using UnityEngine;
 public interface IDamagable
 {
     int MaxHealth { get; set; }
-    int CurrentHealth { get; set; }
     int Block { get; set; }
     
 

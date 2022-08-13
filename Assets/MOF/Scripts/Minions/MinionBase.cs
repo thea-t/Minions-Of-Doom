@@ -163,12 +163,9 @@ public abstract class MinionBase : MonoBehaviour
 
 
         GameManager.Instance.DeckManager.handPile.Remove(this);
-        if (!m_MinionData.exhausts)
-        {
             GameManager.Instance.DeckManager.discardPile.Add(this);
-        }
 
-        if (m_MinionData.isMale)
+            if (m_MinionData.isMale)
             m_AudioSource.clip = AudioManager.Instance.maleMinionOnTableCollided;
         else
             m_AudioSource.clip = AudioManager.Instance.femaleMinionOnTableCollided;
@@ -246,7 +243,8 @@ public abstract class MinionBase : MonoBehaviour
     {               
         m_Animator.SetTrigger(m_MinionPowerAnimation);
         yield return new WaitForSeconds(2);
-        
+        GameManager.Instance.ManaManager.ManaToGainOnTurnBegin += m_MinionData.manaToGainOnTurnBegin;
+        Player.CurrentHealth += m_MinionData.playerHealthToGain;
         Hide();
     }
 

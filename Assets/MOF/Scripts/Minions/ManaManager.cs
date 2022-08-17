@@ -7,8 +7,8 @@ public class ManaManager : MonoBehaviour
 {
     public int ManaToGainOnTurnBegin { get; set; }
     private int CurrentMana;
-    private void Start()
-    {
+    private void Start() {
+        ManaToGainOnTurnBegin = Player.StartingMana;
         CurrentMana = ManaToGainOnTurnBegin;
         GameManager.Instance.UiManager.UpdateManaUI(CurrentMana);
     }

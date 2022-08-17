@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu]
-public class CandleRoomChoiceData : ScriptableObject
+public class ChoiceData : ScriptableObject
 {
     public string questionLineOne;
     public string questionLineTwo;

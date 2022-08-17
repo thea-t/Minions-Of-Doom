@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class ChoiceManager : MonoBehaviour
 {
-    [SerializeField] private CandleRoomChoiceData[] m_ChoiceData;
+    [SerializeField] private ChoiceData[] m_ChoiceData;
     [SerializeField] private ChoiceUi m_ChoiceUi;
 
     [SerializeField] private bool m_Debug;
@@ -16,7 +16,7 @@ public class ChoiceManager : MonoBehaviour
     private Choice m_ChoiceTwo;
     private void Start()
     {
-        CandleRoomChoiceData currentChoiceData = m_ChoiceData[Random.Range(0, m_ChoiceData.Length)];
+        ChoiceData currentChoiceData = m_ChoiceData[Random.Range(0, m_ChoiceData.Length)];
         List<Choice> choices = currentChoiceData.choices;
 
         Choice choiceOne = choices[Random.Range(0, choices.Count)];
@@ -45,14 +45,12 @@ public class ChoiceManager : MonoBehaviour
     //button events
     public void OnChoiceOneSelected() {
         m_ChoiceOne.OnExecute();
-        Debug.Log("executed");
     }
     public void OnChoiceOTwoSelected() {
         m_ChoiceTwo.OnExecute();
-        Debug.Log("executed");
     }
 
-    private void SetUi(CandleRoomChoiceData data, Choice choiceOne, Choice choiceTwo)
+    private void SetUi(ChoiceData data, Choice choiceOne, Choice choiceTwo)
     {
         m_ChoiceUi.lineOneTMP.text = data.questionLineOne;
         m_ChoiceUi.lineTwoTMP.text = data.questionLineTwo;
@@ -62,8 +60,6 @@ public class ChoiceManager : MonoBehaviour
 
     private void ChoiceSelected()
     {
-        Debug.Log("trying to fade");
-        
         float duration = 1;
         m_ChoiceUi.lineOneTMP.DOFade(0, duration);
         m_ChoiceUi.lineTwoTMP.DOFade(0, duration);

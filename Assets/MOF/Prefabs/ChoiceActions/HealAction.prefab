@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579709461114084009}
-  - component: {fileID: 7725723032791713792}
+  - component: {fileID: 38709452799016959}
   m_Layer: 0
   m_Name: HealAction
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7725723032791713792
+--- !u!114 &38709452799016959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6434661311674963932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3637d7f391a4f6c4b8fac5e0b0687503, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f98fcf1b45c91747aa4661ba3f4d973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonDesc: +50
+  buttonDesc: +10 Health
+  HealAmount: 10

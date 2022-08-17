@@ -19,6 +19,6 @@ public class ElementPicker : MonoBehaviour
 
     public void OnConfirm()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Intro");
     }
 }

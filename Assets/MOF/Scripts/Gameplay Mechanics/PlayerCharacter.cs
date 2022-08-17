@@ -20,14 +20,14 @@ public GameObject centerEye;
         
         CardsToDrawOnStart = m_CardsToDrawOnStart;
         Player.MaxHealth = MaxHealth;
-        Strength = 0;
-        Block = 0;
+        Strength = Player.StartingStrength;
+        Block = Player.StartingShield;
         GameManager.Instance.UiManager.UpdatePlayerHealth(Player.CurrentHealth);
         GameManager.Instance.UiManager.UpdateBlockUI(Block);
         GameManager.Instance.UiManager.UpdateStrengthUI(Strength);
         
         m_DeadPanel.transform.DOScale(Vector3.zero, 0);
-        StartCoroutine(TestDie());
+        //StartCoroutine(TestDie());
     }
     
     private IEnumerator TestDie()
@@ -64,7 +64,7 @@ public GameObject centerEye;
     //Called OnClick() from their button components in the scene
     public void OnMenuButtonPressed()
     {
-        StartCoroutine(SceneLoader.FadeToScene("Intro"));
+        StartCoroutine(SceneLoader.FadeToScene("Menu"));
         Debug.Log("OnMenuButtonPressed");
     }
     
@@ -72,7 +72,7 @@ public GameObject centerEye;
     {
         Player.CurrentLevel = 0;
         Player.WonMinions.Clear();
-        StartCoroutine(SceneLoader.FadeToScene("Map"));
+        StartCoroutine(SceneLoader.FadeToScene("Intro"));
         Debug.Log("OnResetButtonButtonPressed");
     }
 }

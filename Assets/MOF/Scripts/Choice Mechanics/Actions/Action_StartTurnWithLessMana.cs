@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.XR.OpenVR;
 using UnityEngine;
 
-public class HealAction : Choice
-{
+public class Action_StartTurnWithLessMana :  Choice {
+    [SerializeField] private int LessManaAmount;
     public override void OnExecute()
     {
         base.OnExecute();
-        
-        
+        Player.StartingMana -= LessManaAmount;
     }
 }

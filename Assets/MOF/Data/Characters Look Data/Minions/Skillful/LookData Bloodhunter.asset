@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
+  m_Name: LookData Bloodhunter
+  m_EditorClassIdentifier: 
+  minionMaterial: {fileID: 2100000, guid: a837e7523882fe64cbd59be3b689c7d3, type: 2}
+  head:
+  - {fileID: 115576, guid: 3eb64759d9313a549a11686301844305, type: 3}
+  back: {fileID: 155230, guid: 9d8a66bcbfe254e4fa771f046a144353, type: 3}
+  rightHand: {fileID: 164160, guid: 083df92946baf164ca8b1983585207eb, type: 3}
+  leftHand: {fileID: 165418, guid: cc50e829dc5bf8b47b37a8a6f439afb2, type: 3}

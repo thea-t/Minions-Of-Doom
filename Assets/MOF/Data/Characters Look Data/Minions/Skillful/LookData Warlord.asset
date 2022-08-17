@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
+  m_Name: LookData Warlord
+  m_EditorClassIdentifier: 
+  minionMaterial: {fileID: 2100000, guid: c7e75bb39b7f02c45bc8468a0fe76c50, type: 2}
+  head:
+  - {fileID: 184444, guid: 9a93ca6c580633b43b4e3e0c30ce9be4, type: 3}
+  back: {fileID: 185238, guid: f170960070a2e15468a03ec8ea77394c, type: 3}
+  rightHand: {fileID: 119866, guid: 50b08198f58b4e64a836869ac00ccb8f, type: 3}
+  leftHand: {fileID: 180600, guid: 9e9f607034a1e2348bec24ad92a5f6ff, type: 3}

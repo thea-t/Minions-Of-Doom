@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
+  m_Name: LookData Steelforce
+  m_EditorClassIdentifier: 
+  minionMaterial: {fileID: 2100000, guid: ecc94352337a5d64caf69ee848415822, type: 2}
+  head:
+  - {fileID: 128578, guid: 0eafdf313d2fa1946a17bd73f3bdfbe4, type: 3}
+  back: {fileID: 137660, guid: 402757bb16ce5d641a70cfe209991225, type: 3}
+  rightHand: {fileID: 128906, guid: b5a1341f105978842afa6deb1a3abaeb, type: 3}
+  leftHand: {fileID: 186086, guid: efaa2159c52b8c64e878377914de2ead, type: 3}

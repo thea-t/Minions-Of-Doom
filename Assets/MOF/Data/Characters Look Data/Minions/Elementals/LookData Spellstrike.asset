@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
+  m_Name: LookData Spellstrike
+  m_EditorClassIdentifier: 
+  minionMaterial: {fileID: 2100000, guid: 5be7bfc7145c8ef458447fc604968c36, type: 2}
+  head:
+  - {fileID: 144270, guid: 607b115a319aa7d45a20573bedaa99ef, type: 3}
+  back: {fileID: 112478, guid: 6bc805e438d002540856efa56b8596a4, type: 3}
+  rightHand: {fileID: 180282, guid: 91a81a1290f60a844af742ead159974e, type: 3}
+  leftHand: {fileID: 0}

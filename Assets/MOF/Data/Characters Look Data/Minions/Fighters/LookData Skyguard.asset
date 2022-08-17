@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
+  m_Name: LookData Skyguard
+  m_EditorClassIdentifier: 
+  minionMaterial: {fileID: 2100000, guid: b6655696bb61ee548bf8f8f2b5e61ecd, type: 2}
+  head:
+  - {fileID: 150912, guid: 742933483c77a69469575300ede9b5a9, type: 3}
+  back: {fileID: 0}
+  rightHand: {fileID: 112290, guid: 52d6e35a88c687840a952be51f211d71, type: 3}
+  leftHand: {fileID: 139996, guid: cf33120eca77313439aa2cacdd7189ce, type: 3}

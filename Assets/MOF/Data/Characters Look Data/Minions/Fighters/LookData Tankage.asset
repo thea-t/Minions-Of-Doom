@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
+  m_Name: LookData Tankage
+  m_EditorClassIdentifier: 
+  minionMaterial: {fileID: 2100000, guid: 023fb4a27bea88d4db61922fb5d4895b, type: 2}
+  head:
+  - {fileID: 104868, guid: 93db8344a6e72e74793f6f599fe02532, type: 3}
+  back: {fileID: 131160, guid: 94185752a61aace44831c2ba0f9cf0f0, type: 3}
+  rightHand: {fileID: 116964, guid: 6bd966ed4c9ea164ab4e53f4b239636a, type: 3}
+  leftHand: {fileID: 126620, guid: 108e9f4b364486040b9fc9ba334e1abb, type: 3}

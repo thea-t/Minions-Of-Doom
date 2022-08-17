@@ -71,6 +71,10 @@ public GameObject centerEye;
     public void OnResetButtonButtonPressed()
     {
         Player.CurrentLevel = 0;
+        Player.StartingMana = 5;
+        Player.StartingShield = 0;
+        Player.StartingStrength = 0;
+        Player.CurrentHealth = Player.MaxHealth;
         Player.WonMinions.Clear();
         StartCoroutine(SceneLoader.FadeToScene("Intro"));
         Debug.Log("OnResetButtonButtonPressed");

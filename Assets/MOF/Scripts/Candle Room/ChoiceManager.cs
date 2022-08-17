@@ -7,20 +7,25 @@ using Random = UnityEngine.Random;
 
 public class ChoiceManager : MonoBehaviour
 {
-    [SerializeField] private PlayerVR m_Player;
     [SerializeField] private CandleRoomChoiceData[] m_ChoiceData;
     [SerializeField] private ChoiceUi m_ChoiceUi;
 
+    [SerializeField] private bool m_Debug;
+
+    private Choice m_ChoiceOne;
+    private Choice m_ChoiceTwo;
     private void Start()
     {
-        m_Player.EnterScene(new Vector3(0, -0.5f, 0), 8);
         CandleRoomChoiceData currentChoiceData = m_ChoiceData[Random.Range(0, m_ChoiceData.Length)];
         List<Choice> choices = currentChoiceData.choices;
 
         Choice choiceOne = choices[Random.Range(0, choices.Count)];
+        m_ChoiceOne = choiceOne;
         choices.Remove(choiceOne);
+        
         Choice choiceTwo = choices[Random.Range(0, choices.Count)];
-
+        m_ChoiceTwo = choiceTwo;
+        
         if (currentChoiceData && choiceOne && choiceTwo)
         {
             SetUi(currentChoiceData, choiceOne, choiceTwo);
@@ -32,7 +37,19 @@ public class ChoiceManager : MonoBehaviour
         choiceOne.choiceSelected += ChoiceSelected;
         choiceTwo.choiceSelected += ChoiceSelected;
 
-        StartCoroutine(mockup(choiceOne));
+        if (m_Debug) {
+            StartCoroutine(mockup(choiceOne));
+        }
+    }
+
+    //button events
+    public void OnChoiceOneSelected() {
+        m_ChoiceOne.OnExecute();
+        Debug.Log("executed");
+    }
+    public void OnChoiceOTwoSelected() {
+        m_ChoiceTwo.OnExecute();
+        Debug.Log("executed");
     }
 
     private void SetUi(CandleRoomChoiceData data, Choice choiceOne, Choice choiceTwo)
@@ -45,13 +62,15 @@ public class ChoiceManager : MonoBehaviour
 
     private void ChoiceSelected()
     {
+        Debug.Log("trying to fade");
+        
         float duration = 1;
         m_ChoiceUi.lineOneTMP.DOFade(0, duration);
         m_ChoiceUi.lineTwoTMP.DOFade(0, duration);
         m_ChoiceUi.buttonOptionOne.transform.DOScale(Vector3.zero, duration);
         m_ChoiceUi.buttonOptionTwo.transform.DOScale(Vector3.zero, duration);
         m_ChoiceUi.question.transform.DOScale(Vector3.zero, duration).onComplete = () =>
-            m_ChoiceUi.choiceSelected.transform.DOScale(Vector3.one, 5).onComplete = () => SceneLoader.FadeToScene("Map");
+            m_ChoiceUi.choiceSelected.transform.DOScale(Vector3.one, 5).onComplete = () => StartCoroutine(SceneLoader.FadeToScene("Map"));
     }
 
     IEnumerator mockup(Choice choice)

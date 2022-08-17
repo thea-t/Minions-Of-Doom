@@ -38,7 +38,7 @@ public class EnemyBase :  MonoBehaviour, IDamagable
 
      //notify  the enemy manager that this enemy has just spawned
      GameManager.Instance.EnemyManager.OnEnemySpawned(this);
-     StartCoroutine(TestDie());
+    // StartCoroutine(TestDie());
  }
 
  private IEnumerator TestDie()

@@ -58,6 +58,5 @@ public class Chest : MonoBehaviour
 
         yield return new WaitForSeconds(3);
         
-        SceneLoader.FadeToScene("Map");
     }
 }

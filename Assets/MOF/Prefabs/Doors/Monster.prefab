@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24073a11637d224d8534ef9b83ec94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorHelper: {fileID: 0}
+  doorHelper: {fileID: 3633476015851468285}
 --- !u!1 &8725642990573664585
 GameObject:
   m_ObjectHideFlags: 0

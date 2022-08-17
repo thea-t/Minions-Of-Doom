@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
     }
     private void OnDoorOpened()
     {
-       SceneLoader.FadeToScene("GameScene");
+       StartCoroutine(SceneLoader.FadeToScene("GameScene"));
     }
     
 }

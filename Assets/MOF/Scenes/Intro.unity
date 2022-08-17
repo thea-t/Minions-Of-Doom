@@ -3186,9 +3186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChoiceData:
-  - {fileID: 11400000, guid: 6e245893b193cfd459255fe12560a40f, type: 2}
-  - {fileID: 11400000, guid: 6e245893b193cfd459255fe12560a40f, type: 2}
-  - {fileID: 11400000, guid: 6e245893b193cfd459255fe12560a40f, type: 2}
+  - {fileID: 11400000, guid: 0cdbbd0a378366049be381715662f2df, type: 2}
+  - {fileID: 11400000, guid: 0cdbbd0a378366049be381715662f2df, type: 2}
   m_ChoiceUi: {fileID: 1417062362}
   m_Debug: 0
 --- !u!4 &937538227

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7627e1b64802b2c4a8c04656678a7cc4, type: 3}
-  m_Name: Rare 1 - Vampire
+  m_Name: Rare 3 - Duelist
   m_EditorClassIdentifier: 
-  name: Vampire
-  description: Deal 4 damage, heal 2 health.
-  cost: 2
+  name: Duelist
+  description: Deal 3 damage for free.
+  cost: 0
   isMale: 0
-  damage: 4
+  damage: 3
   block: 0
   strength: 0
   manaToGainOnTurnBegin: 0
-  playerHealthToGain: 2
+  playerHealthToGain: 0
   minionRarity: 2

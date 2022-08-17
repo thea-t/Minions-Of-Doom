@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    private static Image blackImage;
     private const float FADE_DURATION = 2f;
 
     private void Awake()
@@ -16,15 +15,10 @@ public class SceneLoader : MonoBehaviour
         Application.targetFrameRate = 60;
 
         DontDestroyOnLoad(this);
-        blackImage = GetComponentInChildren<Image>();
     }
 
-    public static void FadeToScene(string sceneName)
-    {
-        blackImage.DOFade(1f, FADE_DURATION).onComplete = () =>
-        {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-            blackImage.DOFade(0f, FADE_DURATION);
-        };
+    public static IEnumerator FadeToScene(string sceneName) {
+        yield return new WaitForSeconds(FADE_DURATION);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

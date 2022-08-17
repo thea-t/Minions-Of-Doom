@@ -9,7 +9,8 @@ public class Choice: MonoBehaviour
    public Action choiceSelected;
    public virtual void OnExecute()
    {
-      
+      Debug.Log("choiceSelected");
+
       choiceSelected?.Invoke();
    }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99bd5c37c5de5540a7fc50ad32cb3f9, type: 3}
+  m_Name: Legendary Reward
+  m_EditorClassIdentifier: 
+  m_CommonMinions: []
+  m_RareMinions: []
+  m_LegendaryMinions:
+  - {fileID: 4599587961454948778, guid: 869eab81f515c74408a9dddd976a06a4, type: 3}
+  - {fileID: 7239976242817717164, guid: 59b32e05f285dd34da0cb98e00b0d530, type: 3}
+  - {fileID: 7987938276872710798, guid: e9a67ad53dd368c4db5884fa6d292d8a, type: 3}

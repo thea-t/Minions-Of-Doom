@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99bd5c37c5de5540a7fc50ad32cb3f9, type: 3}
+  m_Name: Common Reward
+  m_EditorClassIdentifier: 
+  m_CommonMinions:
+  - {fileID: 7987938276872710798, guid: de2dba4326b5b6b4281e4dc59ef746e2, type: 3}
+  - {fileID: 7987938276872710798, guid: 763f0fa42ddcb594a83d15f1fff31109, type: 3}
+  - {fileID: 7987938276872710798, guid: 723a5b3344c396d4e80f8ac00545d0c8, type: 3}
+  - {fileID: 7239976242817717164, guid: ea0b3dbf9d8eef94cafaa892d5d4384d, type: 3}
+  - {fileID: 7239976242817717164, guid: a082de4345b11b34e930b66182b106fe, type: 3}
+  - {fileID: 7239976242817717164, guid: e71359587ab04c24182dcf804226d553, type: 3}
+  - {fileID: 4599587961454948778, guid: 7fcf9e8ad661460468442537118d389a, type: 3}
+  - {fileID: 4599587961454948778, guid: 33eb2636d1b141d47b7aab2bdd508527, type: 3}
+  - {fileID: 4599587961454948778, guid: 168f4316e76fadf4982741c91b0c0a85, type: 3}
+  m_RareMinions: []
+  m_LegendaryMinions: []

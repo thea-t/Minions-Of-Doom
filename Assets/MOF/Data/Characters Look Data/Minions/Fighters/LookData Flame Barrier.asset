@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
   m_Name: LookData Flame Barrier
   m_EditorClassIdentifier: 
-  minionMaterial: {fileID: 2100000, guid: 47f64b84ff7046d4b8e9087818bf2d0b, type: 2}
+  minionMaterial: {fileID: 2100000, guid: a2b4c4621e6ff8e478bb295fce7e6fae, type: 2}
   head:
   - {fileID: 148262, guid: d83b408c9f098db45bf69ea346f726e1, type: 3}
   back: {fileID: 143166, guid: a839c589fea5b2c46a9687dd366532e4, type: 3}

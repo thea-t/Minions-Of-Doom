@@ -60,7 +60,6 @@ MonoBehaviour:
   TurnManager: {fileID: 4565345353266599238}
   DeckManager: {fileID: 4565345353266599239}
   LevelLauncher: {fileID: 4565345353266599243}
-  AudioManager: {fileID: 0}
   ManaManager: {fileID: 2155620496592717133}
   RewardManager: {fileID: 941566825118520100}
   EnemyManager: {fileID: 5131594081228622967}
@@ -105,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugDoor: {fileID: 11400000, guid: 88c3150d496b3394a8b8b0d74fee6b3e, type: 2}
-  debug: 1
+  debug: 0
 --- !u!114 &4565345353266599239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697096306ce7fcf4c906d8a6681f03ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ManaToGainOnTurnBegin: 5
 --- !u!114 &941566825118520100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Chests:
+  - {fileID: 4354835672576939043, guid: 4e35835b481201145bf0bf5aa3c1bfbd, type: 3}
   - {fileID: 4354835672576939043, guid: d54a37e0b5037a14587b6606a3fb9114, type: 3}
+  - {fileID: 4354835672576939043, guid: e28e6b563126d254cb7d2b355573b786, type: 3}
 --- !u!114 &5131594081228622967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,4 +195,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697096306ce7fcf4c906d8a6681f03ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ManaToGainOnTurnBegin: 5

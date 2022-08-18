@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
-  m_Name: Enemy
+  m_Name: Monster 1
   m_EditorClassIdentifier: 
-  minionMaterial: {fileID: 2100000, guid: e7285d42929230b43a8107f82b05e971, type: 2}
+  minionMaterial: {fileID: 2100000, guid: a98d8e30ce38bfe4c865b9df86246c87, type: 2}
   head:
-  - {fileID: 191446, guid: 1d2dcf95c0803bc499542c85c9f3ac91, type: 3}
-  back: {fileID: 0}
-  rightHand: {fileID: 100000, guid: 6f67e258a6f6ed842a9572aa0353bc5c, type: 3}
-  leftHand: {fileID: 100000, guid: 6f67e258a6f6ed842a9572aa0353bc5c, type: 3}
+  - {fileID: 148604, guid: 2be6655853175dc4ab4c5e0e00e71250, type: 3}
+  - {fileID: 109262, guid: 3df830dbf741d5941ba45d7bdbd34f8f, type: 3}
+  back: {fileID: 154730, guid: bddcd99fc713aa748b4cf3c0ccb8207f, type: 3}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}

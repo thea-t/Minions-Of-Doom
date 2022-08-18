@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6077c2209fccec942b5b22ccf8863b23, type: 3}
-  m_Name: Monster
+  m_Name: Monster 3
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 4252561794054120912, guid: f98ee1758db1af049868bf6f422441df,
     type: 3}
-  objectToSpawn: {fileID: 824190232071528092, guid: bf21a3301ee911e47b1b1f8a05e22605,
+  objectToSpawn: {fileID: 9060200521828884929, guid: a799dc1093539754b8990e1a575881f8,
     type: 3}

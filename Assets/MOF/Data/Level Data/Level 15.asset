@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Level 15
   m_EditorClassIdentifier: 
   doorData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 234c6c2bc5dabd54db16d4f3278467fd, type: 2}
+  - {fileID: 11400000, guid: c4175cc4c94639e45b7b8dd7d7e9dd53, type: 2}
+  - {fileID: 11400000, guid: 9715538b7cc4a6a4eb8d483b60c158ce, type: 2}
+  - {fileID: 11400000, guid: a332cb002a599cd4191fe614f6afdec8, type: 2}
+  - {fileID: 11400000, guid: 2a7bdcfa2ba0fa546b14cb26a7089e29, type: 2}

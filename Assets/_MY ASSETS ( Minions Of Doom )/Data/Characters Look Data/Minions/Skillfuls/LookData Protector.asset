@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29045975dcd60b34fa1370c02d650193, type: 3}
   m_Name: LookData Protector
   m_EditorClassIdentifier: 
-  minionMaterial: {fileID: 2100000, guid: a62d2e027e6cab74caae6b93c9e766ea, type: 2}
+  minionMaterial: {fileID: 2100000, guid: 2e8e154728ccfd4408e457117ffe06b4, type: 2}
   head:
-  - {fileID: 0}
+  - {fileID: 169922, guid: 8179dad101eee4b40a031d91a19b982d, type: 3}
   back: {fileID: 0}
-  rightHand: {fileID: 157280, guid: a70191c3360175c4f9cff2a8f4f2a531, type: 3}
-  leftHand: {fileID: 171516, guid: af6f33ba354076541b866be5ba891982, type: 3}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}

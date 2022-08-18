@@ -12,8 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99bd5c37c5de5540a7fc50ad32cb3f9, type: 3}
   m_Name: Legendary Reward
   m_EditorClassIdentifier: 
-  m_CommonMinions: []
-  m_RareMinions: []
+  m_CommonMinions:
+  - {fileID: 7987938276872710798, guid: de2dba4326b5b6b4281e4dc59ef746e2, type: 3}
+  - {fileID: 7987938276872710798, guid: 763f0fa42ddcb594a83d15f1fff31109, type: 3}
+  - {fileID: 7987938276872710798, guid: 723a5b3344c396d4e80f8ac00545d0c8, type: 3}
+  - {fileID: 7239976242817717164, guid: ea0b3dbf9d8eef94cafaa892d5d4384d, type: 3}
+  - {fileID: 7239976242817717164, guid: a082de4345b11b34e930b66182b106fe, type: 3}
+  - {fileID: 7239976242817717164, guid: e71359587ab04c24182dcf804226d553, type: 3}
+  - {fileID: 4599587961454948778, guid: 7fcf9e8ad661460468442537118d389a, type: 3}
+  - {fileID: 4599587961454948778, guid: 33eb2636d1b141d47b7aab2bdd508527, type: 3}
+  - {fileID: 4599587961454948778, guid: 168f4316e76fadf4982741c91b0c0a85, type: 3}
+  m_RareMinions:
+  - {fileID: 7987938276872710798, guid: 32699711626bfb342ad6dfab4fcc9bdb, type: 3}
+  - {fileID: 7987938276872710798, guid: dbb66377f7bcd9c4b99db9e741c73b64, type: 3}
+  - {fileID: 7987938276872710798, guid: 3ff0b5d9af8531543a4a82f5e8901658, type: 3}
+  - {fileID: 7239976242817717164, guid: ff2cd39696971a644a2b66bbe0c04fff, type: 3}
+  - {fileID: 7239976242817717164, guid: eabd24dc29583ce4391c2f8887e6aac6, type: 3}
+  - {fileID: 7239976242817717164, guid: 3101915387d645346a24b087cd0d817a, type: 3}
+  - {fileID: 4599587961454948778, guid: 46324cd4d58de5244bd581a661239c3e, type: 3}
+  - {fileID: 4599587961454948778, guid: 149dfb38b218da14d90cd7062e8df12f, type: 3}
+  - {fileID: 4599587961454948778, guid: cd88e8be404f29b44817da2e6b3725b7, type: 3}
   m_LegendaryMinions:
   - {fileID: 4599587961454948778, guid: 869eab81f515c74408a9dddd976a06a4, type: 3}
   - {fileID: 7239976242817717164, guid: 59b32e05f285dd34da0cb98e00b0d530, type: 3}

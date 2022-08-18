@@ -16,5 +16,5 @@ MonoBehaviour:
   head:
   - {fileID: 103714, guid: b5a04241ed704c148b77633b2400cc01, type: 3}
   back: {fileID: 0}
-  rightHand: {fileID: 1716862279933348, guid: 101cf8c1f53477a43b129835b05fe3be, type: 3}
-  leftHand: {fileID: 1716862279933348, guid: 101cf8c1f53477a43b129835b05fe3be, type: 3}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}

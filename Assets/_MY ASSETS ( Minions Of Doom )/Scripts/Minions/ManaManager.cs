@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class ManaManager : MonoBehaviour
 {
-    public int ManaToGainOnTurnBegin { get; set; }
     private int CurrentMana { get; set; }
 
     private void Start()
     {
-        ManaToGainOnTurnBegin = Player.StartingMana;
-        CurrentMana = ManaToGainOnTurnBegin;
+         
+        CurrentMana = Player.StartingMana;
         GameManager.Instance.UiManager.UpdateManaUI(CurrentMana);
     }
 
@@ -44,7 +43,7 @@ public class ManaManager : MonoBehaviour
     /// </summary>
     public void RechargeManaOnTurnBegin()
     {
-        CurrentMana = ManaToGainOnTurnBegin;
+        CurrentMana = Player.StartingMana;;
         GameManager.Instance.UiManager.UpdateManaUI(CurrentMana);
     }
 

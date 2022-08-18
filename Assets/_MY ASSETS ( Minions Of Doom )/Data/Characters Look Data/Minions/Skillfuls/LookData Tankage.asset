@@ -15,6 +15,6 @@ MonoBehaviour:
   minionMaterial: {fileID: 2100000, guid: 023fb4a27bea88d4db61922fb5d4895b, type: 2}
   head:
   - {fileID: 104868, guid: 93db8344a6e72e74793f6f599fe02532, type: 3}
-  back: {fileID: 131160, guid: 94185752a61aace44831c2ba0f9cf0f0, type: 3}
-  rightHand: {fileID: 116964, guid: 6bd966ed4c9ea164ab4e53f4b239636a, type: 3}
-  leftHand: {fileID: 126620, guid: 108e9f4b364486040b9fc9ba334e1abb, type: 3}
+  back: {fileID: 0}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}

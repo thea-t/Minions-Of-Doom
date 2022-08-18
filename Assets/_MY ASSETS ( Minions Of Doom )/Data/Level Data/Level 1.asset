@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorData:
   - {fileID: 11400000, guid: 54df6a30cf3dbd54eb5857595d09e764, type: 2}
-  - {fileID: 11400000, guid: 234c6c2bc5dabd54db16d4f3278467fd, type: 2}
+  - {fileID: 11400000, guid: 80afcc50edc310740a3cc79c94248391, type: 2}
   - {fileID: 11400000, guid: c4175cc4c94639e45b7b8dd7d7e9dd53, type: 2}
   - {fileID: 11400000, guid: 9715538b7cc4a6a4eb8d483b60c158ce, type: 2}

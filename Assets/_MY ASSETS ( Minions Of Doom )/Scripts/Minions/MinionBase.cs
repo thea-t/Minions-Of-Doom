@@ -291,11 +291,12 @@ public abstract class MinionBase : MonoBehaviour
     {
         m_Animator.SetTrigger(m_MinionPowerAnimation);
         yield return new WaitForSeconds(2);
-        GameManager.Instance.ManaManager.ManaToGainOnTurnBegin += m_MinionData.manaToGainOnTurnBegin;
+        Player.StartingMana += m_MinionData.manaToGainOnTurnBegin;
+        
         Player.CurrentHealth += m_MinionData.playerHealthToGain;
         
         GameManager.Instance.UiManager.UpdatePlayerHealth( Player.CurrentHealth, Player.MaxHealth);
-        GameManager.Instance.UiManager.UpdateManaUI(GameManager.Instance.ManaManager.ManaToGainOnTurnBegin);
+        GameManager.Instance.UiManager.UpdateManaUI(Player.StartingMana);
         Hide();
     }
 

@@ -26,7 +26,7 @@ public class PlayerCharacter : MonoBehaviour, IDamagable
         GameManager.Instance.UiManager.UpdatePlayerHealth(Player.CurrentHealth, Player.MaxHealth);
         GameManager.Instance.UiManager.UpdateBlockUI(Block + Player.StartingShield);
         GameManager.Instance.UiManager.UpdateStrengthUI(Strength + Player.StartingStrength);
-        GameManager.Instance.UiManager.UpdateManaUI(Strength + Player.StartingMana);
+        GameManager.Instance.UiManager.UpdateManaUI(Player.StartingMana);
 
         m_DeadPanel.transform.DOScale(Vector3.zero, 0);
     }

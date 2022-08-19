@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using BNG;
 using DG.Tweening;
 using JetBrains.Annotations;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Timeline;

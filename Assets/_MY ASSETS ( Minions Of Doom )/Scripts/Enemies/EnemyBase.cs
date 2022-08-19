@@ -107,10 +107,7 @@ public class EnemyBase : MonoBehaviour, IDamagable
     /// </summary>
     public void OnEnemyTurn()
     {
-        m_AttackAnimation = "Melee Right Attack 01";
-
         StartCoroutine(DealingDamageToPlayer());
-        m_VisualEnemy.UpdateAttackUI(EnemyData.attackDamage[GameManager.Instance.TurnManager.TurnCount]);
 
         Debug.Log("turnCount: " + GameManager.Instance.TurnManager.TurnCount);
     }
@@ -121,13 +118,13 @@ public class EnemyBase : MonoBehaviour, IDamagable
     /// 
     /// How to get animation duration: https://answers.unity.com/questions/692593/get-animation-clip-length-using-animator.html
     /// </summary>
-    IEnumerator DealingDamageToPlayer()
+    private IEnumerator DealingDamageToPlayer() 
     {
-        AnimatorStateInfo animInfo;
-        m_Animator.SetTrigger(m_AttackAnimation);
-        animInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+        yield return null;
+        
+        m_Animator.SetTrigger("Hit");
 
-        yield return new WaitForSeconds(animInfo.length);
+        yield return new WaitForSeconds(2);
 
         int turnCount = GameManager.Instance.TurnManager.TurnCount;
         if (turnCount < EnemyData.attackDamage.Length)

@@ -74,7 +74,7 @@ public class Chest : MonoBehaviour
             Player.CurrentLevel++;
         };
 
-        yield return new WaitForSeconds(3);
-
+        yield return new WaitForSeconds(1);
+        StartCoroutine(SceneLoader.FadeToScene("Map"));
     }
 }

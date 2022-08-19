@@ -59,7 +59,6 @@ public abstract class MinionBase : MonoBehaviour
     private void Start()
     {
         m_VisualMinion.SetCharacterLook();
-        m_VisualMinion.VisualizeSpecialPower(true, m_MinionType, m_MinionData);
         m_VisualMinion.SetMinionCostUI(m_MinionData.cost);
         m_VisualMinion.SetMinionTitle(m_MinionData.name);
         m_VisualMinion.SetMinionDescription(m_MinionData.description);
@@ -127,6 +126,9 @@ public abstract class MinionBase : MonoBehaviour
 
         transform.position = m_SnapZone.transform.position;
         transform.rotation = Quaternion.Euler(0, m_SnapZone.transform.eulerAngles.y, 0);
+        m_VisualMinion.VisualizeSpecialPower(true, m_MinionType, m_MinionData);
+
+
     }
 
     /// <summary>
@@ -189,7 +191,6 @@ public abstract class MinionBase : MonoBehaviour
     /// </summary>
     public void OnTableCollided()
     {
-        Debug.Log("collided");
         m_RagdollToAnimator.ToggleRagdoll(false);
         m_GroundTrigger.enabled = false;
         m_VisualMinion.minionUiPopup.gameObject.SetActive(false);
@@ -290,12 +291,18 @@ public abstract class MinionBase : MonoBehaviour
     {
         m_Animator.SetTrigger(m_MinionPowerAnimation);
         yield return new WaitForSeconds(2);
-        Player.StartingMana += m_MinionData.manaToGainOnTurnBegin;
         
         Player.CurrentHealth += m_MinionData.playerHealthToGain;
-        
         GameManager.Instance.UiManager.UpdatePlayerHealth( Player.CurrentHealth, Player.MaxHealth);
-        GameManager.Instance.UiManager.UpdateManaUI(Player.StartingMana);
+        
+        Player.StartingMana += m_MinionData.manaToGainOnTurnBegin;
+
+        GameManager.Instance.ManaManager.CurrentMana += m_MinionData.manaToGainOnTurnBegin;
+        
+        int manaToDisplay = GameManager.Instance.ManaManager.CurrentMana;
+        if (manaToDisplay < 0) { manaToDisplay = 0; }
+        
+        GameManager.Instance.UiManager.UpdateManaUI(manaToDisplay);
         Hide();
     }
 

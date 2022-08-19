@@ -67,6 +67,7 @@ public class DeckManager : MonoBehaviour
     private void OnPlayerTurnBegin()
     {
         StartCoroutine(DrawingMinions(GameManager.Instance.Player.CardsToDrawOnStart));
+        UpdateStatsAfterMinionsAreDrawn();
     }
 
     /// <summary>
@@ -95,8 +96,6 @@ public class DeckManager : MonoBehaviour
                 //play epic sound
             }
         }
-
-        UpdateStatsAfterMinionsAreDrawn();
     }
 
     /// <summary>

@@ -34,14 +34,17 @@ public class PlayerCharacter : MonoBehaviour, IDamagable
     /// <summary>
     /// This is called when the player takes damage. It reduces player's health and updating its UI
     /// </summary>
-    public void TakeDamage(int amount)
-    {
-        if (Player.CurrentHealth > 0)
-        {
-            Player.CurrentHealth -= amount + Block;
-            GameManager.Instance.UiManager.UpdatePlayerHealth(Player.CurrentHealth, Player.MaxHealth);
+    public void TakeDamage(int amount) {
+        Block -= amount;
+        if (Block < 0) {
+            Player.CurrentHealth += Block;
+            Block = 0;
         }
-        else
+        
+        GameManager.Instance.UiManager.UpdatePlayerHealth(Player.CurrentHealth, Player.MaxHealth);
+        GameManager.Instance.UiManager.UpdateBlockUI(Block);
+        
+        if (amount > Player.CurrentHealth)
         {
             Die();
         }

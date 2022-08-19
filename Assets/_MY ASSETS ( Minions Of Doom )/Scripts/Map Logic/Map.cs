@@ -22,7 +22,7 @@ public class Map : MonoBehaviour
     {
         int duration = 8; 
         SpawnDoors(levels[Player.CurrentLevel].doorCount);
-        m_Player.EnterScene(new Vector3(m_Player.transform.position.x, 0.7f, -3f), duration);
+        m_Player.EnterScene(new Vector3(m_Player.transform.position.x, 1.3f, -3f), duration);
         StartCoroutine(AllowPlayerToInteractWithDoors(duration));
     }
 

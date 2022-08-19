@@ -16,3 +16,4 @@ MonoBehaviour:
     type: 3}
   objectToSpawn: {fileID: 4353629166948449144, guid: 389e7b74059b44841a063055696328a5,
     type: 3}
+  isCandleRoom: 1

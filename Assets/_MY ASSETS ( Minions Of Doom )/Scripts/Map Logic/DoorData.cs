@@ -10,4 +10,5 @@ public class DoorData : ScriptableObject
 {
     public Door doorPrefab;
     public GameObject objectToSpawn;
+    public bool isCandleRoom;
 }

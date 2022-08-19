@@ -20,7 +20,12 @@ public class Door : MonoBehaviour
     
     private void OnDoorOpened()
     {
-       StartCoroutine(SceneLoader.FadeToScene("GameScene"));
+        if (Player.SelectedDoor.isCandleRoom) {
+            StartCoroutine(SceneLoader.FadeToScene("CandleRoom"));
+        }
+        else {
+            StartCoroutine(SceneLoader.FadeToScene("GameScene"));
+        }
     }
     
 }
